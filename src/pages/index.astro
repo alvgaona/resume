@@ -16,6 +16,7 @@ import udesa from '@assets/udesa-logo.jpeg';
 import udacity from '@assets/udacity-logo.jpeg';
 import aws from '@assets/aws-logo.jpeg';
 import dlai from '@assets/dlai-logo.jpeg';
+import pin from '@assets/map-pin.svg';
 ---
 
 <Layout title="Alvaro > Resume">
@@ -27,9 +28,12 @@ import dlai from '@assets/dlai-logo.jpeg';
         <p class="font-m-plus-2 text-6xl font-thin">
           <span>Alvaro</span> J. Gaona
         </p>
-        <p class="italic">Buenos Aires, Argentina</p>
       </div>
       <div class="my-1 flex flex-col gap-1 text-xs">
+        <div class="flex items-center gap-1">
+          <img src={pin.src} width="12" alt="Pin icon" />
+          <p>Buenos Aires, Argentina</p>
+        </div>
         <div class="flex items-center gap-1">
           <img src={mobile.src} width="12" alt="Mobile icon" />
           <span>(+54) 911 6797&dash;1081</span>
@@ -186,60 +190,70 @@ import dlai from '@assets/dlai-logo.jpeg';
                   Universidad de 'San Andrés'
                 </p>
                 <p class="mr-auto">1yr</p>
-                <div class="mt-2 flex flex-col text-sm">
-                  <p class="text-lg font-semibold">Teaching Assistant</p>
-                  <p class="font-light">Buenos Aires, Argentina</p>
-                  <div class="flex gap-1 sm:gap-2">
-                    <p class="font-light">Mar. 2022 - Jul. 2022</p> &bullet; <p>
-                      5 mos
-                    </p>
-                  </div>
-                  <ul
-                    class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
-                  >
-                    <li class="text-justify">
-                      My responsibilities include educating undergraduate
-                      students in AI engineering on the principles of
-                      ”Computational Thinking,” with a focus on practical
-                      application using Python.
-                    </li>
-                    <li class="text-justify">
-                      Additionally, I offer comprehensive support to
-                      first&dash;year students throughout their studies, helping
-                      them navigate the faculty and achieve their academic
-                      goals.
-                    </li>
-                  </ul>
-                </div>
-                <div class="mt-2 flex flex-col text-sm">
-                  <p class="text-lg font-semibold">Research Engineer</p>
-                  <p class="font-light">Buenos Aires, Argentina</p>
-                  <div class="flex gap-1 sm:gap-2">
-                    <p class="font-light">Aug. 2021 - Jul. 2022</p> &bullet; <p>
-                      1 y
-                    </p>
-                  </div>
-                  <ul
-                    class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
-                  >
-                    <li class="text-justify">
-                      Conducted research on perception algorithms for
-                      self&dash;driving cars, investigating various techniques and
-                      algorithms to improve their effectiveness and reliability.
-                    </li>
-                    <li class="text-justify">
-                      Led a team in developing UAV landing algorithms that
-                      utilized computer vision technology to enable landing on
-                      moving platforms.
-                    </li>
-                    <li>
-                      Led a successful project utilizing computer vision and
-                      deep learning techniques to identify various skin
-                      diseases, resulting in the creation of a functional and
-                      accurate skin disease identification tool.
-                    </li>
-                  </ul>
-                </div>
+                <ul>
+                  <li class="relative mt-2 flex flex-col text-sm">
+                    <span
+                      class="absolute left-[calc(-2.2rem-6.5px/2)] top-3 block h-2 w-2 rounded-lg bg-gray-400"
+                    ></span>
+                    <div class="before:absolute before:left-[calc(-2.2rem-1px/2)] before:top-[calc(calc(1.2rem+.8rem)+.1rem)] before:h-[calc(100%-(1.8rem))] before:w-[2px] before:bg-gray-300 before:content-['']">
+                      <p class="text-lg font-semibold">Teaching Assistant</p>
+                      <p class="font-light">Buenos Aires, Argentina</p>
+                      <div class="flex gap-1 sm:gap-2">
+                        <p class="font-light">Mar. 2022 - Jul. 2022</p> &bullet; <p>
+                          5 mos
+                        </p>
+                      </div>
+                      <ul
+                        class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
+                      >
+                        <li class="text-justify">
+                          My responsibilities include educating undergraduate
+                          students in AI engineering on the principles of
+                          ”Computational Thinking,” with a focus on practical
+                          application using Python.
+                        </li>
+                        <li class="text-justify">
+                          Additionally, I offer comprehensive support to
+                          first&dash;year students throughout their studies, helping
+                          them navigate the faculty and achieve their academic
+                          goals.
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="relative mt-2 flex flex-col text-sm">
+                    <span
+                      class="absolute left-[calc(-2.2rem-6.5px/2)] top-3 block h-2 w-2 rounded-lg bg-gray-400"
+                    ></span>
+                    <p class="text-lg font-semibold">Research Engineer</p>
+                    <p class="font-light">Buenos Aires, Argentina</p>
+                    <div class="flex gap-1 sm:gap-2">
+                      <p class="font-light">Aug. 2021 - Jul. 2022</p> &bullet; <p>
+                        1 y
+                      </p>
+                    </div>
+                    <ul
+                      class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
+                    >
+                      <li class="text-justify">
+                        Conducted research on perception algorithms for
+                        self&dash;driving cars, investigating various techniques and
+                        algorithms to improve their effectiveness and reliability.
+                      </li>
+                      <li class="text-justify">
+                        Led a team in developing UAV landing algorithms that
+                        utilized computer vision technology to enable landing on
+                        moving platforms.
+                      </li>
+                      <li>
+                        Led a successful project utilizing computer vision and
+                        deep learning techniques to identify various skin
+                        diseases, resulting in the creation of a functional and
+                        accurate skin disease identification tool.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
           </li>
@@ -436,50 +450,50 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Autonomous Systems</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Mobile Robotics</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Kinematics</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Vehicle Dynamics</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Sensor Fusion</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >SLAM</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Navigation</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               ROS/ROS2
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               NVIDIA Isaac Sim
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               Unity
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >PX4</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               Mavlink
             </span>
@@ -489,15 +503,15 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Artificial Intelligence</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Supervised Learning</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Unsupervised Learning</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Reinforcement Learning</span
             >
           </div>
@@ -506,33 +520,33 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Mathematics</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Linear Algebra
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Calculus</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Linear Systems</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Non-linear Systems</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               Classic Control
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               Modern Control
             </span>
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
             >
               Optimal Control
             </span>
@@ -542,31 +556,31 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Programming Languages</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >C/C++</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >C#</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Python</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Java</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >TypeScript</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Go</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >MATLAB/Simulink</span
             >
           </div>
@@ -575,35 +589,35 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="pr-14 font-semibold">Libraries &amp; Frameworks</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >OpenCV</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >PCL</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Eigen</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >PyTorch</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Tensorflow</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Gstreamer</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >React</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >NextJS</span
             >
           </div>
@@ -612,39 +626,39 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Software Engineering</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >AWS Services</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Google Cloud Platform</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Azure</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Kubernetes</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Agile</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >OOP</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Design Patterns</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Estimation</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Planning</span
             >
           </div>
@@ -653,27 +667,27 @@ import dlai from '@assets/dlai-logo.jpeg';
           <span class="font-semibold">Other skills</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Teamwork</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Ownership</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Communication</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Leadership</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Self-motivated</span
             >
             <span
-              class="flex items-center justify-center rounded-lg bg-slate-700 px-2"
+              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
               >Public Speaking</span
             >
           </div>
