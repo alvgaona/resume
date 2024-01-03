@@ -4,22 +4,33 @@ import '@fontsource-variable/m-plus-2';
 // Supports weights 100-900
 import '@fontsource-variable/inter';
 
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+const metadata = {
+  title: 'Alvaro > Resume',
+  description: 'Online Resume',
+  author: '@alvgaona',
+  url: 'https://resume.alvgaona.com',
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={metadata.description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content={metadata.title} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:url" content={metadata.url} />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content={metadata.title} />
+    <meta property="twitter:description" content={metadata.description} />
+    <meta property="twitter:creator" content={metadata.author} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{metadata.title}</title>
   </head>
   <body>
     <slot />
