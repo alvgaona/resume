@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 
+import { data } from '@data/resume-data';
 import github from '@assets/github.svg';
 import linkedin from '@assets/linkedin.svg';
 import scholar from '@assets/scholar.svg';
@@ -26,10 +27,18 @@ import pin from '@assets/map-pin.svg';
     <div class="flex flex-col gap-2 pl-6 print:pl-0">
       <div class="flex flex-col gap-1">
         <p class="font-m-plus-2 text-6xl font-thin">
-          Alvaro J. Gaona
+          {data.name}
         </p>
       </div>
       <div class="my-1 flex flex-col gap-1 text-xs">
+        {
+          data.contact.social.map((item) => (
+            <div class="flex items-center gap-1">
+              <img src={item.icon.src} width="12" alt="Pin icon" />
+              <p>{item.value}</p>
+            </div>
+          ))
+        }
         <div class="flex items-center gap-1">
           <img src={pin.src} width="12" alt="Pin icon" />
           <p>Buenos Aires, Argentina</p>
@@ -79,53 +88,25 @@ import pin from '@assets/map-pin.svg';
         <div class="w-full border-b border-slate-900 px-0"></div>
       </div>
       <ul class="flex flex-col gap-4">
-        <li class="flex flex-col gap-2">
-          <div class="flex flex-col">
-            <p class="text-lg font-semibold">University of Buenos Aires</p>
-            <div class="flex flex-col text-sm">
-              <p>Graduate in Electrical Engineering</p>
-              <p class="font-light">Buenos Aires, Argentina</p>
-              <p class="font-light">Mar. 2013 - Sep. 2019</p>
-            </div>
-            <ul
-              class="col-span-2 mt-2 flex list-inside list-disc flex-col gap-2 text-sm"
-            >
-              <li>
-                <span class="italic"
-                  >”Deep Recurrent Learning for Heart Sounds Segmentation based
-                  on Instantaneous Frequency Features”</span
-                >, Graduate Thesis, 2019. University of Buenos Aires. Grade
-                100/100.
-              </li>
-              <li>GPA: 3.5/4.0</li>
-            </ul>
-          </div>
-        </li>
-        <li class="flex flex-col gap-2">
-          <div class="flex flex-col">
-            <p class="text-lg font-semibold">University of Buenos Aires</p>
-            <div class="flex flex-col text-sm">
-              <p>Industrial Engineering (Incomplete)</p>
-              <p class="font-light">Buenos Aires, Argentina</p>
-              <p class="font-light">Mar. 2010 - Sep. 2013</p>
-            </div>
-          </div>
-        </li>
-        <li class="flex flex-col gap-2">
-          <div class="flex flex-col">
-            <p class="text-lg font-semibold">
-              Instituto Social Militar "Dr. Dámaso Centeno"
-            </p>
-            <div class="flex flex-col text-sm">
-              <p>
-                Secondary Education with option in Mathematics and Natural
-                Sciences
-              </p>
-              <p class="font-light">Buenos Aires, Argentina</p>
-              <p class="font-light">Mar. 2003 - Dec. 2009</p>
-            </div>
-          </div>
-        </li>
+        {
+          data.education.map((item) => (
+            <li class="flex flex-col gap-2">
+              <div class="flex flex-col">
+                <p class="text-lg font-semibold">{item.title}</p>
+                <div class="flex flex-col text-sm">
+                  <p>{item.description}</p>
+                  <p class="font-light">{item.location}</p>
+                  <p class="font-light">{item.span}</p>
+                </div>
+                <ul class="col-span-2 mt-2 flex list-inside list-disc flex-col gap-2 text-sm">
+                  {item.bullets?.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </section>
     <section
@@ -141,7 +122,7 @@ import pin from '@assets/map-pin.svg';
         >
           <div class="flex gap-2 pt-3">
             <div>
-              <img class="max-w-none sm:h-12 h-10" src={asapp.src} />
+              <img class="h-10 max-w-none sm:h-12" src={asapp.src} />
             </div>
             <div class="flex flex-col">
               <p class="text-lg font-semibold">
@@ -153,7 +134,7 @@ import pin from '@assets/map-pin.svg';
                 <p class="font-light">Aug. 2022 - Present</p>
               </div>
               <ul
-                class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
+                class="col-span-3 mt-2 flex list-inside list-disc flex-col text-sm sm:pr-14"
               >
                 <li class="text-justify">
                   As the lead engineer, I oversee the development and upkeep of
@@ -183,7 +164,7 @@ import pin from '@assets/map-pin.svg';
           >
             <div class="flex gap-2">
               <div>
-                <img class="max-w-none sm:h-12 h-10" src={udesa.src} />
+                <img class="h-10 max-w-none sm:h-12" src={udesa.src} />
               </div>
               <div class="flex flex-col">
                 <p class="mr-auto text-lg font-semibold">
@@ -195,16 +176,19 @@ import pin from '@assets/map-pin.svg';
                     <span
                       class="absolute left-[calc(-2.2rem-6.5px/2)] top-3 block h-2 w-2 rounded-lg bg-gray-400"
                     ></span>
-                    <div class="before:absolute before:left-[calc(-2.2rem-1px/2)] before:top-[calc(calc(1.2rem+.8rem)+.1rem)] before:h-[calc(100%-(1.8rem))] before:w-[2px] before:bg-gray-300 before:content-['']">
+                    <div
+                      class="before:absolute before:left-[calc(-2.2rem-1px/2)] before:top-[calc(calc(1.2rem+.8rem)+.1rem)] before:h-[calc(100%-(1.8rem))] before:w-[2px] before:bg-gray-300 before:content-['']"
+                    >
                       <p class="text-lg font-semibold">Teaching Assistant</p>
                       <p class="font-light">Buenos Aires, Argentina</p>
                       <div class="flex gap-1 sm:gap-2">
-                        <p class="font-light">Mar. 2022 - Jul. 2022</p> &bullet; <p>
-                          5 mos
-                        </p>
+                        <p class="font-light">Mar. 2022 - Jul. 2022</p> &bullet;
+
+
+                        <p>5 mos</p>
                       </div>
                       <ul
-                        class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
+                        class="col-span-3 mt-2 flex list-inside list-disc flex-col text-sm sm:pr-14"
                       >
                         <li class="text-justify">
                           My responsibilities include educating undergraduate
@@ -214,9 +198,9 @@ import pin from '@assets/map-pin.svg';
                         </li>
                         <li class="text-justify">
                           Additionally, I offer comprehensive support to
-                          first&dash;year students throughout their studies, helping
-                          them navigate the faculty and achieve their academic
-                          goals.
+                          first&dash;year students throughout their studies,
+                          helping them navigate the faculty and achieve their
+                          academic goals.
                         </li>
                       </ul>
                     </div>
@@ -228,17 +212,19 @@ import pin from '@assets/map-pin.svg';
                     <p class="text-lg font-semibold">Research Engineer</p>
                     <p class="font-light">Buenos Aires, Argentina</p>
                     <div class="flex gap-1 sm:gap-2">
-                      <p class="font-light">Aug. 2021 - Jul. 2022</p> &bullet; <p>
+                      <p class="font-light">Aug. 2021 - Jul. 2022</p> &bullet; <p
+                      >
                         1 y
                       </p>
                     </div>
                     <ul
-                      class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-sm"
+                      class="col-span-3 mt-2 flex list-inside list-disc flex-col text-sm sm:pr-14"
                     >
                       <li class="text-justify">
                         Conducted research on perception algorithms for
-                        self&dash;driving cars, investigating various techniques and
-                        algorithms to improve their effectiveness and reliability.
+                        self&dash;driving cars, investigating various techniques
+                        and algorithms to improve their effectiveness and
+                        reliability.
                       </li>
                       <li class="text-justify">
                         Led a team in developing UAV landing algorithms that
@@ -262,7 +248,7 @@ import pin from '@assets/map-pin.svg';
           >
             <div class="flex gap-2">
               <div>
-                <img class="max-w-none sm:h-12 h-10" src={roche.src} />
+                <img class="h-10 max-w-none sm:h-12" src={roche.src} />
               </div>
               <div class="flex flex-col">
                 <p class="text-lg font-semibold">Senior Software Engineer</p>
@@ -271,12 +257,12 @@ import pin from '@assets/map-pin.svg';
                   <p class="font-light">Buenos Aires, Argentina</p>
                   <div class="flex gap-1 sm:gap-2">
                     <p class="font-light">Feb. 2022 - Jul. 2022</p>
-                    &bullet;
+                     &bullet;
                     <p>1 yr</p>
                   </div>
                 </div>
                 <ul
-                  class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-justify text-sm"
+                  class="col-span-3 mt-2 flex list-inside list-disc flex-col text-justify text-sm sm:pr-14"
                 >
                   <li>
                     Successfully migrated a core 500 GB database from Oracle to
@@ -331,7 +317,7 @@ import pin from '@assets/map-pin.svg';
           >
             <div class="flex gap-2">
               <div>
-                <img class="max-w-none sm:h-12 h-10" src={telecom.src}/>
+                <img class="h-10 max-w-none sm:h-12" src={telecom.src} />
               </div>
               <div class="mr-auto flex flex-col text-sm">
                 <p class="text-lg font-semibold">Software Engineer</p>
@@ -339,11 +325,11 @@ import pin from '@assets/map-pin.svg';
                 <p class="font-light">Buenos Aires, Argentina</p>
                 <div class="flex gap-1 sm:gap-2">
                   <p class="font-light">Dec. 2015 - Feb. 2019</p>
-                  &bullet;
+                   &bullet;
                   <p>3 yrs 3 mos</p>
                 </div>
                 <ul
-                  class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-justify text-sm"
+                  class="col-span-3 mt-2 flex list-inside list-disc flex-col text-justify text-sm sm:pr-14"
                 >
                   <li>
                     Played a key role in developing an SDN controller
@@ -380,7 +366,7 @@ import pin from '@assets/map-pin.svg';
           <li class="flex flex-col gap-2 pt-3">
             <div class="flex gap-2">
               <div>
-                <img class="max-w-none sm:h-12 h-10" src={smn.src} />
+                <img class="h-10 max-w-none sm:h-12" src={smn.src} />
               </div>
               <div class="flex flex-col">
                 <p class="text-lg font-semibold">Electronics Technician</p>
@@ -389,12 +375,12 @@ import pin from '@assets/map-pin.svg';
                   <p class="font-light">Buenos Aires, Argentina</p>
                   <div class="flex gap-1 sm:gap-2">
                     <p class="font-light">Feb. 2015 - Dec. 2015</p>
-                    &bullet;
+                     &bullet;
                     <p>11 mos</p>
                   </div>
                 </div>
                 <ul
-                  class="col-span-3 mt-2 flex list-inside list-disc flex-col sm:pr-14 text-justify text-sm"
+                  class="col-span-3 mt-2 flex list-inside list-disc flex-col text-justify text-sm sm:pr-14"
                 >
                   <li>
                     Designed circuit boards used in a range of meteorological
@@ -430,7 +416,7 @@ import pin from '@assets/map-pin.svg';
             <span>PyTorch</span>
             <div class="font-thin">
               <span>Jul. 2020 &dash; Present</span>
-              &bullet;
+               &bullet;
               <span>3 yrs 6 mos</span>
             </div>
             <span class="font-thin">Science and Technology</span>
@@ -970,9 +956,9 @@ import pin from '@assets/map-pin.svg';
               <span>[J1]</span>
               <p>
                 <span class="font-bold">A. J. Gaona, P. D. Arini.</span>
-                ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous
-                Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52&dash;57
-                (2020).
+                 ”Deep Recurrent Learning for Heart Sounds Segmentation based on
+                Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No.
+                2, pp 52&dash;57 (2020).
               </p>
             </li>
           </ul>
@@ -986,8 +972,9 @@ import pin from '@assets/map-pin.svg';
                 <span class="font-bold"
                   >A. J. Gaona, C. D. P, J. I. Giribet, R. Bunge.</span
                 >
-                ”Prototyping of a multirotor UAV for precision landing under rotor
-                failures”. Jornadas Argentinas de Robótica (JAR) XI (2022).
+                 ”Prototyping of a multirotor UAV for precision landing under
+                rotor failures”. Jornadas Argentinas de Robótica (JAR) XI
+                (2022).
               </p>
             </li>
             <li class="flex items-center justify-center gap-6 sm:pr-14">
@@ -997,8 +984,9 @@ import pin from '@assets/map-pin.svg';
                   >J. I. Giribet, C. D. Pose, A. J. Gaona, R. Bunge, J. I.
                   González Etchemaite.</span
                 >
-                ”Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles
-                in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology Conference (2022).
+                 ”Fault Tolerant Solutions for Multirotor Unmanned Aerial
+                Vehicles in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology
+                Conference (2022).
               </p>
             </li>
           </ul>
@@ -1020,7 +1008,7 @@ import pin from '@assets/map-pin.svg';
           <li class="mb-4 flex flex-col">
             <span class="font-semibold">Machine Learning Specialization</span>
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={dlai.src} />
+              <img class="h-4 max-w-none sm:h-5" src={dlai.src} />
               <span>DeepLearning.AI</span>
             </div>
             <span>Issued Dec 2022</span>
@@ -1035,7 +1023,7 @@ import pin from '@assets/map-pin.svg';
               >Deep Reinforcement Learning Nanodegree</span
             >
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={udacity.src} /><span
+              <img class="h-4 max-w-none sm:h-5" src={udacity.src} /><span
                 >Udacity</span
               >
             </div>
@@ -1051,7 +1039,7 @@ import pin from '@assets/map-pin.svg';
               >Robotics Software Engineer Nanodegree</span
             >
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={udacity.src} /><span
+              <img class="h-4 max-w-none sm:h-5" src={udacity.src} /><span
                 >Udacity</span
               >
             </div>
@@ -1065,7 +1053,7 @@ import pin from '@assets/map-pin.svg';
           <li class="mb-4 flex flex-col">
             <span class="font-semibold">Deep Learning Nanodegree</span>
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={udacity.src} /><span
+              <img class="h-4 max-w-none sm:h-5" src={udacity.src} /><span
                 >Udacity</span
               >
             </div>
@@ -1079,7 +1067,7 @@ import pin from '@assets/map-pin.svg';
           <li class="mb-4 flex flex-col">
             <span class="font-semibold">Sensor Fusion Nanodegree</span>
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={udacity.src} /><span
+              <img class="h-4 max-w-none sm:h-5" src={udacity.src} /><span
                 >Udacity</span
               >
             </div>
@@ -1093,7 +1081,7 @@ import pin from '@assets/map-pin.svg';
           <li class="flex flex-col">
             <span class="font-semibold">C++ Nanodegree</span>
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={udacity.src} /><span
+              <img class="h-4 max-w-none sm:h-5" src={udacity.src} /><span
                 >Udacity</span
               >
             </div>
@@ -1107,7 +1095,7 @@ import pin from '@assets/map-pin.svg';
           <li class="flex flex-col">
             <span class="font-semibold">AWS Solutions Architect Associate</span>
             <div class="flex gap-1">
-              <img class="max-w-none h-4 sm:h-5" src={aws.src} />
+              <img class="h-4 max-w-none sm:h-5" src={aws.src} />
               <span>Amazon Web Services (AWS)</span>
             </div>
             <span>Issued Jul 2020 &bullet; Expired Jul 2023</span>
