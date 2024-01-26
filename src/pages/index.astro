@@ -1,5 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard';
 
 import { data } from '@data/resume-data';
 import github from '@assets/github.svg';
@@ -18,6 +19,15 @@ import udacity from '@assets/udacity-logo.jpeg';
 import aws from '@assets/aws-logo.jpeg';
 import dlai from '@assets/dlai-logo.jpeg';
 import pin from '@assets/map-pin.svg';
+import { Badge } from '@components/ui/badge';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@components/ui/dialog';
 ---
 
 <Layout>
@@ -35,7 +45,7 @@ import pin from '@assets/map-pin.svg';
           data.contact.social.map((item) => (
             <div class="flex items-center gap-1">
               <img src={item.icon.src} width="12" alt="Pin icon" />
-              <p>{item.value}</p>
+              <p />
             </div>
           ))
         }
@@ -435,247 +445,87 @@ import pin from '@assets/map-pin.svg';
         <li class="flex flex-col gap-2 pr-14">
           <span class="font-semibold">Autonomous Systems</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Mobile Robotics</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Kinematics</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Vehicle Dynamics</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Sensor Fusion</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >SLAM</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Navigation</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              ROS/ROS2
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              NVIDIA Isaac Sim
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              Unity
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >PX4</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              Mavlink
-            </span>
+            <Badge>Mobile Robotics</Badge>
+            <Badge>Kinematics</Badge>
+            <Badge>Vehicle Dynamics</Badge>
+            <Badge>Sensor Fusion</Badge>
+            <Badge>SLAM</Badge>
+            <Badge>Navigation</Badge>
+            <Badge>ROS/ROS2</Badge>
+            <Badge>NVIDIA Isaac Sim</Badge>
+            <Badge>Unity</Badge>
+            <Badge>PX4</Badge>
+            <Badge>Mavlink</Badge>
           </div>
         </li>
         <li class="flex flex-col gap-2 pr-14">
           <span class="font-semibold">Artificial Intelligence</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Supervised Learning</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Unsupervised Learning</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Reinforcement Learning</span
-            >
+            <Badge>Supervised Learning</Badge>
+            <Badge>Unsupervised Learning</Badge>
+            <Badge>Reinforcement Learning</Badge>
           </div>
         </li>
         <li class="page-break flex flex-col gap-2 pr-14">
           <span class="font-semibold">Mathematics</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Linear Algebra
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Calculus</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Linear Systems</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Non-linear Systems</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              Classic Control
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              Modern Control
-            </span>
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-            >
-              Optimal Control
-            </span>
+            <Badge>Linear Algebra</Badge>
+            <Badge>Calculus</Badge>
+            <Badge>Linear Systems</Badge>
+            <Badge>Non-linear Systems</Badge>
+            <Badge>Classic Control</Badge>
+            <Badge>Modern Control</Badge>
+            <Badge>Optimal Control</Badge>
           </div>
         </li>
         <li class="flex flex-col gap-2 pr-14">
           <span class="font-semibold">Programming Languages</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >C/C++</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >C#</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Python</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Java</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >TypeScript</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Go</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >MATLAB/Simulink</span
-            >
+            <Badge>C/C++</Badge>
+            <Badge>C#</Badge>
+            <Badge>Python</Badge>
+            <Badge>Java</Badge>
+            <Badge>TypeScript</Badge>
+            <Badge>Go</Badge>
+            <Badge>MATLAB/Simulink</Badge>
           </div>
         </li>
         <li class="flex flex-col gap-2">
           <span class="pr-14 font-semibold">Libraries &amp; Frameworks</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >OpenCV</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >PCL</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Eigen</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >PyTorch</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Tensorflow</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Gstreamer</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >React</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >NextJS</span
-            >
+            <Badge>OpenCV</Badge>
+            <Badge>PCL</Badge>
+            <Badge>Eigen</Badge>
+            <Badge>PyTorch</Badge>
+            <Badge>Tensorflow</Badge>
+            <Badge>Gstreamer</Badge>
+            <Badge>React</Badge>
+            <Badge>NextJS</Badge>
           </div>
         </li>
         <li class="flex flex-col gap-2 pr-14">
           <span class="font-semibold">Software Engineering</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >AWS Services</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Google Cloud Platform</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Azure</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Kubernetes</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Agile</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >OOP</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Design Patterns</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Estimation</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Planning</span
-            >
+            <Badge>AWS Services</Badge>
+            <Badge>Google Cloud Platform</Badge>
+            <Badge>Azure</Badge>
+            <Badge>Kubernetes</Badge>
+            <Badge>Agile</Badge>
+            <Badge>OOP</Badge>
+            <Badge>Design Patterns</Badge>
+            <Badge>Estimation</Badge>
+            <Badge>Planning</Badge>
           </div>
         </li>
         <li class="flex flex-col gap-2 pr-14">
           <span class="font-semibold">Other skills</span>
           <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Teamwork</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Ownership</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Communication</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Leadership</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Self-motivated</span
-            >
-            <span
-              class="flex items-center justify-center rounded-lg bg-dark-void px-2"
-              >Public Speaking</span
-            >
+            <Badge>Teamwork</Badge>
+            <Badge>Ownership</Badge>
+            <Badge>Communication</Badge>
+            <Badge>Leadership</Badge>
+            <Badge>Self-motivated</Badge>
+            <Badge>Public Speaking</Badge>
           </div>
         </li>
       </ul>
@@ -686,6 +536,105 @@ import pin from '@assets/map-pin.svg';
       <div class="flex flex-col">
         <div class="text-2xl">Projects</div>
         <div class="w-full border-b border-slate-900 px-0"></div>
+      </div>
+      <div
+        class="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2"
+      >
+        <ProjectCard
+          client:load
+          title="Deep Learning Workshop"
+          institution="Universidad de 'San Andrés'"
+          location="Buenos Aires, Argentina"
+          date="Aug. 2021 - Aug. 2022"
+          description="Deep learning workshop for secondary school students at covering fundamental concepts and practical applications using PyTorch and Jupyter Notebooks."
+          keywords={[
+            'Pytorch',
+            'Jupyter',
+            'Python',
+            'Computer Vision',
+            'Hyperparameters',
+          ]}
+        />
+        <ProjectCard
+          client:load
+          title="Self-driving Car"
+          institution="Universidad de 'San Andrés'"
+          location="Buenos Aires, Argentina"
+          date="Aug. 2021 - Aug. 2022"
+          description="Integration, calibration and testing of sensors, implementing advanced algorithms for essential aspects, and improving autonomous driving capabilities in a 2017 Ford Fusion."
+          keywords={[
+            'C++',
+            'Python',
+            'ROS/ROS2',
+            'Sensor Fusion',
+            'LiDAR',
+            'Radar',
+            'Cameras',
+          ]}
+        />
+        <ProjectCard
+          client:load
+          title="Fault-tolerant Landing"
+          institution="Universidad de 'San Andrés'"
+          location="Buenos Aires, Argentina"
+          date="Aug. 2021 - Aug. 2022"
+          description="Algorithm for precise multirotor aircraft landings, addressing challenges like engine failure."
+          keywords={[
+            'C/C++',
+            'Hardware',
+            'PX4',
+            'NVIDIA® Jetson',
+            'QGroundControl',
+            'Mavlink',
+          ]}
+        />
+        <ProjectCard
+          client:load
+          title="Air Hockey"
+          institution="Universidad de 'San Andrés'"
+          location="Buenos Aires, Argentina"
+          date="Aug. 2021 - Aug. 2022"
+          description="Reinforcement Learning (RL) and heuristic algorithms achieving human-level gameplay skills in Air Hockey matches."
+          keywords={[
+            'Segmentation',
+            'C/C++',
+            'Python',
+            'State Estimation',
+            'Q-Learning',
+          ]}
+        />
+        <ProjectCard
+          client:load
+          title="Balancio"
+          institution="Universidad de 'San Andrés'"
+          location="Buenos Aires, Argentina"
+          date="Aug. 2021 - Aug. 2022"
+          description="Educational project for an ultra‐low‐cost self‐balancing robot, capable of running a neural network to maintain balance."
+          keywords={[
+            'Arduino',
+            'Pytorch',
+            'Python',
+            'Electronics',
+            'MPC',
+            'PID',
+            'Deep Learning',
+          ]}
+        />
+        <ProjectCard
+          client:load
+          title="Monocular Visual SLAM"
+          institution="Universidad de Buenos Aires"
+          location="Buenos Aires, Argentina"
+          date="Feb. 2018 - Dec. 2018"
+          description="Visual navigation system for simultaneous mobile robot localization and mapping using EKF and 1‐Point RANSAC in C++17."
+          keywords={[
+            'Kalman',
+            'Pinhole Model',
+            'C/C++',
+            'Feature Extraction',
+            'RANSAC',
+          ]}
+        />
       </div>
       <ul class="flex flex-col">
         <li
