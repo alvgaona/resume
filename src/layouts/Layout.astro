@@ -1,5 +1,5 @@
 ---
-import '@styles/globals.css';
+import '@/styles/globals.css';
 import '@fontsource-variable/m-plus-2';
 // Supports weights 100-900
 import '@fontsource-variable/inter';
@@ -13,7 +13,7 @@ const metadata = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={metadata.description} />
@@ -46,22 +46,22 @@ const metadata = {
   html,
   body {
     font-family: var(--system-ui);
-    background: #0d0d0e;
   }
 
   @page {
-    margin-top: 1cm;
-    margin-bottom: 1cm;
+    size: auto;
+    margin: 0mm;
   }
 
   @media print {
     .page-break {
-      page-break-after: always;
+      page-break-before: always;
     }
 
     html,
     body {
       background: #fff;
+      padding: 1rem;
     }
   }
 </style>

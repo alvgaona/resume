@@ -1,3 +1,4 @@
+import { Dot } from 'lucide-react';
 import { Badge } from './ui/badge';
 import {
   Card,
@@ -22,6 +23,7 @@ interface Props {
   description: string;
   date: string;
   keywords: string[];
+  details: string[];
 }
 const ProjectCard = ({
   title,
@@ -30,14 +32,15 @@ const ProjectCard = ({
   description,
   date,
   keywords,
+  details,
 }: Props) => {
   return (
     <Dialog>
-      <Card className="flex flex-col gap-2 p-2">
+      <Card className="flex flex-col gap-2 border-gray-300 bg-white p-2 text-black">
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">
-            <DialogTrigger className="text-start underline-offset-2 hover:underline">
-              {title}
+            <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
+              {title} <Dot color="#20f339" className="-ml-1" />
             </DialogTrigger>
           </CardTitle>
           <div className="flex flex-col justify-center text-xs">
@@ -51,9 +54,7 @@ const ProjectCard = ({
         </CardContent>
         <CardFooter className="flex flex-wrap gap-1 p-0">
           {keywords.map((keyword: string) => (
-            <Badge className="bg-dark-void text-xs text-slate-200">
-              {keyword}
-            </Badge>
+            <Badge className="bg-zinc-700 text-xs text-white">{keyword}</Badge>
           ))}
         </CardFooter>
       </Card>
@@ -62,24 +63,9 @@ const ProjectCard = ({
           <DialogTitle className="w-full">{title}</DialogTitle>
         </DialogHeader>
         <ul className="col-span-3 mt-2 flex list-inside list-disc flex-col gap-1 text-justify text-sm">
-          <li>
-            Designed and delivered a comprehensive deep‑learning workshop
-            tailored for secondary school students. The workshop encompassed
-            foundational concepts such as the Rosenblatt Perceptron, linear
-            neural networks, multi‑layer linear neural networks utilizing the
-            MNIST dataset, and Convolutional Neural Networks applied to the
-            Kaggle Dataset named Flowers. The entire workshop was built upon
-            Jupyter Notebooks, utilizing PyTorch as the preferred framework for
-            deep learning.
-          </li>
-          <li>
-            Students successfully learned the concepts and built their own
-            deep‑learning models to classify images of flowers.
-          </li>
-          <li>
-            Workshop was a great success and students were very enthusiastic
-            about learning more about deep learning.
-          </li>
+          {details.map((v) => (
+            <li>{v}</li>
+          ))}
         </ul>
       </DialogContent>
     </Dialog>
