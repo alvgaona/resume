@@ -6,13 +6,6 @@ import MultiExp from '@/components/multi-exp';
 import CommandMenu from '@/components/command-menu';
 
 import { data } from '@/data/resume-data';
-import github from '@/assets/github.svg';
-import linkedin from '@/assets/linkedin.svg';
-import scholar from '@/assets/scholar.svg';
-import globe from '@/assets/globe-alt.svg';
-import mobile from '@/assets/device-phone-mobile.svg';
-import envelope from '@/assets/envelope.svg';
-import pin from '@/assets/map-pin.svg';
 import { Badge } from '@/components/ui/badge';
 import MyAvatar from '@/components/my-avatar';
 ---
@@ -62,12 +55,12 @@ import MyAvatar from '@/components/my-avatar';
             ) : (
               <SingleExp
                 pageBreak={x.break}
-                position={x.position}
+                position={x.position as string}
                 company={x.company.name}
                 logo={x.company.logo}
-                location={x.location}
-                date={x.date}
-                responsibilities={x.responsibilities}
+                location={x.location as string}
+                date={x.date as string}
+                responsibilities={x.responsibilities as string[]}
                 border={!isLast}
               />
             );
@@ -145,7 +138,7 @@ import MyAvatar from '@/components/my-avatar';
         <div class="w-full border-b border-zinc-900 px-0"></div>
       </div>
       <ul class="flex list-inside list-disc flex-col gap-2 text-sm">
-        {data.publications.map((p, i) => <li>{p.title}</li>)}
+        {data.publications.map((p) => <li>{p.title}</li>)}
       </ul>
     </section>
     <section
