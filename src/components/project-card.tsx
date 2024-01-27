@@ -36,7 +36,7 @@ const ProjectCard = ({
 }: Props) => {
   return (
     <Dialog>
-      <Card className="flex flex-col gap-2 border-gray-300 bg-white p-2 text-black">
+      <Card className="flex flex-col gap-2 border-gray-300 bg-white p-2 text-black print:shadow-none">
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">
             <DialogTrigger className="flex text-start underline-offset-2 hover:underline">

@@ -62,6 +62,7 @@ export const data = {
   },
   education: [
     {
+      break: false,
       title: 'University of Buenos Aires',
       description: 'Graduate in Electrical Engineering',
       location: 'Buenos Aires, Argentina',
@@ -72,12 +73,14 @@ export const data = {
       ],
     },
     {
+      break: false,
       title: 'University of Buenos Aires',
       description: 'Industrial Engineering (Incomplete)',
       location: 'Buenos Aires, Argentina',
       span: 'Mar. 2010 - Sep. 2013',
     },
     {
+      break: false,
       title: 'Instituto Social Militar Dr. Dámaso Centeno',
       description:
         'Secondary Education with Option in Mathematics and Natural Sciences',
@@ -87,6 +90,7 @@ export const data = {
   ],
   experience: [
     {
+      break: false,
       position: 'Lead Machine Learning Engineer',
       company: {
         name: 'ASAPP',
@@ -97,11 +101,12 @@ export const data = {
       responsibilities: [
         'Oversee the development and upkeep of several machine learning services, particularly those related to natural language processing (NLP) tasks like speech‐to‐text, redaction, and summarization.',
         'Accountable for ensuring the optimal health and performance of all our services, ensuring a superior user experience.',
-        'I play a pivotal role in our cost‐reduction initiatives, including the automation of GPU workload scaling for both training and inference.',
-        'I maintain regular communication with other departments and stakeholders throughout the organization.',
+        'Play a pivotal role in our cost‐reduction initiatives, including the automation of GPU workload scaling for both training and inference.',
+        'Maintain regular communication with other departments and stakeholders throughout the organization.',
       ],
     },
     {
+      break: false,
       type: 'multi',
       company: {
         name: "Universidad de 'San Andrés'",
@@ -130,6 +135,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -149,6 +155,7 @@ export const data = {
       ],
     },
     {
+      break: false,
       position: 'Software Engineer',
       company: {
         name: 'Telecom Argentina',
@@ -165,6 +172,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       position: 'Electronics Technician',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
@@ -178,6 +186,7 @@ export const data = {
       ],
     },
     {
+      break: false,
       position: 'Teaching Assistant',
       company: {
         name: 'Instituto Social Militar Dr. Dámaso Centeno',

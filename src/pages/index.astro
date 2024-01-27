@@ -1,9 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import ProjectCard from '@/components/ProjectCard';
-import SingleExp from '@/components/SingleExp';
-import MultiExp from '@/components/MultiExp';
-import CommandMenu from '@/components/CommandMenu';
+import ProjectCard from '@/components/project-card';
+import SingleExp from '@/components/single-exp';
+import MultiExp from '@/components/multi-exp';
+import CommandMenu from '@/components/command-menu';
 
 import { data } from '@/data/resume-data';
 import github from '@/assets/github.svg';
@@ -14,246 +14,235 @@ import mobile from '@/assets/device-phone-mobile.svg';
 import envelope from '@/assets/envelope.svg';
 import pin from '@/assets/map-pin.svg';
 import { Badge } from '@/components/ui/badge';
+import MyAvatar from '@/components/my-avatar';
 ---
+
 <Layout>
-    <main
-        class="flex flex-col bg-[#F4F2EE] rounded-lg p-12 print:bg-white print:p-0 md:mx-32 md:my-20 lg:mx-48 xl:mx-64 2xl:mx-96 text-black"
-    >
-        <div class="flex flex-col gap-2 pl-6 print:pl-0">
-        <div class="flex flex-col gap-1">
-            <p class="font-m-plus-2 text-6xl font-thin">
-            {data.name}
-            </p>
-        </div>
-        <div class="my-1 flex flex-col gap-1 text-xs">
-            <div class="flex items-center gap-1">
-            <img src={data.location.icon.src} width="12" alt="Pin icon" />
-            <p>{data.location.value}</p>
-            </div>
-            <div class="flex items-center gap-1">
-            <img src={data.contact.tel.icon.src} width="12" alt="Pin icon" />
-            <p>{data.contact.tel.address}</p>
-            </div>
-            {
+  <main
+    class="flex flex-col rounded-lg bg-[#F4F2EE] p-12 text-black print:bg-white print:p-0 md:mx-32 md:my-20 lg:mx-48 xl:mx-64 2xl:mx-96"
+  >
+    <div class="flex items-center gap-1 gap-8">
+      <MyAvatar client:load className="h-24 w-24" />
+      <div class="flex flex-col">
+        <span class="font-medium">
+          {data.name}
+        </span>
+        <span class="text-[10px] font-thin uppercase"
+          >{data.location.value}</span
+        >
+        <div class="mt-2 flex gap-2">
+          {
             data.contact.social.map((item) => (
-                <div class="flex items-center gap-1">
-                <img src={item.icon.src} width="12" alt="Pin icon" />
-                <p>{item.username}<p/>
-                </div>
+              <a href={item.url} class="flex items-center gap-1">
+                <img src={item.icon.src} width="24" alt="Pin icon" />
+              </a>
             ))
-            }
+          }
         </div>
-        </div>
-        <section
-        class="page-break-always mt-4 flex flex-col gap-2 rounded-lg border bg-white border-gray-300 p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Education</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <ul class="flex flex-col gap-4">
-            {
-            data.education.map((item) => (
-                <li class="flex flex-col gap-2">
-                <div class="flex flex-col">
-                    <p class="text-lg font-semibold">{item.title}</p>
-                    <div class="flex flex-col text-sm">
-                    <p>{item.description}</p>
-                    <p class="font-thin">{item.location}</p>
-                    <p class="font-thin">{item.span}</p>
-                    </div>
-                    <ul class="col-span-2 mt-2 flex list-inside list-disc flex-col gap-2 text-sm">
-                    {item.bullets?.map((bullet) => (
-                        <li>{bullet}</li>
-                    ))}
-                    </ul>
+      </div>
+    </div>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Experience</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="flex flex-col">
+        {
+          data.experience.map((x, i) => {
+            const isLast = i + 1 == data.experience.length;
+            return x.type && x.type == 'multi' ? (
+              <MultiExp
+                pageBreak={x.break}
+                jobs={x.positions}
+                company={x.company}
+                border={!isLast}
+              />
+            ) : (
+              <SingleExp
+                pageBreak={x.break}
+                position={x.position}
+                company={x.company.name}
+                logo={x.company.logo}
+                location={x.location}
+                date={x.date}
+                responsibilities={x.responsibilities}
+                border={!isLast}
+              />
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Education</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="flex flex-col gap-4">
+        {
+          data.education.map((item) => (
+            <li class={`flex flex-col gap-2 ${item.break && 'page-break'}`}>
+              <div class="flex flex-col">
+                <p class="text-lg font-semibold">{item.title}</p>
+                <div class="flex flex-col text-sm">
+                  <p>{item.description}</p>
+                  <p class="font-thin">{item.location}</p>
+                  <p class="font-thin">{item.span}</p>
                 </div>
-                </li>
-            ))
-            }
-        </ul>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Experience</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <ul class="flex flex-col">
-            {
-            data.experience.map((x, i) => {
-                const isLast = i + 1 == data.experience.length;
-                return (
-                (x.type && x.type == "multi") ?
-                    <MultiExp
-                    jobs={x.positions}
-                    company={x.company}
-                    border={!isLast}
-                    /> :
-                    <SingleExp
-                    position={x.position}
-                    company={x.company.name}
-                    logo={x.company.logo}
-                    location={x.location}
-                    date={x.date}
-                    responsibilities={x.responsibilities}
-                    border={!isLast}
-                    />
-                );
-            })
-            }
-        </ul>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Volunteering</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <ul class="flex flex-col gap-4">
-            {data.volunteering.map(v => (
+                <ul class="col-span-2 mt-2 flex list-inside list-disc flex-col gap-2 text-sm">
+                  {item.bullets?.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Volunteering</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="flex flex-col gap-4">
+        {
+          data.volunteering.map((v) => (
             <div class="flex">
-                <div>
-                <img class="max-w-none" src={v.organization.logo.src} width="48" />
-                </div>
-                <li class="flex flex-col text-sm">
+              <div>
+                <img
+                  class="max-w-none"
+                  src={v.organization.logo.src}
+                  width="48"
+                />
+              </div>
+              <li class="flex flex-col text-sm">
                 <span class="text-lg font-semibold">{v.position}</span>
                 <span>{v.organization.name}</span>
                 <div class="font-thin">
-                    <span>{v.date}</span>
-                    &bullet;
-                    <span>3 yrs 6 mos</span>
+                  <span>{v.date}</span>
+                  &bullet;
+                  <span>3 yrs 6 mos</span>
                 </div>
                 <span class="font-thin">{v.industry}</span>
-                </li>
+              </li>
             </div>
-            ))}
-        </ul>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Skills</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <ul class="flex flex-col gap-4">
-            {data.skills.map(item => (
-            <li class="flex flex-col gap-2 pr-14">
-                <span class="font-semibold">{item.category}</span>
-                <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-                {item.badges.map(badge => <Badge className="bg-zinc-700 text-white">{badge}</Badge>)}
-                </div>
-            </li>
-            ))}
-        </ul>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Projects</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <div
-            class="grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2"
-        >
-            {data.projects.map(p =>
-            <ProjectCard client:load
-                title={p.title}
-                institution={p.company}
-                location={p.location}
-                date={p.span}
-                description={p.description}
-                keywords={p.tags}
-                details={p.details}
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      class="page-break mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Publications</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="flex list-inside list-disc flex-col gap-2 text-sm">
+        {data.publications.map((p, i) => <li>{p.title}</li>)}
+      </ul>
+    </section>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Projects</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <div
+        class="mt-4 grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2"
+      >
+        {
+          data.projects.map((p) => (
+            <ProjectCard
+              client:load
+              title={p.title}
+              institution={p.company}
+              location={p.location}
+              date={p.span}
+              description={p.description}
+              keywords={p.tags}
+              details={p.details}
             />
-            )}
-        </div>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Languages</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <div>
-            <ul class="flex flex-col">
-            {data.languages.map(lang => (
-                <li
-                class="flex flex-col pb-2 print:border-0"
-                >
-                <span class="font-semibold">{lang.name}</span>
-                <span class="text-sm">{lang.proficiency}</span>
-                </li>
-            ))}
-            </ul>
-        </div>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 p-6 bg-white print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Publications</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <div class="flex flex-col gap-2">
-            <div class="flex flex-col gap-2">
-            <p class="font-medium">Journals</p>
-            <ul class="text-sm">
-                {data.publications.filter(p => p.type == "Journal").map((p, i) => (
-                <li class="flex items-center justify-center gap-6 sm:pr-14">
-                    <span>[J{i + 1}]</span>
-                    <p>
-                    {p.title}
-                    </p>
-                </li>
-                ))}
-            </ul>
-            </div>
-            <div class="flex flex-col gap-2">
-            <p class="font-medium">Conferences</p>
-            <ul class="text-sm">
-                {data.publications.filter(p => p.type == "Conference").map((p, i) => (
-                <li class="flex items-center justify-center gap-6 sm:pr-14">
-                    <span>[C{i + 1}]</span>
-                    <p>
-                    {p.title}
-                    </p>
-                </li>
-                ))}
-            </ul>
-            </div>
-        </div>
-        </section>
-        <section
-        class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white p-6 print:border-0 print:p-0"
-        >
-        <div class="flex flex-col">
-            <div class="text-2xl">Certifications</div>
-            <div class="w-full border-b border-slate-900 px-0"></div>
-        </div>
-        <ul class="my-2 grid grid-cols-2 text-xs sm:text-sm">
-            {data.certifications.map(c => (
-            <a
-                target="_blank"
-                href={c.url}
-            >
-                <li class="mb-4 flex flex-col">
+          ))
+        }
+      </div>
+    </section>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 pt-2 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Certifications</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="my-2 grid grid-cols-2 text-xs sm:text-sm">
+        {
+          data.certifications.map((c) => (
+            <a target="_blank" href={c.url}>
+              <li class="mb-2 flex flex-col">
                 <span class="font-semibold">{c.name}</span>
                 <div class="flex gap-1">
-                    <img class="h-4 max-w-none sm:h-5" src={c.logo.src} />
-                    <span>{c.company}</span>
+                  <img class="h-4 max-w-none sm:h-5" src={c.logo.src} />
+                  <span>{c.company}</span>
                 </div>
                 <span>Issued {c.issued}</span>
-                </li>
+              </li>
             </a>
-            ))}
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      class="mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Skills</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <ul class="flex flex-col gap-4">
+        {
+          data.skills.map((item) => (
+            <li class="flex flex-col gap-2 pr-14">
+              <span class="text-xs font-normal uppercase">{item.category}</span>
+              <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
+                {item.badges.map((badge) => (
+                  <Badge className="bg-zinc-700 text-white">{badge}</Badge>
+                ))}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      class="page-break mt-4 flex flex-col gap-2 rounded-lg border border-gray-300 bg-white px-6 py-4 print:border-0 print:p-0"
+    >
+      <div class="flex flex-col">
+        <div class="text-2xl">Languages</div>
+        <div class="w-full border-b border-zinc-900 px-0"></div>
+      </div>
+      <div>
+        <ul class="flex flex-col">
+          {
+            data.languages.map((lang) => (
+              <li class="flex flex-col pb-2 print:border-0">
+                <span class="font-semibold">{lang.name}</span>
+                <span class="text-sm">{lang.proficiency}</span>
+              </li>
+            ))
+          }
         </ul>
-        </section>
-    </main>
-    <CommandMenu client:visible links={[{ url: "https://alvgaona.com", title: "Website"}]}/>
+      </div>
+    </section>
+  </main>
+  <CommandMenu
+    client:visible
+    links={[{ url: 'https://alvgaona.com', title: 'Website' }]}
+  />
 </Layout>
