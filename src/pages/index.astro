@@ -1,12 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import CommandMenu from '@/components/command-menu';
-import LinkedIn from '@/components/themes/linkedin.astro';
 import Clay from '@/components/themes/clay.astro';
 ---
 
 <Layout>
-  <Clay/>
+  <Clay />
   <CommandMenu
     client:visible
     links={[{ url: 'https://alvgaona.com', title: 'Website' }]}

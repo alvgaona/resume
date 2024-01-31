@@ -32,14 +32,14 @@ const metadata = {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{metadata.title}</title>
   </head>
-  <body class="bg-[#1D1E20]">
+  <body>
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
-    --system-ui: 'SFProText', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --system-ui: 'SFProText', system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 
   html,
