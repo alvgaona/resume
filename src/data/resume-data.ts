@@ -2,10 +2,10 @@ import mobile from '@/assets/device-phone-mobile.svg';
 import github from '@/assets/github.svg';
 import pin from '@/assets/map-pin.svg';
 
-import envelope from '@/assets/envelope.svg';
-import globe from '@/assets/globe-alt.svg';
-import linkedin from '@/assets/linkedin.svg';
-import scholar from '@/assets/scholar.svg';
+import envelope from '@/assets/envelope.svg?raw';
+import globe from '@/assets/globe-alt.svg?raw';
+import linkedin from '@/assets/linkedin.svg?raw';
+import scholar from '@/assets/scholar.svg?raw';
 
 import asapp from '@/assets/asappinc-logo.jpeg';
 import aws from '@/assets/aws-logo.jpeg';
@@ -288,7 +288,7 @@ export const data = {
       ],
     },
     {
-      category: 'Other Skills',
+      category: 'Other',
       badges: [
         'Teamwork',
         'Ownership',

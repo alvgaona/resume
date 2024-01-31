@@ -1,0 +1,193 @@
+---
+import { data } from '@/data/resume-data';
+import MyAvatar from '@/components/my-avatar';
+import { Separator } from '@/components/ui/separator';
+import x from '@/assets/x.svg?raw';
+import github from '@/assets/github.svg?raw';
+import linkedin from '@/assets/linkedin2.svg?raw';
+import scholar from '@/assets/scholar.svg?raw';
+import globe from '@/assets/globe-alt.svg?raw';
+
+import { Globe } from 'lucide-react';
+import ProjectCard from '../project-card';
+import { Badge } from '../ui/badge';
+---
+
+<main
+  class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96"
+>
+  <div class="mb-6 flex items-center gap-8">
+    <MyAvatar client:load className="h-24 w-24 shadow-2xl" />
+    <div class="flex flex-col">
+      <span class="font-medium"> {data.name} </span>
+      <span class="text-[11px] font-thin uppercase">{data.location.value}</span>
+    </div>
+  </div>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Bio</span>
+    <Separator />
+    <p class="text-sm">
+      As an experienced Electrical Engineer with a background in Signal
+      Processing and Control Theory, I have gained valuable skills through many
+      years of work in software engineering companies, as well as research
+      experience in Mobile Robotics at both the Universidad of Buenos Aires and
+      the Universidad of San Andrés. <br /><br />
+
+      I firmly believe in the power of teamwork, and I prioritize collaboration
+      and inclusivity in all of my work. I am committed to supporting and
+      empowering my colleagues, and I believe in their abilities even more than
+      my own. With my expertise in engineering and software development,
+      combined with my collaborative approach and strong belief in the value of
+      teamwork, I am confident that I can contribute to the growth and success
+      of any company.
+      <br /><br />
+      I'm a team player who is committed to delivering results, and who brings
+      technical expertise, creative problem-solving skills, and a collaborative
+      mindset to the table.
+      <br /><br />
+      I am passionate about team sports, particularly motorsports, and I also
+      enjoy contributing to open-source projects.
+    </p>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Social</span>
+    <Separator />
+    <div class="flex gap-4 items-center">
+      <a href="https://github.com/alvgaona" class="flex items-center gap-1 [&_*]:!fill-[#D2D2D2]">
+        <Fragment set:html={x} />
+      </a>
+      <a href="https://github.com/alvgaona" class="flex items-center gap-1 [&_*]:!fill-[#D2D2D2]">
+        <Fragment set:html={github} />
+      </a>
+      <a href="https://github.com/alvgaona" class="flex items-center gap-1 [&_*]:!fill-[#D2D2D2]">
+        <Fragment set:html={linkedin} />
+      </a>
+      <a href="https://github.com/alvgaona" class="flex items-center gap-1 [&_*]:!fill-[#D2D2D2]">
+        <Fragment set:html={scholar} />
+      </a>
+      <a href="https://github.com/alvgaona" class="flex items-center gap-1 [&_*]:!stroke-[#D2D2D2]">
+        <Fragment set:html={globe} />
+      </a>
+    </div>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Experience</span>
+    <Separator />
+    <ul class="flex flex-col gap-2">
+      {data.experience.map(i => (
+        <li>
+          <h1>{i.position}</h1>
+          <div class="flex gap-1">
+            <span class="text-xs text-white/60 uppercase">{i.company.name} &bullet; {i.date}</span>
+          </div>
+          <ul class="text-sm text-white/60 list-inside list-disc mt-2">
+            {i.responsibilities?.map(r => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Projects</span>
+    <Separator />
+    <div
+        class="mt-4 grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2"
+      >
+        {
+          data.projects.map((p) => (
+            <ProjectCard
+              client:load
+              title={p.title}
+              institution={p.company}
+              location={p.location}
+              date={p.span}
+              description={p.description}
+              keywords={p.tags}
+              details={p.details}
+            />
+          ))
+        }
+      </div>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Education</span>
+    <Separator />
+    <ul class="flex flex-col gap-2">
+      {data.education.map(i => (
+        <li>
+          <h1>{i.title}</h1>
+          <h2 class="text-xs text-white/60 uppercase">{i.description}</h2>
+          <div class="flex gap-1">
+            <span class="text-xs text-white/60 uppercase">{i.location} &bullet; {i.span}</span>
+          </div>
+          <ul class="text-sm text-white/60 list-inside list-disc mt-2">
+            {i.bullets?.map(r => (
+              <li>{r}</li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Publications</span>
+    <Separator />
+    <ul class="text-sm text-white/60 list-inside list-disc mt-2">
+      {data.publications?.map(p => (
+        <li>{p.title}</li>
+      ))}
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Languages</span>
+    <Separator />
+    <ul class="text-sm mt-2 flex flex-col gap-1">
+      {data.languages?.map(p => (
+        <li class="flex flex-col">
+          <span>{p.name}</span>
+          <span class="text-white/60 text-xs">{p.proficiency}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Interests</span>
+    <Separator />
+    <ul class="flex flex-col gap-4">
+      {
+        data.skills.map((item) => (
+          <li class="flex flex-col gap-2 pr-14">
+            <span class="text-xs text-white/60 uppercase">{item.category}</span>
+            <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
+              {item.badges.map((badge) => (
+                <Badge className="bg-zinc-700 hover:bg-zinc-700 text-white select-none">{badge}</Badge>
+              ))}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-white/60">Certifications</span>
+    <Separator />
+    <ul class="my-2 grid grid-cols-2 text-xs sm:text-sm">
+      {
+        data.certifications.map((c) => (
+          <a target="_blank" href={c.url}>
+            <li class="mb-2 flex flex-col">
+              <span class="font-semibold hover:underline underline-offset-2">{c.name}</span>
+              <div class="flex gap-1 text-white/60">
+                <span>{c.company}</span>
+                &bullet;
+                <span>Issued {c.issued}</span>
+              </div>
+            </li>
+          </a>
+        ))
+      }
+    </ul>
+  </section>
+</main>
