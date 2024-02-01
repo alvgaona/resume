@@ -113,7 +113,7 @@ export const data = {
       ],
     },
     {
-      break: false,
+      break: true,
       position: 'Teaching Assitant',
       company: {
         name: "Universidad de 'San Andrés'",
@@ -142,7 +142,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -179,7 +179,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Electronics Technician',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
@@ -393,6 +393,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       title: 'Balancio',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',

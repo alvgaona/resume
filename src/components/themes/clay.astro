@@ -83,21 +83,23 @@ import { Dot } from 'lucide-react';
     <Separator />
     <ul class="flex flex-col gap-2">
       {
-        data.experience.map((i) => (
-          <li>
-            <h1>{i.position}</h1>
-            <div class="flex gap-1">
-              <span class="text-xs uppercase text-black/60 dark:text-white/60">
-                {i.company.name} &bullet; {i.date}
-              </span>
-            </div>
-            <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
-              {i.responsibilities?.map((r) => (
-                <li>{r}</li>
-              ))}
-            </ul>
-          </li>
-        ))
+        data.experience.map((i) => {
+          return (
+            <li class={`${i.break ? 'page-break' : ''}`}>
+              <h1>{i.position}</h1>
+              <div class="flex gap-1">
+                <span class="text-xs uppercase text-black/60 dark:text-white/60">
+                  {i.company.name} &bullet; {i.date}
+                </span>
+              </div>
+              <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
+                {i.responsibilities?.map((r) => (
+                  <li>{r}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })
       }
     </ul>
   </section>
@@ -110,18 +112,21 @@ import { Dot } from 'lucide-react';
       class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2"
     >
       {
-        data.projects.map((p) => (
-          <ProjectCard
-            client:load
-            title={p.title}
-            institution={p.company}
-            location={p.location}
-            date={p.span}
-            description={p.description}
-            keywords={p.tags}
-            details={p.details}
-          />
-        ))
+        data.projects.map((p) => {
+          return (
+            <ProjectCard
+              client:load
+              title={p.title}
+              institution={p.company}
+              location={p.location}
+              date={p.span}
+              description={p.description}
+              keywords={p.tags}
+              details={p.details}
+              pageBreak={p.break}
+            />
+          );
+        })
       }
     </div>
   </section>
@@ -164,7 +169,7 @@ import { Dot } from 'lucide-react';
       {data.publications?.map((p) => <li>{p.title}</li>)}
     </ul>
   </section>
-  <section class="flex flex-col gap-2">
+  <section class="page-break flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
       >Languages</span
     >
@@ -218,9 +223,9 @@ import { Dot } from 'lucide-react';
             <li class="mb-2 flex flex-col">
               <div class="flex items-center text-start">
                 <span class="font-semibold underline-offset-2 hover:underline">
-                  {c.name}
+                  {c.name}{' '}
+                  <Dot color="#20f339" className="-ml-1 inline-block" />
                 </span>
-                <Dot color="#20f339" className="-ml-1" />
               </div>
               <div class="flex gap-1 text-black/60 dark:text-white/60">
                 <span>{c.company}</span>

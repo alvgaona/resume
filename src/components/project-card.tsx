@@ -24,6 +24,7 @@ interface Props {
   date: string;
   keywords: string[];
   details: string[];
+  pageBreak?: boolean;
 }
 const ProjectCard = ({
   title,
@@ -33,10 +34,13 @@ const ProjectCard = ({
   date,
   keywords,
   details,
+  pageBreak,
 }: Props) => {
   return (
     <Dialog>
-      <Card className="bg-dark flex flex-col gap-2 p-2 text-primary dark:border-white/60 print:shadow-none">
+      <Card
+        className={`bg-dark flex flex-col gap-2 p-2 text-primary dark:border-white/60 print:shadow-none ${pageBreak ? 'page-break' : ''}`}
+      >
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">
             <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
