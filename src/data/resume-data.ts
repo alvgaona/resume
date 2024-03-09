@@ -71,7 +71,7 @@ export const data = {
     {
       break: false,
       title: 'University of Buenos Aires',
-      description: 'Graduate in Electrical Engineering',
+      description: 'Graduate in Electronics Engineering',
       location: 'Buenos Aires, Argentina',
       span: 'Sep. 2013 - Sep. 2019',
       bullets: [
@@ -114,7 +114,7 @@ export const data = {
     },
     {
       break: true,
-      position: 'Teaching Assitant',
+      position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
         logo: udesa,
