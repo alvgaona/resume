@@ -1,0 +1,129 @@
+---
+import CoverLetterLayout from '@/layouts/CoverLetterLayout.astro';
+import CommandMenu from '@/components/command-menu';
+
+const recipient = 'Dr. Viktor Larsson';
+
+const today = new Date();
+---
+
+<CoverLetterLayout>
+  <main
+    class="flex flex-col gap-4 bg-white px-24 py-12 text-black md:mx-32 md:my-20 lg:mx-48 xl:mx-64 2xl:mx-96 print:bg-white print:p-0"
+  >
+    <div class="flex justify-end">
+      <span class="items-center"
+        >{
+          today.toLocaleString('default', {
+            month: 'long',
+            year: 'numeric',
+            day: 'numeric',
+          })
+        }</span
+      >
+    </div>
+    <div class="flex justify-between gap-2">
+      <ul>
+        <li>Lund University, Faculty of Engineering</li>
+        <li>Matematikcentrum, LTH</li>
+        <li>Box 118</li>
+        <li>221 00 LUND, Sweden</li>
+      </ul>
+      <ul>
+        <li>Alvaro Joaquín Gaona</li>
+        <li>Avenida Rivadavia 5560</li>
+        <li>CABA, Buenos Aires, C1424CEX</li>
+        <li>alvgaona@gmail.com</li>
+        <li>+5491167971081</li>
+      </ul>
+    </div>
+    <span>Dear {recipient},</span>
+    <p>
+      I am writing to express my interest in the PhD program in Mathematics with
+      a focus on Computer Vision at Lund University, Faculty of Engineering in
+      the field of mathematics and computer vision. With a strong background,
+      both educational and professional with respect to the requirements the
+      program states, I am excited about the opportunity to contribute to
+      cutting-edge research in computer vision and machine learning at your
+      esteemed institution.
+    </p>
+    <p>
+      My academic journey in Electronics Engineering at the University of Buenos
+      Aires, Faculty of Engineering, has been deeply rooted in mathematics,
+      particularly in signal processing, control theory, and robotics.
+      Throughout my graduate studies, I immersed myself in a diverse range of
+      subjects that laid the foundation for my specialization. During my degree,
+      I delved into fundamental mathematical concepts such as calculus, linear
+      algebra, and complex analysis, which not only captivated me but also
+      provided a solid framework for my subsequent exploration in signal
+      processing and control theory.
+      <p>
+        As I progressed through my studies, I directed my focus towards the
+        exciting field of SLAM (Simultaneous Localization and Mapping). This
+        culminated in my in-depth study of monocular EKF SLAM and the
+        application of advanced techniques like 1-Point RANSAC, which I
+        proficiently implemented using C++17. This experience was particularly
+        rewarding as it introduced me to computer vision techniques that I
+        recognized as essential skills within the field of robotics. Inspired by
+        pioneers like Civer and Davison, I further expanded my knowledge by
+        delving into topics such as Structure From Motion (SfM) through
+        extensive reading and practical application. Then, I concluded my degree
+        with a graduate thesis in signal processing in the field of healthcare
+        where I applied deep learning techniques to segment phonocardiograms.
+        This research not only allowed me to apply cutting-edge technologies but
+        also deepened my understanding of the practical applications of signal
+        processing in critical domains.
+      </p>
+      <p>
+        Post-graduation, my commitment to continuous learning led me to pursue
+        advanced subjects like Calculus of Variations, Statistical Learning, and
+        Mobile Robotics within the faculty. These endeavors were aimed at
+        fortifying the foundational knowledge acquired during my formative
+        years. Additionally, I have actively engaged in ongoing studies and
+        certifications related to robotics while delving into topics like
+        functional analysis, sparked by my exploration of Banach spaces.
+      </p>
+      <p>
+        Throughout my professional journey, I had the privilege of collaborating
+        with a team of esteemed researchers at the University of San Andrés
+        within the Laboratory of Artificial Intelligence and Robotics (LINAR).
+        In this dynamic environment, I actively contributed to projects centered
+        around mobile robotics, with a specific focus on enhancing the
+        capabilities of multirotor vehicles for autonomous landing in hazardous
+        environments and advancing the field of self-driving cars. My role not
+        only involved hands-on project work but also extended to mentoring and
+        supporting fellow researchers within the laboratory. Moreover, my role
+        as a teaching assistant for the course Computational Thinking, taught
+        using Python, provided me with a platform to showcase my pedagogical
+        skills. Engaging with students and sharing my knowledge in a subject I
+        am passionate about was a fulfilling experience that reinforced my
+        commitment to education and knowledge dissemination. Beyond teaching
+        responsibilities, I also assisted my colleagues with various laboratory
+        tasks, ensuring the smooth functioning of our research environment.
+      </p>
+      <p>
+        With approximately 9 years of experience in software development across
+        diverse industry roles, I have honed my technical expertise and
+        problem-solving abilities. This background has equipped me with a robust
+        skill set that complements my academic pursuits in robotics and
+        mathematics.
+      </p>
+      <p>
+        I am particularly enthusiastic about the opportunity this position
+        presents as it aligns perfectly with my long-standing interests in
+        mathematics and SLAM. The complexity and challenges inherent in this
+        field resonate deeply with me, and I am eager to leverage my expertise
+        to push the boundaries of knowledge within the scientific community. I
+        am confident that my blend of practical experience, academic background,
+        and unwavering passion for innovation will enable me to make meaningful
+        contributions to advancing research in robotics. Thank you for
+        considering my application, and I look forward to a positive response.
+      </p>
+      <span>Yours sincerely, <br />Alvaro</span>
+    </p>
+    <CommandMenu
+      client:visible
+      links={[{ url: 'https://alvgaona.com', title: 'Website' }]}
+    />
+  </main>
+</CoverLetterLayout>

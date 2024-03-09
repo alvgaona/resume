@@ -1,0 +1,65 @@
+---
+import '@/styles/globals.css';
+import '@fontsource-variable/dm-sans';
+
+const metadata = {
+  title: 'Alvaro > Resume',
+  description: 'Online Resume',
+  author: '@alvgaona',
+  url: 'https://resume.alvgaona.com',
+};
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={metadata.description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content={metadata.title} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:url" content={metadata.url} />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content={metadata.title} />
+    <meta property="twitter:description" content={metadata.description} />
+    <meta property="twitter:creator" content={metadata.author} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{metadata.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --system-ui: 'DM Sans Variable', system-ui, 'Segoe UI', Roboto, Helvetica,
+      Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    --font-m-plus-2: 'M PLUS 2 Variable';
+  }
+
+  html,
+  body {
+    font-family: var(--system-ui);
+  }
+
+  @page {
+    size: auto;
+  }
+
+  @media print {
+    .page-break {
+      page-break-before: always;
+    }
+
+    html,
+    body {
+      background: #fff;
+      padding: 1rem 1.5rem;
+    }
+  }
+</style>
