@@ -1,0 +1,238 @@
+---
+import { data } from '@/data/resume-data';
+import MyAvatar from '@/components/my-avatar';
+import { Separator } from '@/components/ui/separator';
+import ProjectCard from '../project-card';
+import { Badge } from '../ui/badge';
+import { Dot } from 'lucide-react';
+---
+
+<main
+  class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96"
+>
+  <div class="mb-6 flex items-center gap-8">
+    <MyAvatar client:load className="h-24 w-24 shadow-2xl" />
+    <div class="flex flex-col">
+      <span class="font-medium"> {data.name}</span>
+      <span class="text-[11px] font-thin uppercase">{data.location.value}</span>
+    </div>
+  </div>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Bio</span
+    >
+    <Separator />
+    <p class="text-sm">
+      As an Electronics Engineer specializing in Signal Processing and Control
+      Theory, I have honed my skills through extensive experience in software
+      engineering roles and research endeavors in Mobile Robotics at prestigious
+      institutions such as the Universidad of Buenos Aires and the Universidad
+      of San Andrés.
+      <br />
+      <br />
+      My professional ethos centers around the transformative power of collaboration
+      and inclusivity. I am dedicated to fostering a culture of teamwork, empowering
+      my peers, and championing their capabilities above my own. With a robust background
+      in engineering and software development, coupled with a collaborative spirit
+      and unwavering faith in the strength of collective effort, I am poised to make
+      significant contributions to any organization's growth and prosperity.
+      <br />
+      <br />
+      Beyond my professional pursuits, I find joy in team sports, particularly motorsports,
+      and actively engage in enriching open-source initiatives.
+    </p>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Social</span
+    >
+    <Separator />
+    <div class="flex items-center gap-4">
+      {
+        data.contact.social.map((s) => {
+          if (s.name == 'Website') {
+            return (
+              <a
+                href={s.url}
+                class="flex items-center gap-1 [&_*]:stroke-black/60 dark:[&_*]:stroke-[#d2d2d2]"
+              >
+                <Fragment set:html={s.icon} />
+              </a>
+            );
+          }
+
+          return (
+            <a
+              href={s.url}
+              class="flex items-center gap-1 [&_*]:!fill-black/60 dark:[&_*]:!fill-[#D2D2D2]"
+            >
+              <Fragment set:html={s.icon} />
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Experience</span
+    >
+    <Separator />
+    <ul class="flex flex-col gap-2">
+      {
+        data.experience.map((i) => {
+          return (
+            <li class={`${i.break ? 'page-break' : ''}`}>
+              <h1>{i.position}</h1>
+              <div class="flex gap-1">
+                <span class="text-xs uppercase text-black/60 dark:text-white/60">
+                  {i.company.name} &bullet; {i.date}
+                </span>
+              </div>
+              <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
+                {i.responsibilities?.map((r) => (
+                  <li>{r}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Projects</span
+    >
+    <Separator />
+    <div
+      class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2"
+    >
+      {
+        data.projects.map((p) => {
+          return (
+            <ProjectCard
+              client:load
+              title={p.title}
+              institution={p.company}
+              location={p.location}
+              date={p.span}
+              description={p.description}
+              keywords={p.tags}
+              details={p.details}
+              pageBreak={p.break}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Education</span
+    >
+    <Separator />
+    <ul class="flex flex-col gap-2">
+      {
+        data.education.map((i) => (
+          <li>
+            <h1>{i.title}</h1>
+            <h2 class="text-xs uppercase text-black/60 dark:text-white/60">
+              {i.description}
+            </h2>
+            <div class="flex gap-1">
+              <span class="text-xs uppercase text-black/60 dark:text-white/60">
+                {i.location} &bullet; {i.span}
+              </span>
+            </div>
+            <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
+              {i.bullets?.map((r) => (
+                <li>{r}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Publications</span
+    >
+    <Separator />
+    <ul
+      class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60"
+    >
+      {data.publications?.map((p) => <li>{p.title}</li>)}
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Languages</span
+    >
+    <Separator />
+    <ul class="mt-2 flex flex-col gap-1 text-sm">
+      {
+        data.languages?.map((p) => (
+          <li class="flex flex-col">
+            <span>{p.name}</span>
+            <span class="text-xs text-black/60 dark:text-white/60">
+              {p.proficiency}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="page-break flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Interests</span
+    >
+    <Separator />
+    <ul class="flex flex-col gap-4">
+      {
+        data.skills.map((item) => (
+          <li class="flex flex-col gap-2 pr-14">
+            <span class="text-xs uppercase text-black/60 dark:text-white/60">
+              {item.category}
+            </span>
+            <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
+              {item.badges.map((badge) => (
+                <Badge className="bg-zinc-700 hover:bg-zinc-700 text-white select-none">
+                  {badge}
+                </Badge>
+              ))}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section class="flex flex-col gap-2">
+    <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      >Certifications</span
+    >
+    <Separator />
+    <ul class="my-2 grid grid-cols-2 text-xs sm:text-sm">
+      {
+        data.certifications.map((c) => (
+          <a target="_blank" href={c.url}>
+            <li class="mb-2 flex flex-col">
+              <div class="flex items-center text-start">
+                <span class="font-semibold underline-offset-2 hover:underline">
+                  {c.name}{' '}
+                  <Dot color="#20f339" className="-ml-1 inline-block" />
+                </span>
+              </div>
+              <div class="flex gap-1 text-black/60 dark:text-white/60">
+                <span>{c.company}</span>
+                &bullet;
+                <span>Issued {c.issued}</span>
+              </div>
+            </li>
+          </a>
+        ))
+      }
+    </ul>
+  </section>
+</main>

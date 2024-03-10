@@ -1,11 +1,12 @@
 import mobile from '@/assets/device-phone-mobile.svg';
-import github from '@/assets/github.svg';
 import pin from '@/assets/map-pin.svg';
 
-import envelope from '@/assets/envelope.svg';
-import globe from '@/assets/globe-alt.svg';
-import linkedin from '@/assets/linkedin.svg';
-import scholar from '@/assets/scholar.svg';
+import envelope from '@/assets/envelope.svg?raw';
+import github from '@/assets/github.svg?raw';
+import globe from '@/assets/globe.svg?raw';
+import linkedin from '@/assets/linkedin2.svg?raw';
+import scholar from '@/assets/scholar.svg?raw';
+import x from '@/assets/x.svg?raw';
 
 import asapp from '@/assets/asappinc-logo.jpeg';
 import aws from '@/assets/aws-logo.jpeg';
@@ -35,6 +36,12 @@ export const data = {
     },
     social: [
       {
+        social: 'X',
+        username: 'alvgaona',
+        url: 'https://x.com/alvgaona',
+        icon: x,
+      },
+      {
         name: 'GitHub',
         username: 'alvgaona',
         url: 'https://github.com/alvgaona',
@@ -47,16 +54,16 @@ export const data = {
         icon: linkedin,
       },
       {
-        name: 'Website',
-        username: 'alvgaona.com',
-        url: 'https://alvgaona.com',
-        icon: globe,
-      },
-      {
         name: 'Google Scholar',
         username: 'alvgaona',
         url: 'https://scholar.google.com/citations?user=unBAfxAAAAAJ&hl=en',
         icon: scholar,
+      },
+      {
+        name: 'Website',
+        username: 'alvgaona.com',
+        url: 'https://alvgaona.com',
+        icon: globe,
       },
     ],
   },
@@ -64,7 +71,7 @@ export const data = {
     {
       break: false,
       title: 'University of Buenos Aires',
-      description: 'Graduate in Electrical Engineering',
+      description: 'Graduate in Electronics Engineering',
       location: 'Buenos Aires, Argentina',
       span: 'Sep. 2013 - Sep. 2019',
       bullets: [
@@ -106,36 +113,36 @@ export const data = {
       ],
     },
     {
-      break: false,
-      type: 'multi',
+      break: true,
+      position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
         logo: udesa,
       },
-      positions: [
-        {
-          position: 'Teaching Assitant',
-          location: 'Buenos Aires, Argentina',
-          date: 'Mar. 2022 - Jul. 2022',
-          responsibilities: [
-            'Lecture undergraduate students in AI engineering on the principles of ”Computational Thinking,” with a focus on practical application using Python.',
-            'Offer comprehensive support to first‐year students throughout their studies, helping them navigate the faculty and achieve their academic goals.',
-          ],
-        },
-        {
-          position: 'Research Engineer',
-          location: 'Buenos Aires, Argentina',
-          date: 'Aug. 2021 - Jul. 2022',
-          responsibilities: [
-            'Conducted research on perception algorithms for self‐driving cars, investigating various techniques and algorithms to improve their effectiveness and reliability.',
-            'Led a team in developing UAV landing algorithms that utilized computer vision technology to enable landing on moving platforms.',
-            'Led a successful project utilizing computer vision and deep learning techniques to identify various skin diseases, resulting in the creation of a functional and accurate skin disease identification tool.',
-          ],
-        },
+      location: 'Buenos Aires, Argentina',
+      date: 'Mar. 2022 - Jul. 2022',
+      responsibilities: [
+        'Lecture undergraduate students in AI engineering on the principles of ”Computational Thinking,” with a focus on practical application using Python.',
+        'Offer comprehensive support to first‐year students throughout their studies, helping them navigate the faculty and achieve their academic goals.',
       ],
     },
     {
-      break: true,
+      break: false,
+      position: 'Research Engineer',
+      company: {
+        name: "Universidad de 'San Andrés'",
+        logo: udesa,
+      },
+      location: 'Buenos Aires, Argentina',
+      date: 'Aug. 2021 - Jul. 2022',
+      responsibilities: [
+        'Conducted research on perception algorithms for self‐driving cars, investigating various techniques and algorithms to improve their effectiveness and reliability.',
+        'Led a team in developing UAV landing algorithms that utilized computer vision technology to enable landing on moving platforms.',
+        'Led a successful project utilizing computer vision and deep learning techniques to identify various skin diseases, resulting in the creation of a functional and accurate skin disease identification tool.',
+      ],
+    },
+    {
+      break: false,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -172,7 +179,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Electronics Technician',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
@@ -288,7 +295,7 @@ export const data = {
       ],
     },
     {
-      category: 'Other Skills',
+      category: 'Other',
       badges: [
         'Teamwork',
         'Ownership',
@@ -386,6 +393,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       title: 'Balancio',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
