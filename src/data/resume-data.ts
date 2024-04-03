@@ -73,26 +73,11 @@ export const data = {
       title: 'University of Buenos Aires',
       description: 'Graduate in Electronics Engineering',
       location: 'Buenos Aires, Argentina',
-      span: 'Sep. 2013 - Sep. 2019',
+      span: 'Sep. 2010 - Sep. 2019',
       bullets: [
         '”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”, Graduate Thesis, 2019. University of Buenos Aires. Grade 100/100.',
         'GPA: 3.5/4.0',
       ],
-    },
-    {
-      break: false,
-      title: 'University of Buenos Aires',
-      description: 'Industrial Engineering (Incomplete)',
-      location: 'Buenos Aires, Argentina',
-      span: 'Mar. 2010 - Sep. 2013',
-    },
-    {
-      break: false,
-      title: 'Instituto Social Militar Dr. Dámaso Centeno',
-      description:
-        'Secondary Education with Option in Mathematics and Natural Sciences',
-      location: 'Buenos Aires, Argentina',
-      span: 'Mar. 2003 - Dec. 2009',
     },
   ],
   experience: [
@@ -106,14 +91,13 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
-        'Oversee the development and upkeep of several machine learning services, particularly those related to natural language processing (NLP) tasks like speech‐to‐text, redaction, and summarization.',
-        'Accountable for ensuring the optimal health and performance of all our services, ensuring a superior user experience.',
+        'Oversee the development lifecycle and maintenance of multiple machine learning services specializing in natural language processing (NLP) tasks such as speech-to-text transcription, text redaction, and text summarization. All services are containerized and deployed on multiple Kubernetes cluster, with infrastructure-as-code configurations managed by Tanka and ArgoCD for continuous delivery. The codebase comprises both Python and C++20 programming languages.',
         'Play a pivotal role in our cost‐reduction initiatives, including the automation of GPU workload scaling for both training and inference.',
         'Maintain regular communication with other departments and stakeholders throughout the organization.',
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
@@ -136,9 +120,9 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2021 - Jul. 2022',
       responsibilities: [
-        'Conducted research on perception algorithms for self‐driving cars, investigating various techniques and algorithms to improve their effectiveness and reliability.',
-        'Led a team in developing UAV landing algorithms that utilized computer vision technology to enable landing on moving platforms.',
-        'Led a successful project utilizing computer vision and deep learning techniques to identify various skin diseases, resulting in the creation of a functional and accurate skin disease identification tool.',
+        'Conducted research on perception algorithms for self-driving cars, investigating various techniques and algorithms such as computer vision, deep learning, and sensor fusion to improve the effectiveness and reliability of object detection, classification, and tracking. Utilized C++, Python, ROS, Gazebo, PCL, OpenCV, and Eigen for implementation.',
+        'Led a team in developing UAV landing algorithms that enabled safe and precise landing on moving platforms through computer vision technology. Implemented object tracking, motion estimation, and control algorithms for autonomous landing using C++, ROS, Gazebo, and OpenCV',
+        'Led a successful project to identify various skin diseases by developing a convolutional neural network model trained on a relative dataset of skin lesion images. Leveraged Python, OpenCV, and PyTorch.',
       ],
     },
     {
@@ -393,7 +377,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       title: 'Balancio',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
