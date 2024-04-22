@@ -1,11 +1,12 @@
 import mobile from '@/assets/device-phone-mobile.svg';
-import github from '@/assets/github.svg';
 import pin from '@/assets/map-pin.svg';
 
-import envelope from '@/assets/envelope.svg';
-import globe from '@/assets/globe-alt.svg';
-import linkedin from '@/assets/linkedin.svg';
-import scholar from '@/assets/scholar.svg';
+import envelope from '@/assets/envelope.svg?raw';
+import github from '@/assets/github.svg?raw';
+import globe from '@/assets/globe.svg?raw';
+import linkedin from '@/assets/linkedin2.svg?raw';
+import scholar from '@/assets/scholar.svg?raw';
+import x from '@/assets/x.svg?raw';
 
 import asapp from '@/assets/asappinc-logo.jpeg';
 import aws from '@/assets/aws-logo.jpeg';
@@ -35,6 +36,12 @@ export const data = {
     },
     social: [
       {
+        social: 'X',
+        username: 'alvgaona',
+        url: 'https://x.com/alvgaona',
+        icon: x,
+      },
+      {
         name: 'GitHub',
         username: 'alvgaona',
         url: 'https://github.com/alvgaona',
@@ -47,16 +54,16 @@ export const data = {
         icon: linkedin,
       },
       {
-        name: 'Website',
-        username: 'alvgaona.com',
-        url: 'https://alvgaona.com',
-        icon: globe,
-      },
-      {
         name: 'Google Scholar',
         username: 'alvgaona',
         url: 'https://scholar.google.com/citations?user=unBAfxAAAAAJ&hl=en',
         icon: scholar,
+      },
+      {
+        name: 'Website',
+        username: 'alvgaona.com',
+        url: 'https://alvgaona.com',
+        icon: globe,
       },
     ],
   },
@@ -64,28 +71,13 @@ export const data = {
     {
       break: false,
       title: 'University of Buenos Aires',
-      description: 'Graduate in Electrical Engineering',
+      description: 'Graduate in Electronics Engineering',
       location: 'Buenos Aires, Argentina',
-      span: 'Sep. 2013 - Sep. 2019',
+      span: 'Sep. 2010 - Sep. 2019',
       bullets: [
         '”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”, Graduate Thesis, 2019. University of Buenos Aires. Grade 100/100.',
         'GPA: 3.5/4.0',
       ],
-    },
-    {
-      break: false,
-      title: 'University of Buenos Aires',
-      description: 'Industrial Engineering (Incomplete)',
-      location: 'Buenos Aires, Argentina',
-      span: 'Mar. 2010 - Sep. 2013',
-    },
-    {
-      break: false,
-      title: 'Instituto Social Militar Dr. Dámaso Centeno',
-      description:
-        'Secondary Education with Option in Mathematics and Natural Sciences',
-      location: 'Buenos Aires, Argentina',
-      span: 'Mar. 2003 - Dec. 2009',
     },
   ],
   experience: [
@@ -99,43 +91,42 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
-        'Oversee the development and upkeep of several machine learning services, particularly those related to natural language processing (NLP) tasks like speech‐to‐text, redaction, and summarization.',
-        'Accountable for ensuring the optimal health and performance of all our services, ensuring a superior user experience.',
+        'Oversee the development lifecycle and maintenance of multiple machine learning services specializing in natural language processing (NLP) tasks such as speech-to-text transcription, text redaction, and text summarization. All services are containerized and deployed on multiple Kubernetes cluster, with infrastructure-as-code configurations managed by Tanka and ArgoCD for continuous delivery. The codebase comprises both Python and C++20 programming languages.',
         'Play a pivotal role in our cost‐reduction initiatives, including the automation of GPU workload scaling for both training and inference.',
         'Maintain regular communication with other departments and stakeholders throughout the organization.',
       ],
     },
     {
       break: false,
-      type: 'multi',
+      position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
         logo: udesa,
       },
-      positions: [
-        {
-          position: 'Teaching Assitant',
-          location: 'Buenos Aires, Argentina',
-          date: 'Mar. 2022 - Jul. 2022',
-          responsibilities: [
-            'Lecture undergraduate students in AI engineering on the principles of ”Computational Thinking,” with a focus on practical application using Python.',
-            'Offer comprehensive support to first‐year students throughout their studies, helping them navigate the faculty and achieve their academic goals.',
-          ],
-        },
-        {
-          position: 'Research Engineer',
-          location: 'Buenos Aires, Argentina',
-          date: 'Aug. 2021 - Jul. 2022',
-          responsibilities: [
-            'Conducted research on perception algorithms for self‐driving cars, investigating various techniques and algorithms to improve their effectiveness and reliability.',
-            'Led a team in developing UAV landing algorithms that utilized computer vision technology to enable landing on moving platforms.',
-            'Led a successful project utilizing computer vision and deep learning techniques to identify various skin diseases, resulting in the creation of a functional and accurate skin disease identification tool.',
-          ],
-        },
+      location: 'Buenos Aires, Argentina',
+      date: 'Mar. 2022 - Jul. 2022',
+      responsibilities: [
+        'Lecture undergraduate students in AI engineering on the principles of ”Computational Thinking,” with a focus on practical application using Python.',
+        'Offer comprehensive support to first‐year students throughout their studies, helping them navigate the faculty and achieve their academic goals.',
       ],
     },
     {
-      break: true,
+      break: false,
+      position: 'Research Engineer',
+      company: {
+        name: "Universidad de 'San Andrés'",
+        logo: udesa,
+      },
+      location: 'Buenos Aires, Argentina',
+      date: 'Aug. 2021 - Jul. 2022',
+      responsibilities: [
+        'Conducted research on perception algorithms for self-driving cars, investigating various techniques and algorithms such as computer vision, deep learning, and sensor fusion to improve the effectiveness and reliability of object detection, classification, and tracking. Utilized C++, Python, ROS, Gazebo, PCL, OpenCV, and Eigen for implementation.',
+        'Led a team in developing UAV landing algorithms that enabled safe and precise landing on moving platforms through computer vision technology. Implemented object tracking, motion estimation, and control algorithms for autonomous landing using C++, ROS, Gazebo, and OpenCV',
+        'Led a successful project to identify various skin diseases by developing a convolutional neural network model trained on a relative dataset of skin lesion images. Leveraged Python, OpenCV, and PyTorch.',
+      ],
+    },
+    {
+      break: false,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -172,7 +163,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Electronics Technician',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
@@ -288,7 +279,7 @@ export const data = {
       ],
     },
     {
-      category: 'Other Skills',
+      category: 'Other',
       badges: [
         'Teamwork',
         'Ownership',
@@ -386,6 +377,7 @@ export const data = {
       ],
     },
     {
+      break: false,
       title: 'Balancio',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
