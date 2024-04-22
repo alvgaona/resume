@@ -11,7 +11,7 @@ import { Dot } from 'lucide-react';
   class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96"
 >
   <div class="mb-6 flex items-center gap-8">
-    <MyAvatar client:load className="h-24 w-24 shadow-2xl" />
+    <MyAvatar client:load className="h-24 w-24" />
     <div class="flex flex-col">
       <span class="font-medium"> {data.name}</span>
       <span class="text-[11px] font-thin uppercase">{data.location.value}</span>
@@ -77,30 +77,27 @@ import { Dot } from 'lucide-react';
   </section>
   <section class="page-break flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-      >Projects</span
+      >Skills</span
     >
     <Separator />
-    <div
-      class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2"
-    >
+    <ul class="flex flex-col gap-4">
       {
-        data.projects.map((p) => {
-          return (
-            <ProjectCard
-              client:load
-              title={p.title}
-              institution={p.company}
-              location={p.location}
-              date={p.span}
-              description={p.description}
-              keywords={p.tags}
-              details={p.details}
-              pageBreak={p.break}
-            />
-          );
-        })
+        data.skills.map((item) => (
+          <li class="flex flex-col gap-2 pr-14">
+            <span class="text-xs uppercase text-black/60 dark:text-white/60">
+              {item.category}
+            </span>
+            <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
+              {item.badges.map((badge) => (
+                <Badge className="bg-zinc-700 hover:bg-zinc-700 text-white select-none">
+                  {badge}
+                </Badge>
+              ))}
+            </div>
+          </li>
+        ))
       }
-    </div>
+    </ul>
   </section>
   <section class="flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
@@ -141,7 +138,7 @@ import { Dot } from 'lucide-react';
       {data.publications?.map((p) => <li>{p.title}</li>)}
     </ul>
   </section>
-  <section class="flex flex-col gap-2">
+  <section class="page-break flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
       >Languages</span
     >
@@ -161,27 +158,30 @@ import { Dot } from 'lucide-react';
   </section>
   <section class="flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-      >Interests</span
+      >Projects</span
     >
     <Separator />
-    <ul class="flex flex-col gap-4">
+    <div
+      class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2"
+    >
       {
-        data.skills.map((item) => (
-          <li class="flex flex-col gap-2 pr-14">
-            <span class="text-xs uppercase text-black/60 dark:text-white/60">
-              {item.category}
-            </span>
-            <div class="flex flex-wrap gap-1 text-center text-sm text-slate-200">
-              {item.badges.map((badge) => (
-                <Badge className="bg-zinc-700 hover:bg-zinc-700 text-white select-none">
-                  {badge}
-                </Badge>
-              ))}
-            </div>
-          </li>
-        ))
+        data.projects.map((p) => {
+          return (
+            <ProjectCard
+              client:load
+              title={p.title}
+              institution={p.company}
+              location={p.location}
+              date={p.span}
+              description={p.description}
+              keywords={p.tags}
+              details={p.details}
+              pageBreak={p.break}
+            />
+          );
+        })
       }
-    </ul>
+    </div>
   </section>
   <section class="page-break flex flex-col gap-2">
     <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
@@ -199,7 +199,7 @@ import { Dot } from 'lucide-react';
                   <Dot color="#20f339" className="-ml-1 inline-block" />
                 </span>
               </div>
-              <div class="flex gap-1 text-black/60 dark:text-white/60">
+              <div class="flex gap-1 text-xs text-black/60 dark:text-white/60">
                 <span>{c.company}</span>
                 &bullet;
                 <span>Issued {c.issued}</span>

@@ -9,14 +9,11 @@ import scholar from '@/assets/scholar.svg?raw';
 import x from '@/assets/x.svg?raw';
 
 import asapp from '@/assets/asappinc-logo.jpeg';
-import aws from '@/assets/aws-logo.jpeg';
 import damaso from '@/assets/damaso.png';
-import dlai from '@/assets/dlai-logo.jpeg';
 import pytorch from '@/assets/pytorch-logo.jpeg';
 import roche from '@/assets/roche-logo.jpeg';
 import smn from '@/assets/smn-logo.jpeg';
 import telecom from '@/assets/telecom-argentina-logo.jpeg';
-import udacity from '@/assets/udacity-logo.jpeg';
 import udesa from '@/assets/udesa-logo.jpeg';
 
 export const data = {
@@ -91,9 +88,13 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
-        'Oversee the development lifecycle and maintenance of multiple machine learning services specializing in natural language processing (NLP) tasks such as speech-to-text transcription, text redaction, and text summarization. All services are containerized and deployed on multiple Kubernetes cluster, with infrastructure-as-code configurations managed by Tanka and ArgoCD for continuous delivery. The codebase comprises both Python and C++20 programming languages.',
-        'Play a pivotal role in our cost‐reduction initiatives, including the automation of GPU workload scaling for both training and inference.',
-        'Maintain regular communication with other departments and stakeholders throughout the organization.',
+        'Participated in the development lifecycle and maintenance of multiple machine learning services specializing in natural language processing (NLP) tasks, including speech-to-text transcription, text redaction, and text summarization. Containerized services deployed on Kubernetes clusters, with infrastructure-as-code managed by Tanka and ArgoCD for continuous delivery.',
+        'Designed, architected, and maintained a mission-critical real-time Automatic Speech Recognition (ASR) service, developed in C++14, enabling seamless speech-to-text conversion.',
+        'Developed and enhanced a critical company-wide redaction service, written in Python >3.10, responsible for applying redaction to chat conversations and ASR-generated transcripts, ensuring data privacy and compliance.',
+        'Pioneered the integration of large language models (LLMs) into the redaction service, significantly improving accuracy while adhering to stringent service-level agreements (SLAs) and objectives (SLOs).',
+        "Led the strategic implementation of NVIDIA's Triton Inference Server across the organization, optimizing machine learning inference performance and scalability.",
+        'Played a pivotal role in cost-reduction initiatives, automating GPU workload scaling for both training and inference, driving operational efficiency.',
+        'Maintained regular communication and collaboration with cross-functional teams and stakeholders, fostering seamless integration and alignment across the organization.',
       ],
     },
     {
@@ -202,20 +203,76 @@ export const data = {
     },
   ],
   skills: [
+    // {
+    //   category: 'Autonomous Systems',
+    //   badges: [
+    //     'Mobile Robotics',
+    //     'Kinematics',
+    //     'Vehicle Dynamics',
+    //     'Sensor Fusion',
+    //     'SLAM',
+    //     'Navigation',
+    //     'ROS/ROS2',
+    //     'NVIDIA Isaac Sim',
+    //     'Unity',
+    //     'PX4',
+    //     'Mavlink',
+    //   ],
+    // },
     {
-      category: 'Autonomous Systems',
+      category: 'Programming Languages',
       badges: [
-        'Mobile Robotics',
-        'Kinematics',
-        'Vehicle Dynamics',
-        'Sensor Fusion',
-        'SLAM',
-        'Navigation',
-        'ROS/ROS2',
-        'NVIDIA Isaac Sim',
-        'Unity',
-        'PX4',
-        'Mavlink',
+        'C/C++',
+        'Rust',
+        'Python',
+        'TypeScript',
+        'Java',
+        'Go',
+        'Julia',
+        'MATLAB/Simulink',
+      ],
+    },
+    {
+      category: 'Libraries & Tooling',
+      badges: [
+        'OpenCV',
+        'PCL',
+        'Boost',
+        'STL',
+        'Eigen',
+        'CMake',
+        'Bazel',
+        'PyTorch',
+        'Tensorflow',
+        'Gstreamer',
+        'Terraform',
+        'Packer',
+        'React',
+        'NextJS',
+        'Astro',
+      ],
+    },
+    {
+      category: 'Software Engineering',
+      badges: [
+        'Linux',
+        'Git',
+        'Docker',
+        'Kafka',
+        'DynamoDB',
+        'MongoDB',
+        'PostgreSQL',
+        'Data Dog',
+        'Grafana',
+        'Amazon Web Services',
+        'Google Cloud Platform',
+        'Azure',
+        'Kubernetes',
+        'OOP',
+        'Design Patterns',
+        'Agile',
+        'Estimation',
+        'Planning',
       ],
     },
     {
@@ -224,6 +281,8 @@ export const data = {
         'Supervised Learning',
         'Unsupervised Learning',
         'Reinforcement Learning',
+        'NLP',
+        'Computer Vision',
       ],
     },
     {
@@ -233,49 +292,12 @@ export const data = {
         'Calculus',
         'Linear Systems',
         'Nonlinear Systems',
+        'Convex Optimization',
+        'Numerical Methods',
+        'Signal Processing',
         'Classic Control',
         'Modern Control',
         'Optimal Control',
-      ],
-    },
-    {
-      category: 'Programming Languages',
-      badges: [
-        'C/C++',
-        'C#',
-        'Python',
-        'Java',
-        'TypeScript',
-        'Go',
-        'MATLAB/Simulink',
-      ],
-    },
-    {
-      category: 'Libraries & Frameworks',
-      badges: [
-        'OpenCV',
-        'PCL',
-        'Eigen',
-        'PyTorch',
-        'Tensorflow',
-        'Gstreamer',
-        'React',
-        'NextJS',
-        'Astro',
-      ],
-    },
-    {
-      category: 'Software Engineering',
-      badges: [
-        'AWS',
-        'Google Cloud Platform',
-        'Azure',
-        'Kubernetes',
-        'Agile',
-        'OOP',
-        'Design Patterns',
-        'Estimation',
-        'Planning',
       ],
     },
     {
@@ -446,51 +468,50 @@ export const data = {
   ],
   certifications: [
     {
+      name: 'Autonomous Mobile Robots',
+      company: 'ETHx',
+      issued: 'Apr. 2024',
+      url: 'https://courses.edx.org/certificates/78efdad8566d44f19247b6b4d9a9ca87',
+    },
+    {
       name: 'Machine Learning Specialization',
       company: 'DeepLearning.AI',
-      logo: dlai,
       issued: 'Dec. 2022',
       url: 'https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/ML-Specialization.pdf',
     },
     {
       name: 'Deep Reinforcement Learning',
       company: 'Udacity',
-      logo: udacity,
       issued: 'Jan. 2022',
       url: 'https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/DRLN-Certificate.pdf',
     },
     {
       name: 'AWS Solutions Architect Associate',
       company: 'Amazon Web Services (AWS)',
-      logo: aws,
       issued: 'Jul. 2020',
       url: 'https://www.youracclaim.com/badges/f436421c-4003-4414-ab0c-fb048eb6b76d?source=linked_in_profile',
     },
     {
       name: 'Robotics Software Engineer Nanodegree',
       company: 'Udacity',
-      logo: udacity,
       issued: 'Jun. 2020',
       url: 'https://graduation.udacity.com/confirm/TJ7WMENN',
     },
     {
       name: 'Deep Learning Nanodegree',
       company: 'Udacity',
-      logo: udacity,
       issued: 'May. 2020',
       url: 'https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/DLND-Certificate.pdf',
     },
     {
       name: 'Sensor Fusion Nanodegree',
       company: 'Udacity',
-      logo: udacity,
       issued: 'Feb. 2020',
       url: 'https://graduation.udacity.com/confirm/FRQGRNDP',
     },
     {
       name: 'C++ Nanodegree',
       company: 'Udacity',
-      logo: udacity,
       issued: 'Jan. 2020',
       url: 'https://pub-f074cead5eaf408790b463b05f6e8b32.r2.dev/CppND-Certificate.pdf',
     },
