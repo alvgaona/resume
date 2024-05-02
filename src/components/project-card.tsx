@@ -57,8 +57,11 @@ const ProjectCard = ({
           <p className="text-wrap text-xs leading-normal">{description}</p>
         </CardContent>
         <CardFooter className="flex flex-wrap gap-1 p-0">
-          {keywords.map((keyword: string) => (
-            <Badge className="select-none bg-zinc-700 text-xs text-white hover:bg-zinc-700">
+          {keywords.map((keyword: string, index: number) => (
+            <Badge
+              key={index}
+              className="select-none bg-zinc-700 text-xs text-white hover:bg-zinc-700"
+            >
               {keyword}
             </Badge>
           ))}

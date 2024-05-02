@@ -41,7 +41,7 @@ const MultiExp = ({ jobs, company, border, pageBreak }: Props) => {
               const { years, months } = calculateYearsMonths(start, end);
 
               return (
-                <li className="relative mt-2 flex flex-col text-sm">
+                <li key={i} className="relative mt-2 flex flex-col text-sm">
                   <span className="absolute left-[calc(-2.2rem-6.5px/2)] top-3 block h-2 w-2 rounded-lg bg-gray-400"></span>
                   <div
                     className={`before:absolute before:left-[calc(-2.2rem-1px/2)] before:top-[calc(calc(1.2rem+.8rem)+.1rem)] before:h-[calc(100%-(1.8rem))] before:w-[2px] before:bg-gray-300 before:content-[''] ${
