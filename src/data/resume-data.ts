@@ -88,17 +88,13 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
-        'Participated in the development lifecycle and maintenance of multiple machine learning services specializing in natural language processing (NLP) tasks, including speech-to-text transcription, text redaction, and text summarization. Containerized services deployed on Kubernetes clusters, with infrastructure-as-code managed by Tanka and ArgoCD for continuous delivery.',
         'Designed, architected, and maintained a mission-critical real-time Automatic Speech Recognition (ASR) service, developed in C++14, enabling seamless speech-to-text conversion.',
-        'Developed and enhanced a critical company-wide redaction service, written in Python >3.10, responsible for applying redaction to chat conversations and ASR-generated transcripts, ensuring data privacy and compliance.',
-        'Pioneered the integration of large language models (LLMs) into the redaction service, significantly improving accuracy while adhering to stringent service-level agreements (SLAs) and objectives (SLOs).',
+        'Integrated Large Language Models (LLMs) into the redaction service, significantly improving accuracy while adhering to service-level agreements (SLAs) and objectives (SLOs).',
         "Led the strategic implementation of NVIDIA's Triton Inference Server across the organization, optimizing machine learning inference performance and scalability.",
-        'Played a pivotal role in cost-reduction initiatives, automating GPU workload scaling for both training and inference, driving operational efficiency.',
-        'Maintained regular communication and collaboration with cross-functional teams and stakeholders, fostering seamless integration and alignment across the organization.',
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
@@ -121,9 +117,9 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2021 - Jul. 2022',
       responsibilities: [
-        'Conducted research on perception algorithms for self-driving cars, investigating various techniques and algorithms such as computer vision, deep learning, and sensor fusion to improve the effectiveness and reliability of object detection, classification, and tracking. Utilized C++, Python, ROS, Gazebo, PCL, OpenCV, and Eigen for implementation.',
-        'Led a team in developing UAV landing algorithms that enabled safe and precise landing on moving platforms through computer vision technology. Implemented object tracking, motion estimation, and control algorithms for autonomous landing using C++, ROS, Gazebo, and OpenCV',
-        'Led a successful project to identify various skin diseases by developing a convolutional neural network model trained on a relative dataset of skin lesion images. Leveraged Python, OpenCV, and PyTorch.',
+        'Led the UAV landing landing project and developed algorithms that enabled safe and precise landing on platforms through computer vision techinques. Implemented object tracking, motion estimation, and control algorithms for autonomous landing using C++, ROS, Gazebo, and OpenCV',
+        'Designed and facilitated a deep learning workshop tailored for high school students, introducing them to foundational concepts and fostering an early interest in this cutting-edge field.',
+        'Involved in a self-driving car project aiming to achieve autonomous driving in Argentina.',
       ],
     },
     {
@@ -136,12 +132,11 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2019 - Jul. 2022',
       responsibilities: [
-        'Successfully migrated a core 500 GB database from Oracle to PostgreSQL, ensuring minimal disruption to business operations.',
-        'Designed and implemented high-end, robust, and fault-tolerant software responsible for designing NGS panels and conducting cancer analyses on the cloud using frameworks such as Spring Boot.',
-        'Redesigned the pricing calculator service, which could now recommend the most suitable materials to be used with NGS panels, resulting in more accurate and efficient cost estimation.',
+        'Successfully migrated a core database from Oracle to PostgreSQL, ensuring minimal disruption to business operations.',
+        'Designed and implemented high-end, robust, and fault-tolerant software responsible for designing NGS panels and conducting cancer analyses on the cloud using frameworks such as Spring.',
+        'Redesigned the pricing service, which could now recommend the most suitable materials to be used with NGS panels, resulting in more accurate and efficient cost estimation.',
         'Led the initiative to develop a tool capable of testing bioinformatic pipeline integration on the cloud, significantly reducing the risk of erroneous cancer analyses and improving overall data quality.',
         'Optimized testing suites run-time from days to minutes, allowing for faster and more efficient testing of software components.',
-        'Provisioned cloud infrastructure on various AWS services such as EC2, S3, Batch, VPC, ECR, Route53, ECR, and ECS, utilizing tools such as Ansible, Packer, and Terraform for configuration management and infrastructure as code.',
         'Built fully automated CI/CD pipelines on Jenkins for both instance-base and containerized applications, enabling efficient deployment of software updates.',
         'Participated in the technical hiring process of the team, contributing to the recruitment and selection of highly skilled professionals.',
       ],
@@ -157,10 +152,9 @@ export const data = {
       date: 'Dec. 2015 - Feb. 2019',
       responsibilities: [
         'Played a key role in developing an SDN controller responsible for provisioning various services (Internet, L3VPN, L2VPN, VPLS) in the backbone for over 1000 customers.',
-        'Designed and developed a custom IPAM(IP Address Manager) application for internal use, enabling the engineering team to effectively allocate both public and private IPv4/ IPv6 addresses for customers.',
+        'Designed and developed a custom IP Address Manager application for internal use, enabling the engineering team to effectively allocate both public and private IPv4/IPv6 addresses for customers.',
         "Led the design and implementation of the SDN controller's front end using JavaScript ES6, React, and Redux, resulting in a user-friendly and efficient interface for managing network services.",
-        'Designed cloud- native applications using a microservices architecture, both on-premises and in the cloud, enabling efficient and scalable deployment of applications.',
-        'Managed the configuration and environment for workloads across public and private clouds, including AWS and VMware vSphere / NSX - V, ensuring high availability and optimal performance.',
+        'Managed the configuration and environment for workloads across public and private clouds, including AWS and VMware vSphere / NSX-V, ensuring high availability and optimal performance.',
       ],
     },
     {
@@ -301,7 +295,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       category: 'Other',
       badges: [
         'Teamwork',
@@ -366,7 +360,15 @@ export const data = {
       span: 'Aug. 2021 - Aug. 2022',
       description:
         'Algorithm for precise multirotor aircraft landings, addressing challenges like engine failure.',
-      tags: ['C++', 'PX4', 'NVIDIA® Jetson', 'QGroundControl', 'Mavlink'],
+      tags: [
+        'C++',
+        'PX4',
+        'NVIDIA® Jetson',
+        'QGroundControl',
+        'Mavlink',
+        'ROS',
+        'Gazebo',
+      ],
       details: [
         'Led the conceptualization and creation of a sophisticated algorithm tailored for the precise landing of a multirotoraircraft, demonstrating an exceptional aptitude for problem‐solving and technical innovation.',
         'Designed and developed the algorithm to operate seamlessly even in scenarios involving engine failure, showcasing a keen understanding of critical flight dynamics and safety protocols.',
@@ -400,7 +402,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       title: 'Balancio',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
@@ -412,7 +414,7 @@ export const data = {
         'PyTorch',
         'Python',
         'Electronics',
-        'MPC',
+        // 'MPC',
         'PID',
         'Deep Learning',
       ],
