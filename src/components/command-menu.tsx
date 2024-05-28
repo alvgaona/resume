@@ -6,11 +6,11 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/components/ui/command';
-import { CommandIcon, FileCheck, Globe } from 'lucide-react';
-import { Button } from './ui/button';
+} from "@/components/ui/command";
+import { CommandIcon, FileCheck, Globe } from "lucide-react";
+import { Button } from "./ui/button";
 
-import * as React from 'react';
+import * as React from "react";
 
 interface Props {
   links: { url: string; title: string }[];
@@ -21,23 +21,23 @@ const CommandMenu = ({ links }: Props) => {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
       }
     };
 
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   return (
     <>
       <p className="fixed bottom-0 left-0 right-0 hidden border-t border-t-muted bg-secondary p-1 text-center text-sm text-muted-foreground dark:text-white xl:block print:hidden">
-        Press{' '}
+        Press{" "}
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-lg">⌘</span>K
-        </kbd>{' '}
+        </kbd>{" "}
         to open the command menu
       </p>
       <Button
@@ -56,10 +56,10 @@ const CommandMenu = ({ links }: Props) => {
             <CommandItem
               onSelect={async () => {
                 setOpen(false);
-                document.firstElementChild?.classList.remove('dark');
+                document.firstElementChild?.classList.remove("dark");
                 await new Promise((r) => setTimeout(r, 500)); // needed so the state change has time to get applied
                 window.print();
-                document.firstElementChild?.classList.add('dark');
+                document.firstElementChild?.classList.add("dark");
               }}
             >
               <span className="flex items-center gap-1">
@@ -73,7 +73,7 @@ const CommandMenu = ({ links }: Props) => {
                 key={url}
                 onSelect={() => {
                   setOpen(false);
-                  window.open(url, '_blank');
+                  window.open(url, "_blank");
                 }}
               >
                 <span className="flex items-center gap-1">

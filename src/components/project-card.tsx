@@ -1,12 +1,12 @@
-import { Dot } from 'lucide-react';
-import { Badge } from './ui/badge';
+import { Dot } from "lucide-react";
+import { Badge } from "./ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
+} from "./ui/card";
 
 import {
   Dialog,
@@ -14,7 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from "@/components/ui/dialog";
 
 interface Props {
   title: string;
@@ -39,7 +39,7 @@ const ProjectCard = ({
   return (
     <Dialog>
       <Card
-        className={`bg-dark flex flex-col gap-2 p-2 text-primary dark:border-white/60 print:shadow-none ${pageBreak ? 'page-break' : ''}`}
+        className={`bg-dark flex flex-col gap-2 p-2 text-primary dark:border-white/60 print:shadow-none ${pageBreak ? "page-break" : ""}`}
       >
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">

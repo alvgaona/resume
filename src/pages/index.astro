@@ -1,13 +1,13 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import CommandMenu from '@/components/command-menu';
-import Clay from '@/components/themes/clay.astro';
+import Layout from "@/layouts/Layout.astro";
+import CommandMenu from "@/components/command-menu";
+import Clay from "@/components/themes/clay.astro";
 ---
 
 <Layout>
   <Clay />
   <CommandMenu
     client:visible
-    links={[{ url: 'https://alvgaona.com', title: 'Website' }]}
+    links={[{ url: "https://alvgaona.com", title: "Website" }]}
   />
 </Layout>
