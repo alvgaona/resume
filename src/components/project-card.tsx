@@ -1,12 +1,12 @@
-import { Dot } from "lucide-react";
-import { Badge } from "./ui/badge";
+import { Dot } from 'lucide-react';
+import { Badge } from './ui/badge';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from './ui/card';
 
 import {
   Dialog,
@@ -14,7 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from '@/components/ui/dialog';
 
 interface Props {
   title: string;
