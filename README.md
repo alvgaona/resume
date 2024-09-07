@@ -1,4 +1,4 @@
-# Alvaro's Resume
+# Resume
 
 [https://resume.alvgaona.com/](https://resume.alvgaona.com/)
 
