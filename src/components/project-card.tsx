@@ -44,7 +44,7 @@ const ProjectCard = ({
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">
             <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
-              {title} <Dot color="#20f339" className="-ml-1" />
+              {title} <Dot color="#FFC799" className="-ml-1" />
             </DialogTrigger>
           </CardTitle>
           <div className="flex flex-col justify-center text-xs text-black/60 dark:text-white/60">

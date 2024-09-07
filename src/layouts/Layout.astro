@@ -1,47 +1,76 @@
 ---
 import '@/styles/globals.css';
+import siteMeta from '@/site-meta';
+import { Grain } from '@/components/grain';
 
-const metadata = {
-  title: 'Resume | Alvaro Gaona',
-  description: 'Online Resume',
-  author: '@alvgaona',
-  url: 'https://resume.alvgaona.com',
-};
+const { meta } = Astro.props;
+
+const siteTitle = `${meta.title} • ${siteMeta.title}`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImageUrl = new URL(
+  meta?.ogImage ? meta.ogImage : '/social-card.jpg',
+  Astro.url,
+).href;
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={metadata.description} />
+    <meta charset="utf-8" />
+    <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width" />
-    <meta property="og:title" content={metadata.title} />
-    <meta property="og:description" content={metadata.description} />
-    <meta property="og:url" content={metadata.url} />
-    <meta property="og:type" content="website" />
-    <meta property="twitter:card" content="summary" />
-    <meta property="twitter:title" content={metadata.title} />
-    <meta property="twitter:description" content={metadata.description} />
-    <meta property="twitter:creator" content={metadata.author} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph / Facebook -->
+    <meta
+      property="og:type"
+      content={meta?.articleDate ? 'article' : 'website'}
+    />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteMeta.title} />
+    <meta property="og:locale" content={siteMeta.ogLocale} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={meta.title} />
+    <meta property="twitter:description" content={meta.description} />
+    <meta property="twitter:image" content={socialImageUrl} />
+
+    <title>{siteTitle}</title>
+
+    <!-- RSS auto-discovery -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={siteMeta.title}
+      href="/rss.xml"
+    />
+
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>{metadata.title}</title>
   </head>
   <body>
+    <Grain />
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
-    --system-ui: 'SFProText', system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
-      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --commit-mono: 'CommitMono';
+    --sf-pro: 'SFProText';
   }
 
   html,
   body {
-    font-family: var(--system-ui);
+    font-family: var(--commit-mono);
   }
 
   @page {
