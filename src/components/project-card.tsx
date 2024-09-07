@@ -39,12 +39,12 @@ const ProjectCard = ({
   return (
     <Dialog>
       <Card
-        className={`bg-dark flex flex-col gap-2 p-2 text-primary dark:border-white/60 print:shadow-none ${pageBreak ? 'page-break' : ''}`}
+        className={`bg-dark flex flex-col gap-2 p-2 dark:border-white/60 print:shadow-none ${pageBreak ? 'page-break' : ''}`}
       >
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-md">
             <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
-              {title} <Dot color="#FFC799" className="-ml-1" />
+              {title} <Dot color="#ffc799" className="-ml-1" />
             </DialogTrigger>
           </CardTitle>
           <div className="flex flex-col justify-center text-xs text-black/60 dark:text-white/60">
