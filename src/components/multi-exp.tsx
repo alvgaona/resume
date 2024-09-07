@@ -1,5 +1,5 @@
-import { calculateYearsMonths } from "@/lib/utils";
-import { Dot } from "lucide-react";
+import { calculateYearsMonths } from '@/lib/utils';
+import { Dot } from 'lucide-react';
 
 interface Job {
   position: string;
@@ -23,8 +23,8 @@ const MultiExp = ({ jobs, company, border, pageBreak }: Props) => {
   return (
     <li
       className={`flex flex-col gap-2 ${
-        border && "border-b border-b-gray-300"
-      } pb-3 pt-3 print:border-0 ${pageBreak && "page-break"}`}
+        border && 'border-b border-b-gray-300'
+      } pb-3 pt-3 print:border-0 ${pageBreak && 'page-break'}`}
     >
       <div className="flex gap-2">
         <div>
@@ -37,7 +37,7 @@ const MultiExp = ({ jobs, company, border, pageBreak }: Props) => {
             {jobs.map((j, i) => {
               const isLast = i + 1 == jobs.length;
 
-              const [start, end] = j.date.split(" - ");
+              const [start, end] = j.date.split(' - ');
               const { years, months } = calculateYearsMonths(start, end);
 
               return (
@@ -45,7 +45,7 @@ const MultiExp = ({ jobs, company, border, pageBreak }: Props) => {
                   <span className="absolute left-[calc(-2.2rem-6.5px/2)] top-3 block h-2 w-2 rounded-lg bg-gray-400"></span>
                   <div
                     className={`before:absolute before:left-[calc(-2.2rem-1px/2)] before:top-[calc(calc(1.2rem+.8rem)+.1rem)] before:h-[calc(100%-(1.8rem))] before:w-[2px] before:bg-gray-300 before:content-[''] ${
-                      isLast ? "before:hidden" : ""
+                      isLast ? 'before:hidden' : ''
                     }`}
                   >
                     <p className="text-lg font-semibold">{j.position}</p>

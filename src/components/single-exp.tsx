@@ -1,5 +1,5 @@
-import { calculateYearsMonths } from "@/lib/utils";
-import { Dot } from "lucide-react";
+import { calculateYearsMonths } from '@/lib/utils';
+import { Dot } from 'lucide-react';
 
 const SingleExp = ({
   position,
@@ -20,14 +20,14 @@ const SingleExp = ({
   border: boolean;
   pageBreak: boolean;
 }) => {
-  const [start, end] = date.split(" - ");
+  const [start, end] = date.split(' - ');
   const { years, months } = calculateYearsMonths(start, end);
 
   return (
     <li
       className={`flex flex-col gap-2 ${
-        border && "border-b border-b-gray-300"
-      } pb-3 print:border-0 print:pb-1 ${pageBreak && "page-break"}`}
+        border && 'border-b border-b-gray-300'
+      } pb-3 print:border-0 print:pb-1 ${pageBreak && 'page-break'}`}
     >
       <div className="flex gap-2 pt-3">
         <div>
