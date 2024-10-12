@@ -1,11 +1,5 @@
-'use client';
-
 import { useEffect, useRef } from 'react';
 
-/*
-Thanks to Igor Bedesqui for open-sourcing his site, the grain effect is so cool.
-https://github.com/bdsqqq/igorbedesqui.com/blob/main/app/Grain.tsx
-*/
 export const Grain = () => {
   const grainRef = useRef<HTMLDivElement>(null);
 

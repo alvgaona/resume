@@ -89,11 +89,12 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
-        'Engineered, architected, and sustained a mission-critical real-time Automatic Speech Recognition (ASR) service, developed in C++14, facilitating seamless speech-to-text conversion',
-        "Embedded Large Language Models (LLMs) within the company's redaction service, substantially enhancing accuracy while adhering to service-level agreements (SLAs) and objectives (SLOs)",
-        "Led the strategic implementation of NVIDIA's Triton Inference Server across multiple AWS accounts and Kubernetes clusters, optimizing machine learning inference performance and scalability",
-        'Compiled models utilizing the Torch Compiler, leveraging diverse backends such as TensorRT and ONNX, ultimately serving these models via Triton.',
-        "Ensured visibility and rapid response upon unanticipated service failures, by designing, implementing, and sustaining monitoring architectures for the company's machine learning services.",
+        'Led critical PCI/PII data redaction service for entire company, developed in Python/Go.',
+        'Engineered and maintained a real-time Automatic Speech Recognition (ASR) service in C++14.',
+        'Integrated Large Language Models (LLMs) into redaction service, improving accuracy while meeting SLAs.',
+        "Implemented NVIDIA's Triton Inference Server across AWS accounts and Kubernetes clusters for optimized ML inference.",
+        'Compiled and served models using Torch Compiler with TensorRT and ONNX backends via Triton.',
+        'Designed and implemented monitoring systems for ML services to ensure reliability and quick issue resolution.',
       ],
     },
     {
@@ -126,7 +127,7 @@ export const data = {
       ],
     },
     {
-      break: false,
+      break: true,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -135,13 +136,13 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2019 - Jul. 2022',
       responsibilities: [
-        'Successfully migrated a core database from Oracle to PostgreSQL, ensuring minimal disruption to business operations.',
-        'Designed and implemented high-end, robust, and fault-tolerant software responsible for designing NGS panels and conducting cancer analyses on the cloud using frameworks such as Spring.',
-        'Redesigned the pricing service, which could now recommend the most suitable materials to be used with NGS panels, resulting in more accurate and efficient cost estimation.',
-        'Led the initiative to develop a tool capable of testing bioinformatic pipeline integration on the cloud, significantly reducing the risk of erroneous cancer analyses and improving overall data quality.',
-        'Optimized testing suites run-time from days to minutes, allowing for faster and more efficient testing of software components.',
-        'Built fully automated CI/CD pipelines on Jenkins for both instance-base and containerized applications, enabling efficient deployment of software updates.',
-        'Participated in the technical hiring process of the team, contributing to the recruitment and selection of highly skilled professionals.',
+        'Led core database migration from Oracle to PostgreSQL with minimal business disruption',
+        'Developed fault-tolerant software for NGS panel design and cancer analysis using Spring framework',
+        'Redesigned pricing service to optimize material recommendations for NGS panels',
+        'Created cloud-based tool for testing bioinformatic pipeline integration, enhancing cancer analysis accuracy',
+        'Reduced testing suite run-time from days to minutes, improving software development efficiency',
+        'Implemented automated CI/CD pipelines on Jenkins for various application types',
+        'Contributed to technical hiring process, strengthening team with skilled professionals',
       ],
     },
     {
@@ -260,6 +261,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       category: 'Artificial Intelligence',
       badges: [
         'Supervised Learning',
@@ -363,6 +365,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       title: 'Fault-tolerant Landing',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
@@ -388,6 +391,7 @@ export const data = {
       ],
     },
     {
+      break: true,
       title: 'Air Hockey',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',
@@ -433,6 +437,7 @@ export const data = {
       ],
     },
     {
+      break: false,
       title: 'Monocular Visual SLAM',
       company: "Universidad de 'San Andrés'",
       location: 'Buenos Aires, Argentina',

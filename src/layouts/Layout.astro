@@ -56,7 +56,7 @@ const socialImageUrl = new URL(
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
-    <Grain />
+    <Grain client:load />
     <slot />
   </body>
 </html>
@@ -80,12 +80,12 @@ const socialImageUrl = new URL(
   @media print {
     .page-break {
       page-break-before: always;
+      margin-top: 3rem;
     }
 
     html,
     body {
       font-family: var(--system-ui);
-      padding: 1rem 0.125rem;
     }
   }
 </style>

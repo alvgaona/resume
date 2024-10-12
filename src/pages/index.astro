@@ -11,7 +11,7 @@ import { Dot } from 'lucide-react';
 
 <Layout meta={{ title: 'Resume' }}>
   <main
-    class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96"
+    class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96 print:mx-0"
   >
     <div class="mb-6 flex items-center gap-8">
       <MyAvatar client:load className="h-24 w-24" />
@@ -140,7 +140,7 @@ import { Dot } from 'lucide-react';
       >
       <Separator />
       <ul
-        class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60"
+        class="mt-2 flex list-inside list-disc flex-col gap-4 text-sm text-black/60 dark:text-white/60"
       >
         {data.publications?.map((p) => <li>{p.title}</li>)}
       </ul>

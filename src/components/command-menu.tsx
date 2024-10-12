@@ -56,10 +56,8 @@ const CommandMenu = ({ links }: Props) => {
             <CommandItem
               onSelect={async () => {
                 setOpen(false);
-                document.firstElementChild?.classList.remove('dark');
-                await new Promise((r) => setTimeout(r, 500)); // needed so the state change has time to get applied
+                await new Promise((r) => setTimeout(r, 1000)); // needed so the state change has time to get applied
                 window.print();
-                document.firstElementChild?.classList.add('dark');
               }}
             >
               <span className="flex items-center gap-1">
