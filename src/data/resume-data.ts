@@ -81,7 +81,7 @@ export const data = {
   experience: [
     {
       break: false,
-      position: 'Lead Machine Learning Engineer',
+      position: 'Lead Software Engineer',
       company: {
         name: 'ASAPP',
         logo: asapp,
