@@ -15,4 +15,8 @@ export default defineConfig({
     }),
     react(),
   ],
+  i18n: {
+    locales: ["es", "en", "kr", "jp"],
+    defaultLocale: "en",
+  }
 });

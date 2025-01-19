@@ -33,34 +33,29 @@ export const data = {
     },
     social: [
       {
-        social: 'X',
+        name: 'X',
         username: 'alvgaona',
         url: 'https://x.com/alvgaona',
-        icon: x,
       },
       {
         name: 'GitHub',
         username: 'alvgaona',
         url: 'https://github.com/alvgaona',
-        icon: github,
       },
       {
         name: 'LinkedIn',
         username: 'alvaro-gaona',
         url: 'https://linkedin.com/in/alvaro-gaona',
-        icon: linkedin,
       },
       {
         name: 'Google Scholar',
         username: 'alvgaona',
         url: 'https://scholar.google.com/citations?user=unBAfxAAAAAJ&hl=en',
-        icon: scholar,
       },
       {
         name: 'Website',
         username: 'alvgaona.com',
         url: 'https://alvgaona.com',
-        icon: globe,
       },
     ],
   },

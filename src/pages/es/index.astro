@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import CommandMenu from '@/components/command-menu';
-import { data } from '@/data/en/resume-data';
+import { data } from '@/data/es/resume-data';
 import MyAvatar from '@/components/my-avatar';
 import { Separator } from '@/components/ui/separator';
 import ProjectCard from '@/components/project-card';
@@ -16,7 +16,7 @@ import { Dot } from 'lucide-react';
     <div class="mb-6 flex items-center gap-8">
       <MyAvatar client:load className="h-24 w-24" />
       <div class="flex flex-col">
-        <span class="font-medium"> {data.name}</span>
+        <span class="font-medium">{data.name}</span>
         <span class="text-[11px] font-thin uppercase"
           >{data.location.value}</span
         >
@@ -44,7 +44,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Education</span
+        >Educación</span
       >
       <Separator />
       <ul class="flex flex-col gap-2">
@@ -72,7 +72,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Experience</span
+        >Experiencia</span
       >
       <Separator />
       <ul class="flex flex-col gap-2">
@@ -99,7 +99,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Skills</span
+        >Habilidades</span
       >
       <Separator />
       <ul class="flex flex-col gap-4">
@@ -125,7 +125,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Publications</span
+        >Publicaciones</span
       >
       <Separator />
       <ul
@@ -136,7 +136,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Languages</span
+        >Idiomas</span
       >
       <Separator />
       <ul class="mt-2 flex flex-col gap-1 text-sm">
@@ -152,9 +152,9 @@ import { Dot } from 'lucide-react';
         }
       </ul>
     </section>
-    <section class="flex flex-col gap-2">
+    <section class="page-break flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Projects</span
+        >Proyectos</span
       >
       <Separator />
       <div
@@ -181,7 +181,7 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Certifications</span
+        >Certificaciones</span
       >
       <Separator />
       <ul class="my-2 grid grid-cols-2 text-xs sm:text-sm">
