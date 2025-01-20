@@ -1,30 +1,14 @@
-import mobile from '@/assets/device-phone-mobile.svg';
-import pin from '@/assets/map-pin.svg';
-
-import envelope from '@/assets/envelope.svg?raw';
-
-import asapp from '@/assets/asappinc-logo.jpeg';
-import damaso from '@/assets/damaso.png';
-import pytorch from '@/assets/pytorch-logo.jpeg';
-import roche from '@/assets/roche-logo.jpeg';
-import smn from '@/assets/smn-logo.jpeg';
-import telecom from '@/assets/telecom-argentina-logo.jpeg';
-import udesa from '@/assets/udesa-logo.jpeg';
-
 export const data = {
   name: 'Alvaro Joaquín Gaona',
   location: {
     value: '부에노스 아이레스, 아르헨티나',
-    icon: pin,
   },
   contact: {
     email: {
       address: 'alvgaona@gmail.com',
-      icon: envelope,
     },
     tel: {
       address: '+54 (911) 6797-1081',
-      icon: mobile,
     },
     social: [
       {
@@ -74,7 +58,6 @@ export const data = {
       position: 'Lead Software Engineer',
       company: {
         name: 'ASAPP',
-        logo: asapp,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2022년 8월 - 현재',
@@ -92,7 +75,6 @@ export const data = {
       position: '조교',
       company: {
         name: "산안드레스 대학교",
-        logo: udesa,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2022년 3월 - 2022년 7월',
@@ -106,7 +88,6 @@ export const data = {
       position: '연구 엔지니어',
       company: {
         name: "산안드레스 대학교",
-        logo: udesa,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2021년 8월 - 2022년 7월',
@@ -120,7 +101,6 @@ export const data = {
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
-        logo: roche,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2019년 2월 - 2022년 7월',
@@ -139,7 +119,6 @@ export const data = {
       position: 'Software Engineer',
       company: {
         name: 'Telecom Argentina',
-        logo: telecom,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2015년 12월 - 2019년 2월',
@@ -155,7 +134,6 @@ export const data = {
       position: '전자기술자',
       company: {
         name: '아르헨티나 국립기상청',
-        logo: smn,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2015년 2월 - 2015년 12월',
@@ -169,7 +147,6 @@ export const data = {
       position: '조교',
       company: {
         name: 'Dr. Dámaso Centeno 군사사회연구소',
-        logo: damaso,
       },
       location: '부에노스 아이레스, 아르헨티나',
       date: '2009년 3월 - 2009년 12월',
@@ -183,7 +160,6 @@ export const data = {
       position: '기여자',
       organization: {
         name: 'PyTorch',
-        logo: pytorch,
       },
       date: '2020년 7월 - 현재',
       industry: '과학 기술',

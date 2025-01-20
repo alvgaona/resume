@@ -1,30 +1,14 @@
-import mobile from '@/assets/device-phone-mobile.svg';
-import pin from '@/assets/map-pin.svg';
-
-import envelope from '@/assets/envelope.svg?raw';
-
-import asapp from '@/assets/asappinc-logo.jpeg';
-import damaso from '@/assets/damaso.png';
-import pytorch from '@/assets/pytorch-logo.jpeg';
-import roche from '@/assets/roche-logo.jpeg';
-import smn from '@/assets/smn-logo.jpeg';
-import telecom from '@/assets/telecom-argentina-logo.jpeg';
-import udesa from '@/assets/udesa-logo.jpeg';
-
 export const data = {
   name: 'Alvaro Joaquín Gaona',
   location: {
     value: 'Buenos Aires, Argentina',
-    icon: pin,
   },
   contact: {
     email: {
       address: 'alvgaona@gmail.com',
-      icon: envelope,
     },
     tel: {
       address: '+54 (911) 6797-1081',
-      icon: mobile,
     },
     social: [
       {
@@ -74,7 +58,6 @@ export const data = {
       position: 'Lead Software Engineer',
       company: {
         name: 'ASAPP',
-        logo: asapp,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Ago. 2022 - Presente',
@@ -92,7 +75,6 @@ export const data = {
       position: 'Ayudante de Cátedra',
       company: {
         name: "Universidad de 'San Andrés'",
-        logo: udesa,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Mar. 2022 - Jul. 2022',
@@ -106,7 +88,6 @@ export const data = {
       position: 'Ingeniero de Investigación',
       company: {
         name: "Universidad de 'San Andrés'",
-        logo: udesa,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Ago. 2021 - Jul. 2022',
@@ -120,7 +101,6 @@ export const data = {
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
-        logo: roche,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2019 - Jul. 2022',
@@ -139,7 +119,6 @@ export const data = {
       position: 'Software Engineer',
       company: {
         name: 'Telecom Argentina',
-        logo: telecom,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Dic. 2015 - Feb. 2019',
@@ -155,7 +134,6 @@ export const data = {
       position: 'Técnico Electrónico',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
-        logo: smn,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2015 - Dic. 2015',
@@ -169,7 +147,6 @@ export const data = {
       position: 'Ayudante de Cátedra',
       company: {
         name: 'Instituto Social Militar Dr. Dámaso Centeno',
-        logo: damaso,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Mar. 2009 - Dic. 2009',
@@ -183,7 +160,6 @@ export const data = {
       position: 'Contribuidor',
       organization: {
         name: 'PyTorch',
-        logo: pytorch,
       },
       date: 'Jul. 2020 - Presente',
       industry: 'Ciencia y Tecnología',

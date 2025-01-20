@@ -1,7 +1,3 @@
-import mobile from '@/assets/device-phone-mobile.svg';
-
-import envelope from '@/assets/envelope.svg?raw';
-
 export const data = {
   name: 'Alvaro Joaquín Gaona',
   location: {
@@ -10,11 +6,9 @@ export const data = {
   contact: {
     email: {
       address: 'alvgaona@gmail.com',
-      icon: envelope,
     },
     tel: {
       address: '+54 (911) 6797-1081',
-      icon: mobile,
     },
     social: [
       {
