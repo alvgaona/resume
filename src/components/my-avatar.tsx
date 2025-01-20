@@ -1,8 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import avatar from '@/assets/avatar.jpg';
 
 const MyAvatar = ({ className }: { className: string }) => (
   <Avatar className={className}>
-    <AvatarImage src="https://github.com/alvgaona.png" alt="@shadcn" />
+    <AvatarImage src={avatar.src} alt="@alvgaona" />
     <AvatarFallback>CN</AvatarFallback>
   </Avatar>
 );

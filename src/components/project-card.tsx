@@ -60,7 +60,7 @@ const ProjectCard = ({
           {keywords.map((keyword: string, index: number) => (
             <Badge
               key={index}
-              className="select-none bg-zinc-700 text-xs text-white hover:bg-zinc-700"
+              className="select-none text-xs text-white dark:bg-zinc-900"
             >
               {keyword}
             </Badge>
@@ -72,8 +72,8 @@ const ProjectCard = ({
           <DialogTitle className="w-full">{title}</DialogTitle>
         </DialogHeader>
         <ul className="col-span-3 mt-2 flex list-inside list-disc flex-col gap-1 text-justify text-sm text-black/60 dark:text-white/60">
-          {details.map((v) => (
-            <li>{v}</li>
+          {details.map((v, index) => (
+            <li key={index}>{v}</li>
           ))}
         </ul>
       </DialogContent>

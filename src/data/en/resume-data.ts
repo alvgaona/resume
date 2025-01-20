@@ -1,66 +1,40 @@
-import mobile from '@/assets/device-phone-mobile.svg';
-import pin from '@/assets/map-pin.svg';
-
-import envelope from '@/assets/envelope.svg?raw';
-import github from '@/assets/github.svg?raw';
-import globe from '@/assets/globe.svg?raw';
-import linkedin from '@/assets/linkedin2.svg?raw';
-import scholar from '@/assets/scholar.svg?raw';
-import x from '@/assets/x.svg?raw';
-
-import asapp from '@/assets/asappinc-logo.jpeg';
-import damaso from '@/assets/damaso.png';
-import pytorch from '@/assets/pytorch-logo.jpeg';
-import roche from '@/assets/roche-logo.jpeg';
-import smn from '@/assets/smn-logo.jpeg';
-import telecom from '@/assets/telecom-argentina-logo.jpeg';
-import udesa from '@/assets/udesa-logo.jpeg';
-
 export const data = {
   name: 'Alvaro Joaquín Gaona',
   location: {
     value: 'Buenos Aires, Argentina',
-    icon: pin,
   },
   contact: {
     email: {
       address: 'alvgaona@gmail.com',
-      icon: envelope,
     },
     tel: {
       address: '+54 (911) 6797-1081',
-      icon: mobile,
     },
     social: [
       {
-        social: 'X',
+        name: 'X',
         username: 'alvgaona',
         url: 'https://x.com/alvgaona',
-        icon: x,
       },
       {
         name: 'GitHub',
         username: 'alvgaona',
         url: 'https://github.com/alvgaona',
-        icon: github,
       },
       {
         name: 'LinkedIn',
         username: 'alvaro-gaona',
         url: 'https://linkedin.com/in/alvaro-gaona',
-        icon: linkedin,
       },
       {
         name: 'Google Scholar',
         username: 'alvgaona',
         url: 'https://scholar.google.com/citations?user=unBAfxAAAAAJ&hl=en',
-        icon: scholar,
       },
       {
         name: 'Website',
         username: 'alvgaona.com',
         url: 'https://alvgaona.com',
-        icon: globe,
       },
     ],
   },
@@ -84,7 +58,6 @@ export const data = {
       position: 'Lead Software Engineer',
       company: {
         name: 'ASAPP',
-        logo: asapp,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
@@ -102,7 +75,6 @@ export const data = {
       position: 'Teaching Assistant',
       company: {
         name: "Universidad de 'San Andrés'",
-        logo: udesa,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Mar. 2022 - Jul. 2022',
@@ -116,7 +88,6 @@ export const data = {
       position: 'Research Engineer',
       company: {
         name: "Universidad de 'San Andrés'",
-        logo: udesa,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2021 - Jul. 2022',
@@ -131,7 +102,6 @@ export const data = {
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
-        logo: roche,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2019 - Jul. 2022',
@@ -150,7 +120,6 @@ export const data = {
       position: 'Software Engineer',
       company: {
         name: 'Telecom Argentina',
-        logo: telecom,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Dec. 2015 - Feb. 2019',
@@ -166,7 +135,6 @@ export const data = {
       position: 'Electronics Technician',
       company: {
         name: 'Servicio Meteorológico Nacional Argentino',
-        logo: smn,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Feb. 2015 - Dec. 2015',
@@ -180,7 +148,6 @@ export const data = {
       position: 'Teaching Assistant',
       company: {
         name: 'Instituto Social Militar Dr. Dámaso Centeno',
-        logo: damaso,
       },
       location: 'Buenos Aires, Argentina',
       date: 'Mar. 2009 - Dec. 2009',
@@ -194,7 +161,6 @@ export const data = {
       position: 'Contributor',
       organization: {
         name: 'PyTorch',
-        logo: pytorch,
       },
       date: 'Jul. 2020 - Present',
       industry: 'Science and Technology',
