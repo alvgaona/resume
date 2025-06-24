@@ -62,9 +62,10 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Aug. 2022 - Present',
       responsibilities: [
+        'Transitioned in-house legacy Python framework to FastAPI, enhancing performance, scalability, and development experience.',
         'Led critical PCI/PII data redaction service for entire company, developed in Python/Go.',
         'Engineered and maintained a real-time Automatic Speech Recognition (ASR) service in C++14.',
-        'Integrated Large Language Models (LLMs) into redaction service, improving accuracy while meeting SLAs.',
+        'Integrated external vendor inference services to the redaction system.',
         "Implemented NVIDIA's Triton Inference Server across AWS accounts and Kubernetes clusters for optimized ML inference.",
         'Compiled and served models using Torch Compiler with TensorRT and ONNX backends via Triton.',
         'Designed and implemented monitoring systems for ML services to ensure reliability and quick issue resolution.',
@@ -79,7 +80,7 @@ export const data = {
       location: 'Buenos Aires, Argentina',
       date: 'Mar. 2022 - Jul. 2022',
       responsibilities: [
-        'Lectured undergraduate students in AI engineering on the principles of ”Computational Thinking,” with a focus on practical application using Python.',
+        'Lectured undergraduate students in AI engineering on the principles of ”Computational Thinking” with a focus on practical application using Python.',
         'Offered comprehensive support to first‐year students throughout their studies, helping them navigate the faculty and achieve their academic goals.',
       ],
     },
@@ -198,6 +199,7 @@ export const data = {
         'Amazon Web Services',
         'Google Cloud Platform',
         'Azure',
+        'ArgoCD',
         'Kubernetes',
         'OOP',
         'Design Patterns',
@@ -209,6 +211,7 @@ export const data = {
     {
       category: 'Libraries & Tooling',
       badges: [
+        'FastAPI',
         'OpenCV',
         'PCL',
         'Boost',

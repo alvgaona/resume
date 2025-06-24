@@ -1,5 +1,5 @@
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
   ],
   i18n: {
-    locales: ["es", "en", "kr", "jp"],
+    locales: ["es", "en"],
     defaultLocale: "en",
   }
 });
