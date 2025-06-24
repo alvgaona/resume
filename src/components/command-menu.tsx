@@ -7,7 +7,14 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/ui/command';
-import { CommandIcon, FileCheck, Globe, Languages, Sun, Moon } from 'lucide-react';
+import {
+  CommandIcon,
+  FileCheck,
+  Globe,
+  Languages,
+  Sun,
+  Moon,
+} from 'lucide-react';
 import { Button } from './ui/button';
 
 import * as React from 'react';
@@ -48,13 +55,16 @@ const CommandMenu = ({ links }: Props) => {
         <CommandIcon className="my-6 size-6" />
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput className="bg-background" placeholder="Type a command or search..." />
+        <CommandInput
+          className="bg-background"
+          placeholder="Type a command or search..."
+        />
         <CommandList className="bg-background">
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Languages">
             <CommandItem
               onSelect={async () => {
-                window.location.href = '/'
+                window.location.href = '/';
               }}
             >
               <span className="flex items-center gap-1">
@@ -63,7 +73,7 @@ const CommandMenu = ({ links }: Props) => {
             </CommandItem>
             <CommandItem
               onSelect={async () => {
-                window.location.href = '/es'
+                window.location.href = '/es';
               }}
             >
               <span className="flex items-center gap-1">
@@ -74,7 +84,7 @@ const CommandMenu = ({ links }: Props) => {
           <CommandGroup heading="Actions">
             <CommandItem
               onSelect={async () => {
-                setOpen(false)
+                setOpen(false);
                 document.firstElementChild?.classList.add('dark');
               }}
             >
