@@ -5,7 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-
 export function calculateYearsMonths(start: string, end: string) {
   let endDate;
   if (end == 'Present') {
