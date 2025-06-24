@@ -3,6 +3,8 @@ import '@/styles/globals.css';
 import siteMeta from '@/site-meta';
 import { Grain } from '@/components/grain';
 
+import '@fontsource-variable/inter';
+
 const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
@@ -62,15 +64,15 @@ const socialImageUrl = new URL(
 </html>
 <style is:global>
   :root {
-    --system-ui: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    --system-ui:
+      system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --commit-mono: 'CommitMono';
     --sf-pro: 'SFProText';
   }
 
   html,
   body {
-    font-family: var(--commit-mono);
+    font-family: 'Inter Variable';
   }
 
   @page {
