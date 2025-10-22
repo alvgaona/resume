@@ -1,15 +1,14 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import CommandMenu from '@/components/command-menu';
-import { data } from '@/data/en/resume-data';
-import MyAvatar from '@/components/my-avatar';
-import { Separator } from '@/components/ui/separator';
-import ProjectCard from '@/components/project-card';
-import { Badge } from '@/components/ui/badge';
-import { Dot } from 'lucide-react';
+import Layout from "@/layouts/Layout.astro";
+import CommandMenu from "@/components/command-menu";
+import { data } from "@/data/en/resume-data";
+import MyAvatar from "@/components/my-avatar";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Dot } from "lucide-react";
 ---
 
-<Layout meta={{ title: 'Resume' }}>
+<Layout meta={{ title: "Resume" }}>
   <main
     class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96 print:mx-0"
   >
@@ -44,6 +43,33 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+        >Experience</span
+      >
+      <Separator />
+      <ul class="flex flex-col gap-2">
+        {
+          data.experience.map((i) => {
+            return (
+              <li class={`${i.break ? "break-before-page" : ""}`}>
+                <h1>{i.position}</h1>
+                <div class="flex gap-1">
+                  <span class="text-xs uppercase text-black/60 dark:text-white/60">
+                    {i.company.name} &bullet; {i.date}
+                  </span>
+                </div>
+                <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
+                  {i.responsibilities?.map((r) => (
+                    <li>{r}</li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <section class="flex flex-col gap-2">
+      <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
         >Education</span
       >
       <Separator />
@@ -72,33 +98,6 @@ import { Dot } from 'lucide-react';
     </section>
     <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
-        >Experience</span
-      >
-      <Separator />
-      <ul class="flex flex-col gap-2">
-        {
-          data.experience.map((i) => {
-            return (
-              <li class={`${i.break ? 'page-break' : ''}`}>
-                <h1>{i.position}</h1>
-                <div class="flex gap-1">
-                  <span class="text-xs uppercase text-black/60 dark:text-white/60">
-                    {i.company.name} &bullet; {i.date}
-                  </span>
-                </div>
-                <ul class="mt-2 list-inside list-disc text-sm text-black/60 dark:text-white/60">
-                  {i.responsibilities?.map((r) => (
-                    <li>{r}</li>
-                  ))}
-                </ul>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
-    <section class="flex flex-col gap-2">
-      <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
         >Skills</span
       >
       <Separator />
@@ -106,7 +105,7 @@ import { Dot } from 'lucide-react';
         {
           data.skills.map((item) => (
             <li
-              class={`${item.break ? 'page-break' : ''} flex flex-col gap-2 pr-14`}
+              class={`${item.break ? "break-before-page" : ""} flex flex-col gap-2 pr-14`}
             >
               <span class="text-xs uppercase text-black/60 dark:text-white/60">
                 {item.category}
@@ -152,7 +151,7 @@ import { Dot } from 'lucide-react';
         }
       </ul>
     </section>
-    <section class="flex flex-col gap-2">
+    <!-- <section class="flex flex-col gap-2">
       <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
         >Projects</span
       >
@@ -178,9 +177,10 @@ import { Dot } from 'lucide-react';
           })
         }
       </div>
-    </section>
+    </section> -->
     <section class="flex flex-col gap-2">
-      <span class="text-[11px] uppercase text-black/60 dark:text-white/60"
+      <span
+        class="text-[11px] uppercase text-black/60 dark:text-white/60 page-before-break"
         >Certifications</span
       >
       <Separator />
@@ -191,7 +191,7 @@ import { Dot } from 'lucide-react';
               <li class="mb-2 flex flex-col">
                 <div class="flex items-center text-start">
                   <span class="font-semibold underline-offset-2 hover:underline">
-                    {c.name}{' '}
+                    {c.name}{" "}
                     <Dot color="#ffc799" className="-ml-1 inline-block" />
                   </span>
                 </div>
@@ -209,6 +209,6 @@ import { Dot } from 'lucide-react';
   </main>
   <CommandMenu
     client:visible
-    links={[{ url: 'https://alvgaona.com', title: 'Website' }]}
+    links={[{ url: "https://alvgaona.com", title: "Website" }]}
   />
 </Layout>
