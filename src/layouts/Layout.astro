@@ -2,12 +2,25 @@
 import "@/styles/globals.css";
 import siteMeta from "@/site-meta";
 import { Grain } from "@/components/grain";
+import StructuredData from "@/components/StructuredData.astro";
 
 import "@fontsource-variable/inter";
 
 const { meta } = Astro.props;
 
+// Determine language from URL
+const currentPath = Astro.url.pathname;
+const isSpanish = currentPath.startsWith("/es");
+const lang = isSpanish ? "es" : "en";
+const ogLocale = isSpanish ? "es_ES" : "en_US";
+
+// Generate alternate language paths
+const baseUrl = Astro.site?.toString() || "https://resume.alvgaona.com";
+const enUrl = new URL("/", baseUrl).href;
+const esUrl = new URL("/es", baseUrl).href;
+
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
+const description = meta.description || siteMeta.description;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialImageUrl = new URL(
   meta?.ogImage ? meta.ogImage : "/social-card.jpg",
@@ -16,70 +29,141 @@ const socialImageUrl = new URL(
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content={meta.description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={siteMeta.author} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Alternate language links -->
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta
       property="og:type"
       content={meta?.articleDate ? "article" : "website"}
     />
-    <meta property="og:title" content={meta.title} />
-    <meta property="og:description" content={meta.description} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content={siteMeta.title} />
-    <meta property="og:locale" content={siteMeta.ogLocale} />
-    <meta property="og:description" content={meta.description} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta
+      property="og:locale:alternate"
+      content={isSpanish ? "en_US" : "es_ES"}
+    />
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={`${siteMeta.title} - ${siteMeta.description}`}
+    />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalUrl} />
-    <meta property="twitter:title" content={meta.title} />
-    <meta property="twitter:description" content={meta.description} />
-    <meta property="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta
+      name="twitter:image:alt"
+      content={`${siteMeta.title} - ${siteMeta.description}`}
+    />
+    <meta name="twitter:creator" content="@alvgaona" />
+
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
 
     <title>{siteTitle}</title>
 
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data -->
+    <StructuredData
+      name={siteMeta.author}
+      jobTitle={siteMeta.description}
+      description={description}
+      url={baseUrl}
+      image={socialImageUrl}
+      location="Buenos Aires, Argentina"
+      sameAs={[
+        "https://x.com/alvgaona",
+        siteMeta.githubUrl,
+        "https://linkedin.com/in/alvaro-gaona",
+        "https://scholar.google.com/citations?user=unBAfxAAAAAJ&hl=en",
+        "https://alvgaona.com",
+      ]}
+    />
   </head>
   <body>
-    <Grain client:load />
+    <a
+      href="#main-content"
+      class="skip-to-main"
+      aria-label="Skip to main content"
+    >
+      Skip to main content
+    </a>
+    <Grain client:idle />
     <slot />
+    <style is:global>
+      :root {
+        --system-ui:
+          system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --sf-pro: "SFProText";
+      }
+
+      .skip-to-main {
+        position: absolute;
+        left: -9999px;
+        z-index: 999;
+        padding: 1rem 1.5rem;
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 0.375rem;
+      }
+
+      .skip-to-main:focus {
+        left: 1rem;
+        top: 1rem;
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+      }
+
+      html,
+      body {
+        font-family: "Inter Variable";
+      }
+
+      @page {
+        size: auto;
+      }
+
+      @media print {
+        .page-break {
+          page-break-before: always;
+          margin-top: 3rem;
+        }
+
+        html,
+        body {
+          font-family: var(--system-ui);
+        }
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --system-ui:
-      system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --sf-pro: "SFProText";
-  }
-
-  html,
-  body {
-    font-family: "Inter Variable";
-  }
-
-  @page {
-    size: auto;
-  }
-
-  @media print {
-    .page-break {
-      page-break-before: always;
-      margin-top: 3rem;
-    }
-
-    html,
-    body {
-      font-family: var(--system-ui);
-    }
-  }
-</style>
