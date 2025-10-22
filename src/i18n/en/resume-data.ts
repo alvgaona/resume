@@ -1,4 +1,6 @@
-export const data = {
+import type { ResumeData } from '@/types/resume';
+
+export const data: ResumeData = {
   name: 'Alvaro Joaquín Gaona',
   location: {
     value: 'Buenos Aires, Argentina',
