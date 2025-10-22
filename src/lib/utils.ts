@@ -1,4 +1,4 @@
-import { clsx, type ClassValue } from 'clsx';
+import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function calculateYearsMonths(start: string, end: string) {
-  let endDate;
-  if (end == 'Present') {
+  let endDate: Date;
+  if (end === 'Present') {
     endDate = new Date();
   } else {
     endDate = new Date(end);
@@ -23,8 +23,8 @@ export function calculateYearsMonths(start: string, end: string) {
     months += 12;
   }
 
-  months = months == 0 ? '' : months + (months > 1 ? ' mos' : ' mo');
-  years = years == 0 ? '' : years + (years > 1 ? ' yrs' : ' yr');
+  months = months === 0 ? '' : months + (months > 1 ? ' mos' : ' mo');
+  years = years === 0 ? '' : years + (years > 1 ? ' yrs' : ' yr');
 
   return { years, months };
 }
