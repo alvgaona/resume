@@ -41,7 +41,14 @@ export const data = {
   education: [
     {
       break: false,
-      title: 'University of Buenos Aires',
+      title: 'Universidad Politécnica de Madrid',
+      description: 'Master in Automation & Robotics',
+      location: 'Madrid, Spain',
+      span: 'Sep. 2025 - Present',
+    },
+    {
+      break: false,
+      title: 'Universidad de Buenos Aires',
       description:
         'Graduate in Electronics Engineering (equivalent to B.Sc + M.Sc)',
       location: 'Buenos Aires, Argentina',
@@ -60,7 +67,7 @@ export const data = {
         name: 'ASAPP',
       },
       location: 'Buenos Aires, Argentina',
-      date: 'Aug. 2022 - Present',
+      date: 'Aug. 2022 - Sep. 2025',
       responsibilities: [
         'Transitioned in-house legacy Python framework to FastAPI, enhancing performance, scalability, and development experience.',
         'Led critical PCI/PII data redaction service for entire company, developed in Python/Go.',
@@ -85,7 +92,7 @@ export const data = {
       ],
     },
     {
-      break: false,
+      break: true,
       position: 'Research Engineer',
       company: {
         name: "Universidad de 'San Andrés'",
@@ -99,7 +106,7 @@ export const data = {
       ],
     },
     {
-      break: true,
+      break: false,
       position: 'Senior Software Engineer',
       company: {
         name: 'Roche',
@@ -183,6 +190,52 @@ export const data = {
       ],
     },
     {
+      category: 'Autonomous Systems',
+      badges: [
+        'Mobile Robotics',
+        'Kinematics',
+        'Vehicle Dynamics',
+        'Computer Vision',
+        'Sensor Fusion',
+        'SLAM',
+        'Navigation',
+        'ROS/ROS2',
+        'NVIDIA Isaac Sim',
+        'Unity',
+        'PX4',
+        'Mavlink',
+      ],
+    },
+    {
+      break: true,
+      category: 'Artificial Intelligence',
+      badges: [
+        'Supervised Learning',
+        'Unsupervised Learning',
+        'Reinforcement Learning',
+        'Machine Learning',
+        'Deep Learning',
+        'Fine-tuning',
+        'Knowledge Destillation',
+        'Model Evaluation',
+      ],
+    },
+    {
+      category: 'Mathematics',
+      badges: [
+        'Linear Algebra',
+        'Calculus',
+        'Linear Systems',
+        'Nonlinear Systems',
+        'Convex Optimization',
+        'Numerical Methods',
+        'Signal Processing',
+        'Classic Control',
+        'Modern Control',
+        'Optimal Control',
+      ],
+    },
+    {
       category: 'Software Engineering',
       badges: [
         'Linux',
@@ -198,14 +251,10 @@ export const data = {
         'Grafana',
         'Amazon Web Services',
         'Google Cloud Platform',
-        'Azure',
         'ArgoCD',
         'Kubernetes',
         'OOP',
         'Design Patterns',
-        'Agile',
-        'Estimation',
-        'Planning',
       ],
     },
     {
@@ -230,61 +279,9 @@ export const data = {
       ],
     },
     {
-      break: true,
-      category: 'Artificial Intelligence',
-      badges: [
-        'Supervised Learning',
-        'Unsupervised Learning',
-        'Reinforcement Learning',
-        'NLP',
-        'Computer Vision',
-        'Fine-tuning',
-        'Knowledge Destillation',
-        'Model Evaluation',
-      ],
-    },
-    {
-      category: 'Autonomous Systems',
-      badges: [
-        'Mobile Robotics',
-        'Kinematics',
-        'Vehicle Dynamics',
-        'Sensor Fusion',
-        'SLAM',
-        'Navigation',
-        'ROS/ROS2',
-        'NVIDIA Isaac Sim',
-        'Unity',
-        'PX4',
-        'Mavlink',
-      ],
-    },
-    {
-      category: 'Mathematics',
-      badges: [
-        'Linear Algebra',
-        'Calculus',
-        'Linear Systems',
-        'Nonlinear Systems',
-        'Convex Optimization',
-        'Numerical Methods',
-        'Signal Processing',
-        'Classic Control',
-        'Modern Control',
-        'Optimal Control',
-      ],
-    },
-    {
       break: false,
       category: 'Other',
-      badges: [
-        'Teamwork',
-        'Ownership',
-        'Communication',
-        'Leadership',
-        'Self-motivated',
-        'Public Speaking',
-      ],
+      badges: ['Autodesk Fusion 360', 'Blender', 'Public Speaking'],
     },
   ],
   projects: [

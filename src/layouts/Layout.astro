@@ -1,22 +1,22 @@
 ---
-import '@/styles/globals.css';
-import siteMeta from '@/site-meta';
-import { Grain } from '@/components/grain';
+import "@/styles/globals.css";
+import siteMeta from "@/site-meta";
+import { Grain } from "@/components/grain";
 
-import '@fontsource-variable/inter';
+import "@fontsource-variable/inter";
 
 const { meta } = Astro.props;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialImageUrl = new URL(
-  meta?.ogImage ? meta.ogImage : '/social-card.jpg',
+  meta?.ogImage ? meta.ogImage : "/social-card.jpg",
   Astro.url,
 ).href;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="description" content={meta.description} />
@@ -26,7 +26,7 @@ const socialImageUrl = new URL(
     <!-- Open Graph / Facebook -->
     <meta
       property="og:type"
-      content={meta?.articleDate ? 'article' : 'website'}
+      content={meta?.articleDate ? "article" : "website"}
     />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
@@ -58,21 +58,20 @@ const socialImageUrl = new URL(
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
-    <Grain client:load />
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
     --system-ui:
-      system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --sf-pro: 'SFProText';
+      system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --sf-pro: "SFProText";
   }
 
   html,
   body {
-    font-family: 'Inter Variable';
+    font-family: "Inter Variable";
   }
 
   @page {
@@ -81,13 +80,14 @@ const socialImageUrl = new URL(
 
   @media print {
     .page-break {
-      page-break-before: always;
-      margin-top: 3rem;
+      page-break-before: auto;
+      /*margin-top: 6rem;*/
     }
 
     html,
     body {
       font-family: var(--system-ui);
+      background-color: white;
     }
   }
 </style>

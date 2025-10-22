@@ -41,6 +41,13 @@ export const data = {
   education: [
     {
       break: false,
+      title: 'Universidad Politécnica de Madrid',
+      description: 'Master en Automática y Robótica',
+      location: 'Madrid, España',
+      span: 'Sep. 2025 - Present',
+    },
+    {
+      break: false,
       title: 'Universidad de Buenos Aires',
       description:
         'Graduado en Ingeniería Electrónica (equivalente a Grado + Maestría)',
