@@ -1,0 +1,47 @@
+---
+interface Props {
+  name: string;
+  jobTitle: string;
+  description: string;
+  url: string;
+  image: string;
+  email?: string;
+  location?: string;
+  sameAs?: string[];
+}
+
+const {
+  name,
+  jobTitle,
+  description,
+  url,
+  image,
+  email,
+  location,
+  sameAs = [],
+} = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: name,
+  jobTitle: jobTitle,
+  description: description,
+  url: url,
+  image: image,
+  ...(email && { email: email }),
+  ...(location && {
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: location,
+    },
+  }),
+  ...(sameAs.length > 0 && { sameAs: sameAs }),
+};
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>
