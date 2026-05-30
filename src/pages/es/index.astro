@@ -4,8 +4,14 @@ import ResumeView from "@/components/resume-view.astro";
 import CommandMenu from "@/components/command-menu";
 import { data } from "@/i18n/es/resume-data";
 import { ui } from "@/i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const labels = ui.es;
+
+const localeUrls = {
+  en: getRelativeLocaleUrl("en"),
+  es: getRelativeLocaleUrl("es"),
+};
 ---
 
 <Layout meta={{ title: labels["meta.title"] }}>
@@ -14,5 +20,6 @@ const labels = ui.es;
     client:visible
     links={[{ url: "https://alvgaona.com", title: labels["command.website"] }]}
     labels={labels}
+    localeUrls={localeUrls}
   />
 </Layout>

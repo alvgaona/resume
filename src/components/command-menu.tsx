@@ -1,4 +1,13 @@
 import {
+  CommandIcon,
+  FileCheck,
+  Globe,
+  Languages,
+  Moon,
+  Sun,
+} from 'lucide-react';
+import * as React from 'react';
+import {
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -7,24 +16,15 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/ui/command';
-import {
-  CommandIcon,
-  FileCheck,
-  Globe,
-  Languages,
-  Sun,
-  Moon,
-} from 'lucide-react';
 import { Button } from './ui/button';
-
-import * as React from 'react';
 
 interface Props {
   links: { url: string; title: string }[];
   labels: Record<string, string>;
+  localeUrls: { en: string; es: string };
 }
 
-const CommandMenu = ({ links, labels }: Props) => {
+const CommandMenu = ({ links, labels, localeUrls }: Props) => {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -76,7 +76,7 @@ const CommandMenu = ({ links, labels }: Props) => {
           >
             <CommandItem
               onSelect={async () => {
-                window.location.href = '/';
+                window.location.href = localeUrls.en;
               }}
               aria-label={labels['aria.switchToEnglish']}
             >
@@ -86,7 +86,7 @@ const CommandMenu = ({ links, labels }: Props) => {
             </CommandItem>
             <CommandItem
               onSelect={async () => {
-                window.location.href = '/es';
+                window.location.href = localeUrls.es;
               }}
               aria-label={labels['aria.switchToSpanish']}
             >

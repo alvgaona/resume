@@ -8,10 +8,9 @@ import "@fontsource-variable/inter";
 
 const { meta } = Astro.props;
 
-// Determine language from URL
-const currentPath = Astro.url.pathname;
-const isSpanish = currentPath.startsWith("/es");
-const lang = isSpanish ? "es" : "en";
+// Determine language from Astro's native i18n (configured in astro.config.ts)
+const lang = Astro.currentLocale ?? "en";
+const isSpanish = lang === "es";
 const ogLocale = isSpanish ? "es_ES" : "en_US";
 
 // Generate alternate language paths
