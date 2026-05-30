@@ -32,6 +32,10 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
+  /* Résumé design tokens (used by src/components/resume/*) */
+  --color-resume-muted: hsl(var(--resume-muted));
+  --color-resume-accent: var(--resume-accent);
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -76,6 +80,10 @@
     --input: 240 5.9% 90%;
     --ring: 0 0% 6.27%;
 
+    /* Résumé tokens: muted text = black @ 60% (light); peach accent dot */
+    --resume-muted: 0 0% 0% / 60%;
+    --resume-accent: #ffc799;
+
     --radius: 0.5rem;
   }
 
@@ -94,6 +102,9 @@
 
     --secondary: 0 0% 98%;
     --secondary-foreground: 0 0% 98%;
+
+    /* Résumé muted text = white @ 60% (dark) */
+    --resume-muted: 0 0% 100% / 60%;
 
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;

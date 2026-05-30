@@ -52,24 +52,23 @@ export const ResumeProject = ({
         )}
       >
         <CardHeader className="flex w-full flex-col p-0">
-          <CardTitle className="text-md">
+          <CardTitle className="text-base">
             <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
               {title}{' '}
               <CircleIcon
                 weight="fill"
-                color="#ffc799"
                 size={10}
-                className="ml-0.5 inline-block align-middle"
+                className="ml-0.5 inline-block align-middle text-resume-accent"
               />
             </DialogTrigger>
           </CardTitle>
-          <div className="flex flex-col justify-center text-black/60 text-xs dark:text-white/60">
+          <div className="flex flex-col justify-center text-resume-muted text-xs">
             <p>{institution}</p>
             <p className="font-light">{location}</p>
             <p className="font-light">{date}</p>
           </div>
         </CardHeader>
-        <CardContent className="p-0 text-black/60 dark:text-white/60">
+        <CardContent className="p-0 text-resume-muted">
           <p className="text-wrap text-xs leading-normal">{description}</p>
         </CardContent>
         <CardFooter className="p-0">

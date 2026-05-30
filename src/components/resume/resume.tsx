@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 
-const mutedLabel = 'text-black/60 text-xs uppercase dark:text-white/60';
+const mutedLabel = 'text-resume-muted text-xs uppercase';
 
 function Resume({ className, ...props }: React.ComponentProps<'main'>) {
   return (
@@ -197,7 +197,7 @@ function ResumeBullets({
     <ul
       data-slot="resume-bullets"
       className={cn(
-        'mt-2 list-inside list-disc text-black/60 text-sm dark:text-white/60',
+        'mt-2 list-inside list-disc text-resume-muted text-sm',
         className,
       )}
       {...props}
@@ -300,9 +300,7 @@ function ResumeDefinitionList({
         // biome-ignore lint/suspicious/noArrayIndexKey: terms are not guaranteed unique
         <li key={i} className="flex flex-col">
           <span>{item.term}</span>
-          <span className="text-black/60 text-xs dark:text-white/60">
-            {item.description}
-          </span>
+          <span className="text-resume-muted text-xs">{item.description}</span>
         </li>
       ))}
     </ul>
@@ -333,13 +331,12 @@ function ResumeCredentialList({
             {item.name}{' '}
             <CircleIcon
               weight="fill"
-              color="#ffc799"
               size={10}
-              className="ml-0.5 inline-block align-middle"
+              className="ml-0.5 inline-block align-middle text-resume-accent"
             />
           </a>
           {item.meta ? (
-            <div className="flex gap-1 text-black/60 text-xs dark:text-white/60">
+            <div className="flex gap-1 text-resume-muted text-xs">
               {item.meta}
             </div>
           ) : null}
