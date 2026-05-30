@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 export const Grain = () => {
   const grainRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const grain = grainRef.current;
