@@ -1,113 +1,159 @@
+import { useRender } from '@base-ui/react/use-render';
 import { CircleIcon } from '@phosphor-icons/react/dist/ssr';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 
 const mutedLabel = 'text-resume-muted text-xs uppercase';
 
-function Resume({ className, ...props }: React.ComponentProps<'main'>) {
-  return (
-    <main
-      data-slot="resume"
-      className={cn(
+// Shared keyboard-focus ring (Base UI / shadcn convention).
+const focusRing =
+  'rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
+
+function Resume({
+  render,
+  className,
+  ...props
+}: useRender.ComponentProps<'main'>) {
+  return useRender({
+    defaultTagName: 'main',
+    render,
+    props: {
+      'data-slot': 'resume',
+      className: cn(
         'flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96 print:mx-0',
         className,
-      )}
-      {...props}
-    />
-  );
+      ),
+      ...props,
+    },
+  });
 }
 
-function ResumeHeader({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="resume-header"
-      className={cn('mb-6 flex items-center gap-8', className)}
-      {...props}
-    />
-  );
+function ResumeHeader({
+  render,
+  className,
+  ...props
+}: useRender.ComponentProps<'div'>) {
+  return useRender({
+    defaultTagName: 'div',
+    render,
+    props: {
+      'data-slot': 'resume-header',
+      className: cn('mb-6 flex items-center gap-8', className),
+      ...props,
+    },
+  });
 }
 
-function ResumeIdentity({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="resume-identity"
-      className={cn('flex flex-col', className)}
-      {...props}
-    />
-  );
+function ResumeIdentity({
+  render,
+  className,
+  ...props
+}: useRender.ComponentProps<'div'>) {
+  return useRender({
+    defaultTagName: 'div',
+    render,
+    props: {
+      'data-slot': 'resume-identity',
+      className: cn('flex flex-col', className),
+      ...props,
+    },
+  });
 }
 
 function ResumeAvatar({
-  className,
+  src,
   alt = '',
+  fallback,
+  className,
   ...props
-}: React.ComponentProps<'img'>) {
+}: React.ComponentProps<typeof Avatar> & {
+  src?: string;
+  alt?: string;
+  fallback?: React.ReactNode;
+}) {
   return (
-    <img
-      data-slot="resume-avatar"
-      alt={alt}
-      className={cn('h-24 w-24 rounded-full object-cover', className)}
-      {...props}
-    />
+    <Avatar className={cn('size-24', className)} {...props}>
+      <AvatarImage src={src} alt={alt} />
+      <AvatarFallback>{fallback}</AvatarFallback>
+    </Avatar>
   );
 }
 
-function ResumeName({ className, ...props }: React.ComponentProps<'h1'>) {
-  return (
-    <h1
-      data-slot="resume-name"
-      className={cn('font-medium text-2xl', className)}
-      {...props}
-    />
-  );
+function ResumeName({
+  render,
+  className,
+  ...props
+}: useRender.ComponentProps<'h1'>) {
+  return useRender({
+    defaultTagName: 'h1',
+    render,
+    props: {
+      'data-slot': 'resume-name',
+      className: cn('font-medium text-2xl', className),
+      ...props,
+    },
+  });
 }
 
-function ResumeLocation({ className, ...props }: React.ComponentProps<'p'>) {
-  return (
-    <p
-      data-slot="resume-location"
-      className={cn('text-[11px] font-thin uppercase', className)}
-      {...props}
-    />
-  );
+function ResumeLocation({
+  render,
+  className,
+  ...props
+}: useRender.ComponentProps<'p'>) {
+  return useRender({
+    defaultTagName: 'p',
+    render,
+    props: {
+      'data-slot': 'resume-location',
+      className: cn('text-[11px] font-thin uppercase', className),
+      ...props,
+    },
+  });
 }
 
 function ResumeSection({
+  render,
   title,
   breakBefore = false,
   className,
   children,
   ...props
-}: React.ComponentProps<'section'> & {
+}: useRender.ComponentProps<'section'> & {
   title: React.ReactNode;
   breakBefore?: boolean;
 }) {
   const headingId = React.useId();
-  return (
-    <section
-      data-slot="resume-section"
-      aria-labelledby={headingId}
-      className={cn(
+  return useRender({
+    defaultTagName: 'section',
+    render,
+    props: {
+      'data-slot': 'resume-section',
+      'aria-labelledby': headingId,
+      className: cn(
         'flex flex-col gap-2',
         breakBefore && 'page-break',
         className,
-      )}
-      {...props}
-    >
-      <h2
-        id={headingId}
-        data-slot="resume-section-title"
-        className={mutedLabel}
-      >
-        {title}
-      </h2>
-      <Separator />
-      {children}
-    </section>
-  );
+      ),
+      ...props,
+      children: (
+        <>
+          <h2
+            id={headingId}
+            data-slot="resume-section-title"
+            className={mutedLabel}
+          >
+            {title}
+          </h2>
+          <Separator />
+          {children}
+        </>
+      ),
+    },
+  });
 }
 
 const listVariants = cva('flex flex-col', {
@@ -118,51 +164,60 @@ const listVariants = cva('flex flex-col', {
 });
 
 function ResumeList({
+  render,
   spacing,
   className,
   ...props
-}: React.ComponentProps<'ul'> & VariantProps<typeof listVariants>) {
-  return (
-    <ul
-      data-slot="resume-list"
-      className={cn(listVariants({ spacing }), className)}
-      {...props}
-    />
-  );
+}: useRender.ComponentProps<'ul'> & VariantProps<typeof listVariants>) {
+  return useRender({
+    defaultTagName: 'ul',
+    render,
+    props: {
+      'data-slot': 'resume-list',
+      className: cn(listVariants({ spacing }), className),
+      ...props,
+    },
+  });
 }
 
 function ResumeEntry({
+  render,
   title,
   meta,
   breakBefore = false,
   className,
   children,
   ...props
-}: React.ComponentProps<'li'> & {
+}: useRender.ComponentProps<'li'> & {
   title: React.ReactNode;
   meta?: React.ReactNode;
   breakBefore?: boolean;
 }) {
-  return (
-    <li
-      data-slot="resume-entry"
-      className={cn(breakBefore && 'break-before-page', className)}
-      {...props}
-    >
-      <h3 className="font-semibold text-base">{title}</h3>
-      {(Array.isArray(meta) ? meta.length > 0 : meta != null) ? (
-        <div
-          data-slot="resume-entry-meta"
-          className={cn('flex flex-col', mutedLabel)}
-        >
-          {Array.isArray(meta)
-            ? meta.map((line) => <span key={String(line)}>{line}</span>)
-            : meta}
-        </div>
-      ) : null}
-      {children}
-    </li>
-  );
+  return useRender({
+    defaultTagName: 'li',
+    render,
+    props: {
+      'data-slot': 'resume-entry',
+      className: cn(breakBefore && 'break-before-page', className),
+      ...props,
+      children: (
+        <>
+          <h3 className="font-semibold text-base">{title}</h3>
+          {(Array.isArray(meta) ? meta.length > 0 : meta != null) ? (
+            <div
+              data-slot="resume-entry-meta"
+              className={cn('flex flex-col', mutedLabel)}
+            >
+              {Array.isArray(meta)
+                ? meta.map((line) => <span key={String(line)}>{line}</span>)
+                : meta}
+            </div>
+          ) : null}
+          {children}
+        </>
+      ),
+    },
+  });
 }
 
 function ResumeOrg({
@@ -179,7 +234,7 @@ function ResumeOrg({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn('hover:underline', className)}
+      className={cn('hover:underline', focusRing, className)}
       {...props}
     >
       {children}
@@ -230,30 +285,36 @@ function ResumeBadges({
 }
 
 function ResumeSkill({
+  render,
   category,
   items,
   breakBefore = false,
   className,
   ...props
-}: Omit<React.ComponentProps<'li'>, 'children'> & {
+}: Omit<useRender.ComponentProps<'li'>, 'children'> & {
   category: React.ReactNode;
   items: string[];
   breakBefore?: boolean;
 }) {
-  return (
-    <li
-      data-slot="resume-skill"
-      className={cn(
+  return useRender({
+    defaultTagName: 'li',
+    render,
+    props: {
+      'data-slot': 'resume-skill',
+      className: cn(
         'flex flex-col gap-2 pr-14',
         breakBefore && 'break-before-page',
         className,
-      )}
-      {...props}
-    >
-      <span className={mutedLabel}>{category}</span>
-      <ResumeBadges items={items} />
-    </li>
-  );
+      ),
+      ...props,
+      children: (
+        <>
+          <span className={mutedLabel}>{category}</span>
+          <ResumeBadges items={items} />
+        </>
+      ),
+    },
+  });
 }
 
 function ResumeLinkList({
@@ -271,9 +332,15 @@ function ResumeLinkList({
     >
       {links.map((link, i) => (
         <React.Fragment key={link.href}>
-          <li className="cursor-pointer hover:underline">
-            <a href={link.href} target="_blank" rel="noopener noreferrer">
+          <li className="cursor-pointer">
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn('hover:underline', focusRing)}
+            >
               {link.label}
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </li>
           {i < links.length - 1 ? <li aria-hidden="true">•</li> : null}
@@ -326,7 +393,10 @@ function ResumeCredentialList({
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline-offset-2 hover:underline"
+            className={cn(
+              'font-semibold underline-offset-2 hover:underline',
+              focusRing,
+            )}
           >
             {item.name}{' '}
             <CircleIcon
@@ -334,6 +404,7 @@ function ResumeCredentialList({
               size={10}
               className="ml-0.5 inline-block align-middle text-resume-accent"
             />
+            <span className="sr-only"> (opens in new tab)</span>
           </a>
           {item.meta ? (
             <div className="flex gap-1 text-resume-muted text-xs">

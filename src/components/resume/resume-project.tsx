@@ -9,7 +9,6 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
@@ -27,10 +26,13 @@ interface ResumeProjectProps {
   breakBefore?: boolean;
 }
 
+const focusRing =
+  'rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
+
 /**
- * Interactive project card: a Card trigger that opens a Dialog with details.
- * This is the one résumé primitive that ships JS — render it with a client:*
- * directive (e.g. client:load) when used from Astro.
+ * Interactive project card: a Card whose title opens a details dialog.
+ * Composes the shadcn/Base UI ui/Dialog (Base UI under the hood). Ships JS;
+ * render with a client:* directive from Astro.
  */
 export const ResumeProject = ({
   title,
@@ -53,7 +55,12 @@ export const ResumeProject = ({
       >
         <CardHeader className="flex w-full flex-col p-0">
           <CardTitle className="text-base">
-            <DialogTrigger className="flex text-start underline-offset-2 hover:underline">
+            <DialogTrigger
+              className={cn(
+                'flex text-start underline-offset-2 hover:underline',
+                focusRing,
+              )}
+            >
               {title}{' '}
               <CircleIcon
                 weight="fill"
@@ -75,10 +82,9 @@ export const ResumeProject = ({
           <ResumeBadges items={keywords} />
         </CardFooter>
       </Card>
-      <DialogContent className="flex flex-col sm:min-w-[700px]">
-        <DialogHeader>
-          <DialogTitle className="w-full">{title}</DialogTitle>
-        </DialogHeader>
+
+      <DialogContent className="sm:max-w-2xl">
+        <DialogTitle>{title}</DialogTitle>
         <ResumeBullets items={details} className="text-justify" />
       </DialogContent>
     </Dialog>
