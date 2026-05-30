@@ -28,9 +28,25 @@ const socialImageUrl = new URL(
 ---
 
 <!doctype html>
-<html lang={lang} class="dark">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Resolve theme before paint to avoid a flash. Default to following the
+      // OS ("system") when the visitor has no saved preference.
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme") || "system";
+          const dark =
+            stored === "dark" ||
+            (stored === "system" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", dark);
+        } catch {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />

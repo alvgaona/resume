@@ -30,6 +30,7 @@ export const ui = {
     'command.linksLabel': 'External links',
     'command.openInNewTab': 'Open {title} in new tab',
     'command.website': 'Website',
+    'theme.toggle': 'Toggle theme',
   },
   es: {
     'nav.social': 'Social',
@@ -62,5 +63,6 @@ export const ui = {
     'command.linksLabel': 'Enlaces externos',
     'command.openInNewTab': 'Abrir {title} en nueva pestaña',
     'command.website': 'Sitio web',
+    'theme.toggle': 'Cambiar tema',
   },
 } as const;
