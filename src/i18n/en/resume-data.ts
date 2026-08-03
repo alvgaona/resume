@@ -43,6 +43,16 @@ export const data: ResumeData = {
     education: [
         {
             break: false,
+            title: 'Universidad Politécnica de Madrid',
+            description: 'Master of Science (M.Sc.), Automation & Robotics',
+            location: 'Madrid, Spain',
+            span: 'Sep. 2025 - Jul. 2026',
+            bullets: [
+                '”Flight-Ready Drift-Aware LiDAR-Inertial Odometry and Mapping with Self-Correcting Maps”, Master Thesis, 2026. Universidad Politécnica de Madrid.',
+            ],
+        },
+        {
+            break: false,
             title: 'University of Buenos Aires',
             description: 'Graduate in Electronics Engineering (equivalent to B.Sc + M.Sc)',
             location: 'Buenos Aires, Argentina',
@@ -54,6 +64,19 @@ export const data: ResumeData = {
         },
     ],
     experience: [
+        {
+            break: false,
+            position: 'Researcher',
+            company: {
+                name: 'Computer Vision & Aerial Robotics',
+            },
+            location: 'Madrid, Spain',
+            date: 'Sep. 2025 - Present',
+            responsibilities: [
+                'Developed and deployed Simultaneous Localization and Mapping (SLAM) and LiDAR Odometry and Mapping (LOAM) algorithms for mobile robots, with a focus on multirotor aerial platforms.',
+                'Conducted research on fixed-wing UAVs for industrial partners, applying visual SLAM and path-planning algorithms to custom aircraft in both high-fidelity simulation and real-world flight tests.',
+            ],
+        },
         {
             break: false,
             position: 'Lead Software Engineer',
@@ -385,18 +408,32 @@ export const data: ResumeData = {
             proficiency: 'Full Professional Proficiency (C2 Proficiency)',
         },
     ],
+    // Kept in sync with the publications collection on alvgaona.dev, which is
+    // where these are maintained. Newest first, as the site sorts them.
     publications: [
         {
+            type: 'Conference',
+            title: 'D. Perez-Saura, M. Fernandez-Cortizas, A. J. Gaona, P. Campoy, ”Dual Pose-Graph Semantic Localization for Vision-Based Autonomous Drone Racing”. arXiv preprint arXiv:2604.15168 (2026). Best Paper Presented by a Young Researcher — IEEE MetroAeroSpace 2026.',
+            url: 'https://arxiv.org/pdf/2604.15168',
+        },
+        {
+            type: 'Conference',
+            title: 'A. J. Gaona, D. Perez-Saura, F. J. Anguita, P. Campoy, ”Flight-Ready LiDAR-Inertial Odometry for Embedded Drone Platforms”. International Micro Air Vehicle Conference and Competition (IMAV 2026). arXiv:2607.22145.',
+            url: 'https://arxiv.org/pdf/2607.22145',
+        },
+        {
+            type: 'Conference',
+            title: 'Juan I. Giribet, Claudio Pose, Alvaro J. Gaona, José I. Gonzalez Etchemaite, Roberto Bunge, ”Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology Conference (2022).',
+        },
+        {
+            type: 'Conference',
+            title: 'A. J. Gaona, C. D. Pose, J. I. Giribet, R. Bunge, ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica 2022 (JAR XI). Bariloche, Argentina.',
+            url: 'https://arxiv.org/pdf/2408.01676',
+        },
+        {
             type: 'Journal',
-            title: 'A. J. Gaona, P. D. Arini. ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‐57 (2020).',
-        },
-        {
-            type: 'Conference',
-            title: 'A. J. Gaona, C. D. P, J. I. Giribet, R. Bunge. ”Prototyping of a multirotor UAV for precision landing under rotor failures”. Jornadas Argentinas de Robótica (JAR) XI (2022).',
-        },
-        {
-            type: 'Conference',
-            title: 'J. I. Giribet, C. D. Pose, A. J. Gaona, R. Bunge, J. I. González Etchemaite. ”Fault Tolerant Solutions for Multirotor Unmanned Aerial Vehicles in NVIDIA® Jetson™ TX2”. NVIDIA GPU Technology Conference (2022).',
+            title: 'A. J. Gaona, P. D. Arini, ”Deep Recurrent Learning for Heart Sounds Segmentation based on Instantaneous Frequency Features”. Revista Elektron, Vol. 4, No. 2, pp 52‑57 (2020).',
+            url: 'http://elektron.fi.uba.ar/index.php/elektron/article/view/101/212',
         },
     ],
     certifications: [
