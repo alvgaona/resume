@@ -1,27 +1,27 @@
 ---
-import type { ResumeData } from "@/types/resume";
-import avatar from "@/assets/avatar.jpg";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Separator } from "@/components/ui/separator";
-import { ResumeProject } from "@/components/resume/resume-project";
+import type { ResumeData } from '@/types/resume';
+import avatar from '@/assets/avatar.jpg';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { Separator } from '@/components/ui/separator';
+import { ResumeProject } from '@/components/resume/resume-project';
 import {
-  ResumeAvatar,
-  ResumeBullets,
-  ResumeCredentialList,
-  ResumeDefinitionList,
-  ResumeEntry,
-  ResumeLinkList,
-  ResumeList,
-  ResumeLocation,
-  ResumeName,
-  ResumeSection,
-  ResumeSkill,
-} from "@/components/resume/resume";
+    ResumeAvatar,
+    ResumeBullets,
+    ResumeCredentialList,
+    ResumeDefinitionList,
+    ResumeEntry,
+    ResumeLinkList,
+    ResumeList,
+    ResumeLocation,
+    ResumeName,
+    ResumeSection,
+    ResumeSkill,
+} from '@/components/resume/resume';
 
 interface Props {
-  data: ResumeData;
-  labels: Record<string, string>;
-  showProjects?: boolean;
+    data: ResumeData;
+    labels: Record<string, string>;
+    showProjects?: boolean;
 }
 
 const { data, labels, showProjects = false } = Astro.props;

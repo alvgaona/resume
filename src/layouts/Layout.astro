@@ -1,30 +1,27 @@
 ---
-import "@/styles/globals.css";
-import siteMeta from "@/site-meta";
-import { Grain } from "@/components/grain";
-import StructuredData from "@/components/structure-data.astro";
+import '@/styles/globals.css';
+import siteMeta from '@/site-meta';
+import { Grain } from '@/components/grain';
+import StructuredData from '@/components/structure-data.astro';
 
-import "@fontsource-variable/inter";
+import '@fontsource-variable/inter';
 
 const { meta } = Astro.props;
 
 // Determine language from Astro's native i18n (configured in astro.config.ts)
-const lang = Astro.currentLocale ?? "en";
-const isSpanish = lang === "es";
-const ogLocale = isSpanish ? "es_ES" : "en_US";
+const lang = Astro.currentLocale ?? 'en';
+const isSpanish = lang === 'es';
+const ogLocale = isSpanish ? 'es_ES' : 'en_US';
 
 // Generate alternate language paths
-const baseUrl = Astro.site?.toString() || "https://resume.alvgaona.com";
-const enUrl = new URL("/", baseUrl).href;
-const esUrl = new URL("/es", baseUrl).href;
+const baseUrl = Astro.site?.toString() || 'https://resume.alvgaona.com';
+const enUrl = new URL('/', baseUrl).href;
+const esUrl = new URL('/es', baseUrl).href;
 
 const siteTitle = `${meta.title} • ${siteMeta.title}`;
 const description = meta.description || siteMeta.description;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const socialImageUrl = new URL(
-  meta?.ogImage ? meta.ogImage : "/social-card.jpg",
-  Astro.url,
-).href;
+const socialImageUrl = new URL(meta?.ogImage ? meta.ogImage : '/social-card.jpg', Astro.url).href;
 ---
 
 <!doctype html>
