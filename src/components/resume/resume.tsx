@@ -1,13 +1,8 @@
 import { useRender } from '@base-ui/react/use-render';
-import { CircleIcon } from '@phosphor-icons/react/dist/ssr';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-
-const mutedLabel = 'text-resume-muted text-xs uppercase';
 
 // Shared keyboard-focus ring (Base UI / shadcn convention).
 const focusRing =
@@ -19,10 +14,7 @@ function Resume({ render, className, ...props }: useRender.ComponentProps<'main'
         render,
         props: {
             'data-slot': 'resume',
-            className: cn(
-                'flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96 print:mx-0',
-                className,
-            ),
+            className: cn('mx-auto flex max-w-4xl flex-col gap-10 px-6 pb-12 sm:px-8 lg:px-16 print:px-0', className),
             ...props,
         },
     });
@@ -34,7 +26,7 @@ function ResumeHeader({ render, className, ...props }: useRender.ComponentProps<
         render,
         props: {
             'data-slot': 'resume-header',
-            className: cn('mb-6 flex items-center gap-8', className),
+            className: cn('flex items-center gap-6', className),
             ...props,
         },
     });
@@ -46,29 +38,10 @@ function ResumeIdentity({ render, className, ...props }: useRender.ComponentProp
         render,
         props: {
             'data-slot': 'resume-identity',
-            className: cn('flex flex-col', className),
+            className: cn('flex flex-col gap-1', className),
             ...props,
         },
     });
-}
-
-function ResumeAvatar({
-    src,
-    alt = '',
-    fallback,
-    className,
-    ...props
-}: React.ComponentProps<typeof Avatar> & {
-    src?: string;
-    alt?: string;
-    fallback?: React.ReactNode;
-}) {
-    return (
-        <Avatar className={cn('size-24', className)} {...props}>
-            <AvatarImage src={src} alt={alt} />
-            <AvatarFallback>{fallback}</AvatarFallback>
-        </Avatar>
-    );
 }
 
 function ResumeName({ render, className, ...props }: useRender.ComponentProps<'h1'>) {
@@ -77,7 +50,7 @@ function ResumeName({ render, className, ...props }: useRender.ComponentProps<'h
         render,
         props: {
             'data-slot': 'resume-name',
-            className: cn('font-medium text-2xl', className),
+            className: cn('font-medium text-3xl uppercase tracking-wide', className),
             ...props,
         },
     });
@@ -89,7 +62,7 @@ function ResumeLocation({ render, className, ...props }: useRender.ComponentProp
         render,
         props: {
             'data-slot': 'resume-location',
-            className: cn('text-[11px] font-thin uppercase', className),
+            className: cn('meta uppercase', className),
             ...props,
         },
     });
@@ -113,14 +86,16 @@ function ResumeSection({
         props: {
             'data-slot': 'resume-section',
             'aria-labelledby': headingId,
-            className: cn('flex flex-col gap-2', breakBefore && 'page-break', className),
+            className: cn('flex flex-col gap-4', breakBefore && 'page-break', className),
             ...props,
             children: (
                 <>
-                    <h2 id={headingId} data-slot="resume-section-title" className={mutedLabel}>
+                    {/* The hairline is the same one the footer and the docked
+                        header use. alvgaona.dev's three short sections read
+                        fine without it; seven dense ones do not. */}
+                    <h2 id={headingId} data-slot="resume-section-title" className="section-heading border-b pb-2">
                         {title}
                     </h2>
-                    <Separator />
                     {children}
                 </>
             ),
@@ -130,7 +105,7 @@ function ResumeSection({
 
 const listVariants = cva('flex flex-col', {
     variants: {
-        spacing: { tight: 'gap-2', loose: 'gap-4' },
+        spacing: { tight: 'gap-5', loose: 'gap-6' },
     },
     defaultVariants: { spacing: 'tight' },
 });
@@ -174,9 +149,9 @@ function ResumeEntry({
             ...props,
             children: (
                 <>
-                    <h3 className="font-semibold text-base">{title}</h3>
+                    <h3 className="font-medium text-base">{title}</h3>
                     {(Array.isArray(meta) ? meta.length > 0 : meta != null) ? (
-                        <div data-slot="resume-entry-meta" className={cn('flex flex-col', mutedLabel)}>
+                        <div data-slot="resume-entry-meta" className="meta flex flex-col">
                             {Array.isArray(meta) ? meta.map((line) => <span key={String(line)}>{line}</span>) : meta}
                         </div>
                     ) : null}
@@ -192,13 +167,7 @@ function ResumeOrg({ href, className, children, ...props }: React.ComponentProps
         return <span className={className}>{children}</span>;
     }
     return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn('hover:underline', focusRing, className)}
-            {...props}
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer" className={cn(focusRing, className)} {...props}>
             {children}
         </a>
     );
@@ -209,7 +178,7 @@ function ResumeBullets({ items, className, ...props }: React.ComponentProps<'ul'
     return (
         <ul
             data-slot="resume-bullets"
-            className={cn('mt-2 list-inside list-disc text-resume-muted text-sm', className)}
+            className={cn('mt-2 list-outside list-disc pl-5 text-sm opacity-80', className)}
             {...props}
         >
             {items.map((item) => (
@@ -221,9 +190,12 @@ function ResumeBullets({ items, className, ...props }: React.ComponentProps<'ul'
 
 function ResumeBadges({ items, className, ...props }: React.ComponentProps<'div'> & { items: string[] }) {
     return (
-        <div data-slot="resume-badges" className={cn('flex flex-wrap gap-1', className)} {...props}>
+        <div data-slot="resume-badges" className={cn('flex flex-wrap gap-1.5', className)} {...props}>
             {items.map((item) => (
-                <Badge key={item} className="select-none text-white dark:bg-zinc-900">
+                // Outline rather than filled: a wall of solid pills is louder
+                // than anything else on the page, and the mono face already
+                // reads these as data.
+                <Badge key={item} variant="outline" className="select-none font-azeret text-[11px] tracking-[0.02em]">
                     {item}
                 </Badge>
             ))}
@@ -248,11 +220,11 @@ function ResumeSkill({
         render,
         props: {
             'data-slot': 'resume-skill',
-            className: cn('flex flex-col gap-2 pr-14', breakBefore && 'break-before-page', className),
+            className: cn('flex flex-col gap-2', breakBefore && 'break-before-page', className),
             ...props,
             children: (
                 <>
-                    <span className={mutedLabel}>{category}</span>
+                    <span className="meta uppercase">{category}</span>
                     <ResumeBadges items={items} />
                 </>
             ),
@@ -268,21 +240,29 @@ function ResumeLinkList({
     links: { label: string; href: string }[];
 }) {
     return (
-        <ul data-slot="resume-link-list" className={cn('flex gap-2 text-xs uppercase', className)} {...props}>
+        <ul
+            data-slot="resume-link-list"
+            // The Azeret voice without .meta's dimming: these are the one row
+            // on the page a reader is meant to act on.
+            className={cn(
+                'flex flex-wrap items-center gap-2 font-azeret text-xs uppercase tracking-[0.02em]',
+                className,
+            )}
+            {...props}
+        >
             {links.map((link, i) => (
                 <React.Fragment key={link.href}>
-                    <li className="cursor-pointer">
-                        <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={cn('hover:underline', focusRing)}
-                        >
+                    <li>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={focusRing}>
                             {link.label}
                             <span className="sr-only"> (opens in new tab)</span>
                         </a>
                     </li>
-                    {i < links.length - 1 ? <li aria-hidden="true">•</li> : null}
+                    {i < links.length - 1 ? (
+                        <li aria-hidden="true" className="opacity-40">
+                            •
+                        </li>
+                    ) : null}
                 </React.Fragment>
             ))}
         </ul>
@@ -297,12 +277,12 @@ function ResumeDefinitionList({
     items: { term: React.ReactNode; description: React.ReactNode }[];
 }) {
     return (
-        <ul data-slot="resume-definition-list" className={cn('mt-2 flex flex-col gap-1 text-sm', className)} {...props}>
+        <ul data-slot="resume-definition-list" className={cn('flex flex-col gap-2 text-sm', className)} {...props}>
             {items.map((item, i) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: terms are not guaranteed unique
                 <li key={i} className="flex flex-col">
                     <span>{item.term}</span>
-                    <span className="text-resume-muted text-xs">{item.description}</span>
+                    <span className="meta">{item.description}</span>
                 </li>
             ))}
         </ul>
@@ -319,26 +299,23 @@ function ResumeCredentialList({
     return (
         <ul
             data-slot="resume-credential-list"
-            className={cn('my-2 grid grid-cols-2 text-xs sm:text-sm', className)}
+            className={cn('grid grid-cols-1 gap-4 text-sm sm:grid-cols-2', className)}
             {...props}
         >
             {items.map((item) => (
-                <li key={item.href} className="mb-2 flex flex-col">
+                <li key={item.href} className="flex flex-col">
+                    {/* The peach dot that used to flag these is gone; the
+                        stylesheet's external-link arrow already says it. */}
                     <a
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={cn('font-semibold underline-offset-2 hover:underline', focusRing)}
+                        className={cn('font-medium', focusRing)}
                     >
-                        {item.name}{' '}
-                        <CircleIcon
-                            weight="fill"
-                            size={10}
-                            className="ml-0.5 inline-block align-middle text-resume-accent"
-                        />
+                        {item.name}
                         <span className="sr-only"> (opens in new tab)</span>
                     </a>
-                    {item.meta ? <div className="flex gap-1 text-resume-muted text-xs">{item.meta}</div> : null}
+                    {item.meta ? <div className="meta">{item.meta}</div> : null}
                 </li>
             ))}
         </ul>
@@ -347,7 +324,6 @@ function ResumeCredentialList({
 
 export {
     Resume,
-    ResumeAvatar,
     ResumeBadges,
     ResumeBullets,
     ResumeCredentialList,

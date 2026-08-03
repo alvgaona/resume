@@ -1,11 +1,6 @@
 ---
-import type { ResumeData } from '@/types/resume';
 import avatar from '@/assets/avatar.jpg';
-import { ThemeToggle } from '@/components/theme-toggle';
-import { Separator } from '@/components/ui/separator';
-import { ResumeProject } from '@/components/resume/resume-project';
 import {
-    ResumeAvatar,
     ResumeBullets,
     ResumeCredentialList,
     ResumeDefinitionList,
@@ -17,6 +12,8 @@ import {
     ResumeSection,
     ResumeSkill,
 } from '@/components/resume/resume';
+import { ResumeProject } from '@/components/resume/resume-project';
+import type { ResumeData } from '@/types/resume';
 
 interface Props {
     data: ResumeData;
@@ -27,142 +24,112 @@ interface Props {
 const { data, labels, showProjects = false } = Astro.props;
 ---
 
-<main
-  id="main-content"
-  class="flex flex-col gap-6 px-12 md:mx-32 md:my-12 lg:mx-48 xl:mx-64 2xl:mx-96 print:mx-0"
->
-  <!-- Header (islands: avatar, theme toggle) -->
-  <div class="mb-6 flex items-center gap-8">
-    <ResumeAvatar
-      client:load
-      src={avatar.src}
-      alt={`${data.name} profile picture`}
-      fallback={data.name
-        .split(" ")
-        .map((w) => w[0])
-        .join("")}
-    />
-    <div class="flex flex-col">
-      <ResumeName>{data.name}</ResumeName>
-      <ResumeLocation>{data.location.value}</ResumeLocation>
-    </div>
-    <div class="ml-auto">
-      <ThemeToggle client:load label={labels["theme.toggle"]} />
-    </div>
-  </div>
-
-  <ResumeSection title={labels["nav.social"]}>
-    <ResumeLinkList
-      links={data.contact.social.map((s) => ({ label: s.name, href: s.url }))}
-    />
-  </ResumeSection>
-
-  <ResumeSection title={labels["nav.experience"]}>
-    <ResumeList>
-      {
-        data.experience.map((e) => (
-          <ResumeEntry
-            title={e.position}
-            breakBefore={e.break}
-            meta={`${e.company.name} • ${e.date}`}
-          >
-            <ResumeBullets items={e.responsibilities ?? []} />
-          </ResumeEntry>
-        ))
-      }
-    </ResumeList>
-  </ResumeSection>
-
-  <ResumeSection title={labels["nav.education"]}>
-    <ResumeList>
-      {
-        data.education.map((ed) => (
-          <ResumeEntry
-            title={ed.title}
-            breakBefore={ed.break}
-            meta={[ed.description, `${ed.location} • ${ed.span}`].filter(Boolean)}
-          >
-            <ResumeBullets items={ed.bullets ?? []} />
-          </ResumeEntry>
-        ))
-      }
-    </ResumeList>
-  </ResumeSection>
-
-  <ResumeSection title={labels["nav.skills"]}>
-    <ResumeList spacing="loose">
-      {
-        data.skills.map((s) => (
-          <ResumeSkill
-            category={s.category}
-            items={s.badges}
-            breakBefore={s.break}
-          />
-        ))
-      }
-    </ResumeList>
-  </ResumeSection>
-
-  {
-    data.publications?.length ? (
-      <ResumeSection title={labels["nav.publications"]}>
-        <ResumeBullets items={data.publications.map((p) => p.title)} />
-      </ResumeSection>
-    ) : null
-  }
-
-  {
-    data.languages?.length ? (
-      <ResumeSection title={labels["nav.languages"]}>
-        <ResumeDefinitionList
-          items={data.languages.map((l) => ({
-            term: l.name,
-            description: l.proficiency,
-          }))}
+<main id="main-content" class="mx-auto flex max-w-4xl flex-col gap-10 px-6 pb-12 sm:px-8 lg:px-16 print:px-0">
+    <div class="mt-6 flex items-center gap-6">
+        <img
+            class="h-20 w-auto rounded-full"
+            alt={`${data.name} profile picture`}
+            src={avatar.src}
+            width={avatar.width}
+            height={avatar.height}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
         />
-      </ResumeSection>
-    ) : null
-  }
-
-  {
-    showProjects && data.projects ? (
-      <section
-        class="page-break flex flex-col gap-2"
-        aria-labelledby="projects-heading"
-      >
-        <h2
-          id="projects-heading"
-          class="text-[11px] text-black/60 uppercase dark:text-white/60"
-        >
-          {labels["nav.projects"]}
-        </h2>
-        <Separator />
-        <div class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2">
-          {data.projects.map((p) => (
-            <ResumeProject
-              client:load
-              title={p.title}
-              institution={p.company}
-              location={p.location}
-              date={p.span}
-              description={p.description}
-              keywords={p.tags}
-              details={p.details || []}
-              breakBefore={p.break}
-            />
-          ))}
+        <div class="flex flex-col gap-1">
+            <ResumeName>{data.name}</ResumeName>
+            <ResumeLocation>{data.location.value}</ResumeLocation>
         </div>
-      </section>
-    ) : null
-  }
+    </div>
 
-  <ResumeSection title={labels["nav.certifications"]}>
-    <ResumeCredentialList
-      items={data.certifications.map((c) => ({
-        name: c.name,
-        href: c.url,
-        meta: `${c.company} • Issued ${c.issued}`,
-      }))}
-    />
-  </ResumeSection>
+    <ResumeSection title={labels["nav.social"]}>
+        <ResumeLinkList links={data.contact.social.map((s) => ({ label: s.name, href: s.url }))} />
+    </ResumeSection>
+
+    <ResumeSection title={labels["nav.experience"]}>
+        <ResumeList>
+            {
+                data.experience.map((e) => (
+                    <ResumeEntry title={e.position} breakBefore={e.break} meta={`${e.company.name} • ${e.date}`}>
+                        <ResumeBullets items={e.responsibilities ?? []} />
+                    </ResumeEntry>
+                ))
+            }
+        </ResumeList>
+    </ResumeSection>
+
+    <ResumeSection title={labels["nav.education"]}>
+        <ResumeList>
+            {
+                data.education.map((ed) => (
+                    <ResumeEntry
+                        title={ed.title}
+                        breakBefore={ed.break}
+                        meta={[ed.description, `${ed.location} • ${ed.span}`].filter(Boolean)}
+                    >
+                        <ResumeBullets items={ed.bullets ?? []} />
+                    </ResumeEntry>
+                ))
+            }
+        </ResumeList>
+    </ResumeSection>
+
+    <ResumeSection title={labels["nav.skills"]}>
+        <ResumeList spacing="loose">
+            {data.skills.map((s) => <ResumeSkill category={s.category} items={s.badges} breakBefore={s.break} />)}
+        </ResumeList>
+    </ResumeSection>
+
+    {
+        data.publications?.length ? (
+            <ResumeSection title={labels["nav.publications"]}>
+                <ResumeBullets items={data.publications.map((p) => p.title)} className="mt-0" />
+            </ResumeSection>
+        ) : null
+    }
+
+    {
+        data.languages?.length ? (
+            <ResumeSection title={labels["nav.languages"]}>
+                <ResumeDefinitionList
+                    items={data.languages.map((l) => ({
+                        term: l.name,
+                        description: l.proficiency,
+                    }))}
+                />
+            </ResumeSection>
+        ) : null
+    }
+
+    {
+        showProjects && data.projects ? (
+            <ResumeSection title={labels["nav.projects"]} breakBefore>
+                <div class="grid grid-cols-1 gap-3 md:grid-cols-2 print:grid-cols-2 print:gap-2">
+                    {data.projects.map((p) => (
+                        <ResumeProject
+                            client:load
+                            title={p.title}
+                            institution={p.company}
+                            location={p.location}
+                            date={p.span}
+                            description={p.description}
+                            keywords={p.tags}
+                            details={p.details || []}
+                            breakBefore={p.break}
+                        />
+                    ))}
+                </div>
+            </ResumeSection>
+        ) : null
+    }
+
+    <ResumeSection title={labels["nav.certifications"]}>
+        <ResumeCredentialList
+            items={data.certifications.map((c) => ({
+                name: c.name,
+                href: c.url,
+                meta: `${c.company} • Issued ${c.issued}`,
+            }))}
+        />
+    </ResumeSection>
 </main>

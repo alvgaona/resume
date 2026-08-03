@@ -1,0 +1,20 @@
+---
+/*
+Thanks to Igor Bedesqui for open-sourcing his site, the grain effect is so cool.
+https://github.com/bdsqqq/igorbedesqui.com/blob/main/app/Grain.tsx
+
+The original cycled ten transform positions from a requestAnimationFrame loop.
+Those are now @keyframes stops on a 500ms cycle, which is the same motion
+without a React island or a timer on the main thread.
+*/
+---
+
+<div
+    class="grain-layer pointer-events-none fixed inset-0 z-40 h-full w-full overflow-hidden print:hidden"
+    aria-hidden="true"
+>
+    <div
+        class="animate-grain absolute inset-[-200%] h-[400%] w-[400%] bg-[url('/images/framernoise.png')] bg-size-[256px] bg-top-left opacity-3"
+    >
+    </div>
+</div>

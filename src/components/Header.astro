@@ -1,0 +1,158 @@
+---
+import logoBlack from '@/assets/alvgaona-logo-black-transparent.webp';
+import logoWhite from '@/assets/alvgaona-logo-white-transparent.webp';
+import SocialLinks from '@/components/SocialLinks';
+---
+
+<div id="header-sentinel" aria-hidden="true"></div>
+
+<header id="site-header" class="site-header z-10">
+    <nav class="site-nav flex items-center justify-between gap-4 px-6">
+        <a href="https://alvgaona.dev" aria-label="alvgaona.dev" class="site-logo shrink-0 no-underline">
+            <img
+                class="dark:hidden"
+                src={logoBlack.src}
+                width={logoBlack.width}
+                height={logoBlack.height}
+                alt=""
+            />
+            <img
+                class="hidden dark:block"
+                src={logoWhite.src}
+                width={logoWhite.width}
+                height={logoWhite.height}
+                alt=""
+                aria-hidden="true"
+            />
+        </a>
+        <SocialLinks />
+    </nav>
+</header>
+
+<style>
+    /* Sits in the document, not the viewport. Once it scrolls out of view the
+       header docks, so the threshold is just this element's height. */
+    #header-sentinel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 3rem;
+        pointer-events: none;
+    }
+
+    .site-header {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        border-radius: 0.5rem;
+        background-color: color-mix(in srgb, var(--color-header-light) 60%, transparent);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+        /* The fill outruns the geometry so the bar is opaque well before the
+           dock finishes; backdrop-filter is not interpolable to none, so the
+           blur snaps and the fill covers for it. */
+        transition:
+            top 0.28s ease,
+            left 0.28s ease,
+            right 0.28s ease,
+            border-radius 0.28s ease,
+            background-color 0.16s ease,
+            box-shadow 0.28s ease;
+    }
+
+    /* Docked: flush, square, thinner, and filled with the page colour so the
+       bar dissolves and the hairline rule is the only separator. Dropping the
+       filter outright means no live backdrop sampling while scrolling, which
+       is exactly when it would have cost the most. */
+    .site-header.is-stuck {
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        background-color: var(--color-default-light);
+        backdrop-filter: none;
+        box-shadow: 0 1px 0 var(--color-border-light);
+    }
+
+    /* Kept in its own block: the minifier collapses the prefixed and standard
+       properties into one and keeps only the last, and Safari did not ship
+       unprefixed backdrop-filter until 18. */
+    @supports (-webkit-backdrop-filter: blur(1px)) {
+        .site-header {
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .site-header.is-stuck {
+            -webkit-backdrop-filter: none;
+        }
+    }
+
+    .site-nav {
+        height: 3rem;
+        transition: height 0.28s ease;
+    }
+
+    .site-header.is-stuck .site-nav {
+        height: 2.5rem;
+    }
+
+    .site-logo {
+        transition: opacity 0.2s ease;
+    }
+
+    .site-logo:hover {
+        opacity: 0.7;
+    }
+
+    .site-logo img {
+        height: 1.5rem;
+        width: auto;
+        transition: height 0.28s ease;
+    }
+
+    .site-header.is-stuck .site-logo img {
+        height: 1.25rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .site-header {
+            background-color: color-mix(in srgb, var(--color-header-dark) 70%, transparent);
+        }
+
+        .site-header.is-stuck {
+            background-color: var(--color-default-dark);
+            box-shadow: 0 1px 0 var(--color-border-dark);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .site-header,
+        .site-nav,
+        .site-logo,
+        .site-logo img {
+            transition: none;
+        }
+    }
+
+    /* A fixed bar would either repeat on every sheet or steal the top of the
+       first one, and the résumé already carries its own identity block. */
+    @media print {
+        #header-sentinel,
+        .site-header {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    const header = document.getElementById('site-header');
+    const sentinel = document.getElementById('header-sentinel');
+
+    if (header && sentinel) {
+        new IntersectionObserver(([entry]) => header.classList.toggle('is-stuck', !entry.isIntersecting), {
+            threshold: 0,
+        }).observe(sentinel);
+    }
+</script>
