@@ -1,6 +1,6 @@
 # Resume
 
-[https://resume.alvgaona.com/](https://resume.alvgaona.com/)
+[https://resume.alvgaona.dev/](https://resume.alvgaona.dev/)
 
 ## Stack
 

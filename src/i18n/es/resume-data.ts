@@ -35,8 +35,8 @@ export const data: ResumeData = {
             },
             {
                 name: 'Sitio Web',
-                username: 'alvgaona.com',
-                url: 'https://alvgaona.com',
+                username: 'alvgaona.dev',
+                url: 'https://alvgaona.dev',
             },
         ],
     },

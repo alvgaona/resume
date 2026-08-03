@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://resume.alvgaona.com',
+    site: 'https://resume.alvgaona.dev',
     output: 'static',
     integrations: [react()],
     vite: {
