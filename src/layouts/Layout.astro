@@ -2,7 +2,6 @@
 import '@/styles/globals.css';
 import Footer from '@/components/Footer.astro';
 import Grain from '@/components/Grain.astro';
-import Header from '@/components/Header.astro';
 import StructuredData from '@/components/structure-data.astro';
 import siteMeta from '@/site-meta';
 
@@ -109,10 +108,7 @@ const socialImageUrl = new URL(ogImageRaw || DEFAULT_OG_IMAGE, Astro.url).href;
     <body>
         <a href="#main-content" class="skip-link">Skip to content</a>
         <Grain />
-        <Header />
-        <div class="pt-12 print:pt-0">
-            <slot />
-        </div>
+        <slot />
         <Footer />
     </body>
 </html>

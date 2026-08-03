@@ -14,7 +14,10 @@ function Resume({ render, className, ...props }: useRender.ComponentProps<'main'
         render,
         props: {
             'data-slot': 'resume',
-            className: cn('mx-auto flex max-w-4xl flex-col gap-10 px-6 pb-12 sm:px-8 lg:px-16 print:px-0', className),
+            className: cn(
+                'mx-auto flex max-w-4xl flex-col gap-10 px-6 pt-12 pb-12 sm:px-8 lg:px-16 print:px-0 print:pt-0',
+                className,
+            ),
             ...props,
         },
     });
